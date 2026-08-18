@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{fascicule_style}[2026/08/19 v1.5 Style Professionnel Ultra-Robuste Fascicules Maths-Sciences]
+\ProvidesPackage{fascicule_style}[2026/08/19 v1.6 Style Professionnel Ultra-Robuste Fascicules Maths-Sciences]
 
 % ==============================================================================
 % 1. ENCODAGE, LANGUE & TYPOGRAPHIE
@@ -8,6 +8,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[french]{babel}
 \RequirePackage{lmodern}
+\RequirePackage{xparse}
 
 % ==============================================================================
 % 2. GÉOMÉTRIE DE PAGE & EN-TÊTES
@@ -251,11 +252,11 @@
     top=10pt, bottom=8pt, left=10pt, right=10pt
 }
 
-% 9. Exercice de TD
+% 9. Exercice de TD (Robuste avec XParse pour supporter les arguments optionnels)
 \newcounter{numexo}[chapter]
 \renewcommand{\thenumexo}{\arabic{numexo}}
 
-\newenvironment{exercice}[3][]{%
+\NewDocumentEnvironment{exercice}{ O{} O{} m }{%
     \refstepcounter{numexo}%
     \begin{tcolorbox}[
         enhanced,
@@ -279,7 +280,7 @@
 
 % 10. Sujet Brevet / DNB Pro
 \newcounter{numdnb}[chapter]
-\newenvironment{sujetdnb}[3][]{%
+\NewDocumentEnvironment{sujetdnb}{ O{} O{} m }{%
     \refstepcounter{numdnb}%
     \begin{tcolorbox}[
         enhanced,
