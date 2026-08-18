@@ -1,0 +1,453 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fascicule_style}[2026/08/19 v1.0 Style Professionnel Fascicules Maths-Sciences]
+
+% ==============================================================================
+% 1. ENCODAGE, LANGUE & TYPOGRAPHIE
+% ==============================================================================
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[french]{babel}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+
+% ==============================================================================
+% 2. GÉOMÉTRIE DE PAGE & EN-TÊTES
+% ==============================================================================
+\RequirePackage[
+    a4paper,
+    left=1.8cm,
+    right=1.8cm,
+    top=2.2cm,
+    bottom=2.2cm,
+    headheight=16pt,
+    footskip=25pt
+]{geometry}
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+% Définition des en-têtes et pieds de page
+\fancyhead[L]{\small\sffamily\bfseries\color{colPrimary}\nouppercase{\leftmark}}
+\fancyhead[R]{\small\sffamily\color{slate600}\thefiliere\ -- \thematiere}
+\fancyfoot[L]{\footnotesize\sffamily\color{slate500}Livret Pédagogique \theannee}
+\fancyfoot[C]{\small\sffamily\bfseries\color{colPrimary}\thepage}
+\fancyfoot[R]{\footnotesize\sffamily\color{slate500}\thelycee}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{colSecondary}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{slate300}\leaders\hrule height \footrulewidth\hfill}}
+
+% Style pour les pages de chapitre
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\small\sffamily\bfseries\color{colPrimary}\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% ==============================================================================
+% 3. COULEURS THÉMATIQUES MODERNES
+% ==============================================================================
+\RequirePackage{xcolor}
+
+% Palette Principale
+\definecolor{navy900}{RGB}{15, 23, 42}
+\definecolor{slate800}{RGB}{30, 41, 59}
+\definecolor{slate700}{RGB}{51, 65, 85}
+\definecolor{slate600}{RGB}{71, 85, 105}
+\definecolor{slate500}{RGB}{100, 116, 139}
+\definecolor{slate400}{RGB}{148, 163, 184}
+\definecolor{slate300}{RGB}{203, 213, 225}
+\definecolor{slate200}{RGB}{226, 232, 240}
+\definecolor{slate100}{RGB}{241, 245, 249}
+\definecolor{slate50}{RGB}{248, 250, 252}
+
+% Couleurs par dominante (Maths / Sciences)
+\definecolor{mathPrimary}{RGB}{30, 58, 138}    % Bleu Nuit
+\definecolor{mathSecondary}{RGB}{14, 165, 233} % Bleu Ciel
+\definecolor{sciPrimary}{RGB}{6, 95, 70}       % Vert Forêt
+\definecolor{sciSecondary}{RGB}{20, 184, 166}  % Turquoise
+
+\colorlet{colPrimary}{mathPrimary}
+\colorlet{colSecondary}{mathSecondary}
+
+% Couleurs des blocs pédagogiques
+\definecolor{colDef}{RGB}{2, 132, 199}        % Définition (Bleu)
+\definecolor{colDefBg}{RGB}{240, 249, 255}
+\definecolor{colProp}{RGB}{16, 185, 129}      % Propriété / Théorème (Vert)
+\definecolor{colPropBg}{RGB}{240, 253, 244}
+\definecolor{colMeth}{RGB}{139, 92, 246}      % Méthode (Violet)
+\definecolor{colMethBg}{RGB}{245, 243, 255}
+\definecolor{colExem}{RGB}{245, 158, 11}      % Exemple (Ambre)
+\definecolor{colExemBg}{RGB}{254, 252, 232}
+\definecolor{colRem}{RGB}{100, 116, 139}      % Remarque (Gris)
+\definecolor{colRemBg}{RGB}{248, 250, 252}
+\definecolor{colPiege}{RGB}{239, 68, 68}      % Piège / Attention (Rouge)
+\definecolor{colPiegeBg}{RGB}{254, 242, 242}
+\definecolor{colExo}{RGB}{79, 70, 229}        % Exercice TD (Indigo)
+\definecolor{colExoBg}{RGB}{238, 242, 255}
+\definecolor{colDNB}{RGB}{13, 148, 136}       % Sujet Brevet/Examen (Teal)
+\definecolor{colDNBBg}{RGB}{240, 253, 250}
+\definecolor{colTP}{RGB}{192, 38, 211}        % TP Tableur / Info (Magenta)
+\definecolor{colTPBg}{RGB}{253, 244, 255}
+
+% ==============================================================================
+% 4. PACKAGES MATHS, PHYSIQUE, SYMBOLES & TABLEAUX
+% ==============================================================================
+\RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,mathtools}
+\RequirePackage{siunitx}
+\sisetup{
+    locale = FR,
+    output-decimal-marker = {,},
+    group-separator = {\,},
+    inter-unit-product = \ensuremath{{}\cdot{}}
+}
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\setlist[itemize]{label=\textcolor{colSecondary}{\small$\blacktriangleright$}, leftmargin=1.5em, itemsep=2pt}
+\setlist[enumerate]{label=\textcolor{colPrimary}{\textbf{\arabic*.}}, leftmargin=1.5em, itemsep=2pt}
+\RequirePackage{pifont}
+\RequirePackage{eurosym}
+
+% ==============================================================================
+% 5. TIKZ & TCOLORBOX (DESIGN DES BLOCS ÉDITORIAUX)
+% ==============================================================================
+\RequirePackage{tikz}
+\usetikzlibrary{calc,shapes,positioning,patterns,arrows.meta}
+\RequirePackage[many]{tcolorbox}
+\tcbuselibrary{skins,breakable,listings,theorems}
+
+% --- Badge / Étiquette ---
+\newcommand{\badge}[2][slate700]{%
+    \tcbox[
+        on line,
+        arc=4pt,
+        colback=#1!12,
+        colframe=#1!40,
+        boxrule=0.5pt,
+        top=1.5pt,bottom=1.5pt,left=4pt,right=4pt,
+        fontupper=\sffamily\bfseries\scriptsize\color{#1}
+    ]{#2}%
+}
+
+% --- Style de base pour les boîtes de cours ---
+\tcbset{
+    coursBoxStyle/.style={
+        enhanced,
+        breakable,
+        arc=6pt,
+        boxrule=0.8pt,
+        left=10pt,
+        right=10pt,
+        top=8pt,
+        bottom=8pt,
+        shadow={1mm}{-1mm}{0mm}{black!5}
+    }
+}
+
+% 1. Définition
+\newtcolorbox{cadredef}[1][]{
+    coursBoxStyle,
+    colback=colDefBg,
+    colframe=colDef,
+    coltitle=colDef,
+    fonttitle=\sffamily\bfseries\normalsize,
+    title={\faBookOpen\ \textbf{DÉFINITION} \ifstrempty{#1}{}{: #1}},
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=colDefBg, boxrule=0pt}
+}
+
+% 2. Propriété / Théorème
+\newtcolorbox{cadreprop}[1][]{
+    coursBoxStyle,
+    colback=colPropBg,
+    colframe=colProp,
+    coltitle=colProp!80!black,
+    fonttitle=\sffamily\bfseries\normalsize,
+    title={\faCheckCircle\ \textbf{PROPRIÉTÉ} \ifstrempty{#1}{}{: #1}},
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=colPropBg, boxrule=0pt}
+}
+
+% 3. Méthode / Savoir-faire
+\newtcolorbox{cadremethode}[1][]{
+    coursBoxStyle,
+    colback=colMethBg,
+    colframe=colMeth,
+    coltitle=colMeth!80!black,
+    fonttitle=\sffamily\bfseries\normalsize,
+    title={\faTools\ \textbf{MÉTHODE} \ifstrempty{#1}{}{: #1}},
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=colMethBg, boxrule=0pt}
+}
+
+% 4. Exemple résolu
+\newtcolorbox{cadreexemple}[1][]{
+    coursBoxStyle,
+    colback=colExemBg,
+    colframe=colExem,
+    coltitle=colExem!80!black,
+    fonttitle=\sffamily\bfseries\normalsize,
+    title={\faLightbulb\ \textbf{EXEMPLE} \ifstrempty{#1}{}{: #1}},
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=colExemBg, boxrule=0pt}
+}
+
+% 5. Remarque
+\newtcolorbox{cadreremarque}[1][]{
+    coursBoxStyle,
+    colback=colRemBg,
+    colframe=colRem,
+    coltitle=colRem!80!black,
+    fonttitle=\sffamily\bfseries\normalsize,
+    title={\faInfoCircle\ \textbf{REMARQUE} \ifstrempty{#1}{}{: #1}},
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=colRemBg, boxrule=0pt}
+}
+
+% 6. Piège / Attention
+\newtcolorbox{cadrepiege}[1][]{
+    coursBoxStyle,
+    colback=colPiegeBg,
+    colframe=colPiege,
+    coltitle=colPiege!90!black,
+    fonttitle=\sffamily\bfseries\normalsize,
+    title={\faExclamationTriangle\ \textbf{ATTENTION / PIÈGE FRÉQUENT} \ifstrempty{#1}{}{: #1}},
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=colPiegeBg, boxrule=0pt}
+}
+
+% 7. L'essentiel à retenir
+\newtcolorbox{cadreretenu}[1][L'Essentiel à Retenir]{
+    enhanced,
+    breakable,
+    arc=8pt,
+    colback=slate900,
+    colframe=colSecondary,
+    boxrule=1.5pt,
+    coltext=white,
+    fonttitle=\sffamily\bfseries\large\color{colSecondary},
+    title={\faStar\ #1},
+    top=10pt, bottom=10pt, left=12pt, right=12pt
+}
+
+% 8. Activité d'Introduction / Investigation
+\newtcolorbox{activite}[1]{
+    enhanced,
+    breakable,
+    arc=6pt,
+    colback=slate50,
+    colframe=slate700,
+    boxrule=1pt,
+    fonttitle=\sffamily\bfseries\large\color{white},
+    coltitle=white,
+    title={\faSearch\ Activité d'Investigation : #1},
+    attach boxed title to top left={yshift=-3mm, xshift=4mm},
+    boxed title style={colback=slate800, arc=4pt, boxrule=0pt},
+    top=10pt, bottom=8pt, left=10pt, right=10pt
+}
+
+% 9. Exercice de TD
+\newcounter{numexo}[chapter]
+\renewcommand{\thenumexo}{\arabic{numexo}}
+
+\newenvironment{exercice}[3][]{%
+    \refstepcounter{numexo}%
+    \begin{tcolorbox}[
+        enhanced,
+        breakable,
+        arc=6pt,
+        boxrule=0.8pt,
+        colback=white,
+        colframe=colExo,
+        coltitle=colExo!90!black,
+        fonttitle=\sffamily\bfseries\normalsize,
+        title={%
+            \textbf{Exercice \thenumexo} \ifstrempty{#3}{}{\ -- #3}%
+            \hfill \ifstrempty{#1}{}{\badge[colExo]{#1}}%
+            \ifstrempty{#2}{}{\ \badge[slate600]{#2}}%
+        },
+        top=8pt, bottom=8pt, left=10pt, right=10pt
+    ]%
+}{%
+    \end{tcolorbox}%
+}
+
+% 10. Sujet Brevet / DNB Pro
+\newcounter{numdnb}[chapter]
+\newenvironment{sujetdnb}[3][]{%
+    \refstepcounter{numdnb}%
+    \begin{tcolorbox}[
+        enhanced,
+        breakable,
+        arc=6pt,
+        boxrule=1pt,
+        colback=colDNBBg,
+        colframe=colDNB,
+        fonttitle=\sffamily\bfseries\normalsize\color{colDNB!90!black},
+        title={%
+            \faGraduationCap\ \textbf{Sujet DNB Pro \thenumdnb} : #3%
+            \hfill \ifstrempty{#1}{}{\badge[colDNB]{#1}}%
+            \ifstrempty{#2}{}{\ \badge[slate700]{#2}}%
+        },
+        top=8pt, bottom=8pt, left=10pt, right=10pt
+    ]%
+}{%
+    \end{tcolorbox}%
+}
+
+% 11. TP TICE / Tableur / Informatique
+\newtcolorbox{tpinfo}[2][]{
+    enhanced,
+    breakable,
+    arc=6pt,
+    boxrule=1pt,
+    colback=colTPBg,
+    colframe=colTP,
+    fonttitle=\sffamily\bfseries\normalsize\color{colTP!90!black},
+    title={%
+        \faLaptopCode\ \textbf{TP TICE} : #2%
+        \hfill \ifstrempty{#1}{}{\badge[colTP]{#1}}%
+    },
+    top=8pt, bottom=8pt, left=10pt, right=10pt
+}
+
+% 12. Solution / Corrigé
+\newtcolorbox{solution}[1][Corrigé & Démarche]{
+    enhanced,
+    breakable,
+    arc=4pt,
+    boxrule=0.5pt,
+    colback=slate100,
+    colframe=slate400,
+    fonttitle=\sffamily\bfseries\small\color{slate700},
+    title={\faCheck\ #1},
+    top=6pt, bottom=6pt, left=8pt, right=8pt
+}
+
+% 13. Questions Flash / Automatismes
+\newtcolorbox{automatisme}[1][Questions Flash / Automatismes]{
+    enhanced,
+    breakable,
+    arc=6pt,
+    boxrule=1pt,
+    colback=colExemBg,
+    colframe=colExem,
+    fonttitle=\sffamily\bfseries\normalsize\color{colExem!90!black},
+    title={\faBolt\ \textbf{#1}},
+    top=8pt, bottom=8pt, left=10pt, right=10pt
+}
+
+% ==============================================================================
+% 6. OUTILS DE MISE EN PAGE & RÉDACTION ÉLÈVE
+% ==============================================================================
+% Lignes d'écriture pointillées
+\newcommand{\lignesreponse}[1][3]{%
+    \vspace{2mm}%
+    \multido{\i=1+1}{#1}{%
+        \noindent\makebox[\linewidth]{\dotfill}\\[1.5mm]%
+    }%
+    \vspace{-1mm}%
+}
+\RequirePackage{multido}
+
+% Quadrillage 5mm pour tracé
+\newcommand{\quadrillage}[1][3cm]{%
+    \vspace{2mm}%
+    \noindent\begin{tikzpicture}
+        \draw[step=5mm, slate300, line width=0.3pt] (0,0) grid (\linewidth, #1);
+    \end{tikzpicture}%
+    \vspace{2mm}%
+}
+
+% Encadré pour résultat final
+\newcommand{\repbox}[1]{%
+    \tcbox[
+        on line,
+        arc=3pt,
+        colback=slate100,
+        colframe=colPrimary,
+        boxrule=1pt,
+        top=2pt,bottom=2pt,left=6pt,right=6pt,
+        fontupper=\bfseries\color{colPrimary}
+    ]{#1}%
+}
+
+% Pointillés à compléter dans le texte
+\newcommand{\pointille}[1][2cm]{\makebox[#1]{\dotfill}}
+
+% ==============================================================================
+% 7. FORMAT DES TITRES ET SECTIONS
+% ==============================================================================
+\RequirePackage{titlesec}
+
+% Format des chapitres
+\titleformat{\chapter}[display]
+{\normalfont\sffamily\raggedright}
+{
+    \begin{tikzpicture}
+        \node[fill=colPrimary, text=white, rounded corners=6pt, inner sep=8pt, font=\Large\bfseries] {
+            CHAPITRE \thechapter
+        };
+    \end{tikzpicture}
+}
+{8pt}
+{\fontsize{22}{26}\selectfont\bfseries\color{navy900}}
+[\vspace{4pt}{\color{colSecondary}\hrule height 2pt}\vspace{12pt}]
+
+% Format des sections
+\titleformat{\section}
+{\normalfont\Large\sffamily\bfseries\color{colPrimary}}
+{\color{colSecondary}\thesection.}{8pt}{}
+[\vspace{-4pt}{\color{slate200}\hrule height 0.6pt}\vspace{6pt}]
+
+% Format des sous-sections
+\titleformat{\subsection}
+{\normalfont\large\sffamily\bfseries\color{slate800}}
+{\textcolor{colSecondary}{$\blacktriangleright$}\ \thesubsection}{6pt}{}
+
+% ==============================================================================
+% 8. HYPERREF & BOOKMARKS (NAVIGATION PDF OVERLEAF)
+% ==============================================================================
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=colPrimary,
+    citecolor=colPrimary,
+    filecolor=colPrimary,
+    urlcolor=colSecondary,
+    pdfstartview={FitH}
+}
+\RequirePackage{bookmark}
+
+% Variables globales de personnalisation
+\newcommand{\thematiere}{Mathématiques}
+\newcommand{\thefiliere}{3ème Prépa-Métiers}
+\newcommand{\theannee}{2025--2026}
+\newcommand{\thelycee}{Lycée Professionnel}
+\newcommand{\theprof}{Équipe Pédagogique Maths-Sciences}
+
+\newcommand{\setmatiere}[1]{\renewcommand{\thematiere}{#1}}
+\newcommand{\setfiliere}[1]{\renewcommand{\thefiliere}{#1}}
+\newcommand{\setannee}[1]{\renewcommand{\theannee}{#1}}
+\newcommand{\setlycee}[1]{\renewcommand{\thelycee}{#1}}
+\newcommand{\setprof}[1]{\renewcommand{\theprof}{#1}}
+
+% Macro pour les icônes de substitution si fontawesome n'est pas utilisé
+\providecommand{\faBookOpen}{\ding{228}}
+\providecommand{\faCheckCircle}{\ding{51}}
+\providecommand{\faTools}{\ding{118}}
+\providecommand{\faLightbulb}{\ding{72}}
+\providecommand{\faInfoCircle}{\ding{226}}
+\providecommand{\faExclamationTriangle}{\ding{115}}
+\providecommand{\faStar}{\ding{73}}
+\providecommand{\faSearch}{\ding{229}}
+\providecommand{\faGraduationCap}{\ding{242}}
+\providecommand{\faLaptopCode}{\ding{227}}
+\providecommand{\faBolt}{\ding{161}}
+\providecommand{\faCheck}{\ding{52}}
+
+\endinput

@@ -1,0 +1,179 @@
+\chapter{Statistiques \& Probabilités}
+\label{chap:stats_probas}
+
+% ==============================================================================
+% 1. OBJECTIFS & COMPÉTENCES DU RÉFÉRENTIEL
+% ==============================================================================
+\begin{cadreretenu}[Objectifs \& Compétences du DNB Pro]
+\begin{itemize}
+    \item \textbf{Statistiques} : Effectifs, fréquences, moyenne arithmétique simple et pondérée, médiane, étendue, diagrammes en bâtons et circulaires.
+    \item \textbf{Probabilités} : Vocabulaire des événements (certain, impossible, contraire), calcul de probabilités simples, règle de la somme $P(A) + P(\bar{A}) = 1$, arbres de probabilités à deux épreuves.
+    \item \textbf{Capacités} :
+    \begin{itemize}
+        \item \capRealiser\ Calculer la moyenne et la médiane d'une série statistique.
+        \item \capAnalyser\ Comparer deux séries statistiques à l'aide des indicateurs de position et de dispersion.
+        \item \capRealiser\ Déterminer la probabilité d'un événement sous forme de fraction irréductible, décimale ou pourcentage.
+        \item \capValider\ Exploiter un arbre pondéré ou un tableau à double entrée pour dénombrer des issues.
+    \end{itemize}
+\end{itemize}
+\end{cadreretenu}
+
+\vspace{0.3cm}
+
+% ==============================================================================
+% 2. COURS : STATISTIQUES À UNE VARIABLE
+% ==============================================================================
+\section{Cours : Statistiques à Une Variable}
+
+\subsection{Indicateurs de Position : Moyenne et Médiane}
+
+\begin{cadredef}[Moyenne pondérée]
+La \textbf{moyenne} pondérée d'une série statistique est le quotient de la somme de toutes les valeurs multipliées par leurs effectifs respectifs par l'effectif total $N$ :
+\[ \bar{x} = \frac{n_1 x_1 + n_2 x_2 + \dots + n_p x_p}{N} = \frac{\sum n_i x_i}{N} \]
+\end{cadredef}
+
+\begin{cadredef}[Médiane et Étendue]
+\begin{itemize}
+    \item La \textbf{médiane} $Me$ est une valeur qui partage la série ordonnée en deux groupes de même effectif (au moins 50\,\% des valeurs sont inférieures ou égales à $Me$).
+    \item L'\textbf{étendue} $E$ est la différence entre la plus grande valeur et la plus petite valeur :
+    \[ E = x_{\max} - x_{\min} \]
+\end{itemize}
+\end{cadredef}
+
+\begin{cadreexemple}[Calcul complet sur une série]
+Contrôle qualité de 10 pièces usinées (longueur en mm) : $48\,;\; 49\,;\; 50\,;\; 50\,;\; 50\,;\; 51\,;\; 51\,;\; 52\,;\; 53\,;\; 56$.
+\begin{itemize}
+    \item \textbf{Moyenne} : $\bar{x} = \frac{48 + 49 + 3\times 50 + 2\times 51 + 52 + 53 + 56}{10} = \frac{510}{10} = \repbox{51\text{ mm}}$.
+    \item \textbf{Médiane} : L'effectif total est $N = 10$ (pair). $10 / 2 = 5$. La médiane est la moyenne entre la 5\textsuperscript{e} valeur ($50$) et la 6\textsuperscript{e} valeur ($51$) : $Me = \frac{50+51}{2} = \repbox{50{,}5\text{ mm}}$.
+    \item \textbf{Étendue} : $E = 56 - 48 = \repbox{8\text{ mm}}$.
+\end{itemize}
+\end{cadreexemple}
+
+% ==============================================================================
+% 3. COURS : PROBABILITÉS
+% ==============================================================================
+\section{Cours : Probabilités}
+
+\begin{cadreprop}[Propriétés fondamentales]
+Pour tout événement $A$ d'un univers $\Omega$ :
+\begin{itemize}
+    \item $0 \le P(A) \le 1$.
+    \item En situation d'\textbf{équiprobabilité} :
+    \[ P(A) = \frac{\text{Nombre d'issues favorables à } A}{\text{Nombre total d'issues possibles}} \]
+    \item Événement contraire $\bar{A}$ : $P(\bar{A}) = 1 - P(A)$.
+\end{itemize}
+\end{cadreprop}
+
+% ==============================================================================
+% 4. QUESTIONS FLASH / AUTOMATISMES
+% ==============================================================================
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[Calculs Rapides (10 min)]
+\noindent
+\begin{tabularx}{\linewidth}{X|X}
+\textbf{1.} Moyenne de $12$, $14$ et $16$ : $\bar{x} = \pointille[1.5cm]$ & \textbf{4.} On lance un dé équilibré à 6 faces. $P(\text{obtenir un nombre pair}) = \pointille[1.5cm]$ \\
+\textbf{2.} Étendue de la série $\{ 3 ; 8 ; 15 ; 2 ; 19 \}$ : $E = \pointille[1.5cm]$ & \textbf{5.} Si $P(A) = 0{,}35$, alors $P(\bar{A}) = \pointille[1.5cm]$ \\
+\textbf{3.} Médiane de la série ordonnée $\{ 4 ; 7 ; 9 ; 12 ; 15 \}$ : $Me = \pointille[1.5cm]$ & \textbf{6.} Une probabilité peut-elle être égale à $1{,}2$ ? \pointille[1.5cm] \\
+\end{tabularx}
+\end{automatisme}
+
+% ==============================================================================
+% 5. TRAVAUX DIRIGÉS (TD)
+% ==============================================================================
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[4 pts]{\capRealiser}{Contrôle Statistique en Logistique}
+Un logisticien mesure les temps de préparation de 50 commandes dans un entrepôt (en minutes) :
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\rowcolor{slate200} \textbf{Temps (min)} & 5 & 10 & 15 & 20 & 25 \\
+\hline
+\textbf{Effectif} & 8 & 14 & 16 & 8 & 4 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+    \item Calculer le temps moyen $\bar{t}$ de préparation d'une commande.
+    \item Déterminer la classe médiane et l'étendue de cette série.
+    \item Quel pourcentage de commandes est préparé en 15 minutes ou moins ?
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capRealiser}{Tirage Aléatoire dans un Stock de Pièces}
+Dans une boîte d'un atelier mécanique, on trouve :
+\begin{itemize}
+    \item 15 vis à tête fraisée (dont 5 défectueuses) ;
+    \item 25 vis à tête cylindrique (dont 3 défectueuses).
+\end{itemize}
+On tire une vis au hasard dans la boîte.
+\begin{enumerate}
+    \item Quelle est la probabilité que la vis soit à tête fraisée ?
+    \item Quelle est la probabilité que la vis soit défectueuse ?
+    \item Quelle est la probabilité que la vis soit conforme (non défectueuse) ?
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+% ==============================================================================
+% 6. SUJET DNB PRO
+% ==============================================================================
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][9 pts]{Consommation Électrique \& Panneaux Photovoltaïques}
+Une entreprise artisanale installe des panneaux solaires sur le toit de son atelier.
+Le tableau suivant donne la production électrique mensuelle mesurée sur l'année (en kWh) :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor{slate200} \textbf{Mois} & J & F & M & A & M & J & J & A & S & O & N & D \\
+\hline
+\textbf{kWh} & 180 & 240 & 420 & 580 & 750 & 820 & 860 & 810 & 630 & 410 & 220 & 160 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item \capRealiser\ Calculer la production moyenne mensuelle d'électricité sur l'année.
+    \item \capRealiser\ Déterminer la médiane et l'étendue de cette production.
+    \item \capAnalyser\ On choisit un mois de l'année au hasard.
+    \begin{enumerate}
+        \item Quelle est la probabilité que la production dépasse $600\text{ kWh}$ ?
+        \item Quelle est la probabilité que la production soit inférieure à $200\text{ kWh}$ ?
+    \end{enumerate}
+\end{enumerate}
+\lignesreponse[6]
+\end{sujetdnb}
+
+% ==============================================================================
+% 7. CORRIGÉS DÉTAILLÉS
+% ==============================================================================
+\section{Corrigés Détaillés du Chapitre}
+
+\begin{solution}[Corrigé des Exercices et du Sujet DNB]
+\textbf{Exercice 1 (Logistique)} :
+1. Total effectif $N = 8 + 14 + 16 + 8 + 4 = 50$. \\
+$\bar{t} = \frac{5\times 8 + 10\times 14 + 15\times 16 + 20\times 8 + 25\times 4}{50} = \frac{40 + 140 + 240 + 160 + 100}{50} = \frac{680}{50} = \repbox{13{,}6\text{ min}}$. \\
+2. $50/2 = 25$. Effectifs cumulés : $8, 22, 38$. La médiane est de \textbf{15 min}. Étendue $E = 25 - 5 = \repbox{20\text{ min}}$. \\
+3. Nombre de commandes $\le 15\text{ min}$ : $8 + 14 + 16 = 38$. Soit $\frac{38}{50} = \repbox{76\,\%}$.
+
+\vspace{2mm}
+\textbf{Exercice 2 (Stock de pièces)} :
+Total de vis $= 15 + 25 = 40$. \\
+1. $P(\text{fraisée}) = \frac{15}{40} = \frac{3}{8} = \repbox{0{,}375}$ (soit 37,5\,\%). \\
+2. Total défectueuses $= 5 + 3 = 8$. $P(\text{défectueuse}) = \frac{8}{40} = \frac{1}{5} = \repbox{0{,}20}$ (soit 20\,\%). \\
+3. $P(\text{conforme}) = 1 - 0{,}20 = \repbox{0{,}80}$ (soit 80\,\%).
+
+\vspace{2mm}
+\textbf{Sujet DNB Pro (Solaire)} :
+1. Total annuel $= 180 + 240 + 420 + 580 + 750 + 820 + 860 + 810 + 630 + 410 + 220 + 160 = 6\,080\text{ kWh}$. \\
+Moyenne mensuelle $= 6\,080 / 12 \approx \repbox{506{,}67\text{ kWh}}$. \\
+2. Série ordonnée (12 valeurs) : $160, 180, 220, 240, 410, 420, 580, 630, 750, 810, 820, 860$. \\
+Médiane : moyenne entre 6\textsuperscript{e} ($420$) et 7\textsuperscript{e} ($580$) : $Me = \frac{420+580}{2} = \repbox{500\text{ kWh}}$. \\
+Étendue : $E = 860 - 160 = \repbox{700\text{ kWh}}$. \\
+3. (a) Mois $> 600\text{ kWh}$ : Juin, Juillet, Août, Septembre, Mai (soit 5 mois). $P = \frac{5}{12} \approx \repbox{0{,}417}$. \\
+(b) Mois $< 200\text{ kWh}$ : Janvier, Décembre (soit 2 mois). $P = \frac{2}{12} = \frac{1}{6} \approx \repbox{0{,}167}$.
+\end{solution}

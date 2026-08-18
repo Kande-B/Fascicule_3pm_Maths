@@ -1,0 +1,210 @@
+\chapter{Théorème de Pythagore \& Trigonométrie}
+\label{chap:pythagore_trigo}
+
+% ==============================================================================
+% 1. OBJECTIFS & COMPÉTENCES DU RÉFÉRENTIEL
+% ==============================================================================
+\begin{cadreretenu}[Objectifs \& Compétences du DNB Pro]
+\begin{itemize}
+    \item \textbf{Connaissances} : Triangle rectangle, hypoténuse, théorème direct de Pythagore, réciproque et contraposée, formules de trigonométrie ($\cos, \sin, \tan$).
+    \item \textbf{Capacités} :
+    \begin{itemize}
+        \item \capRealiser\ Calculer la longueur de l'hypoténuse ou d'un côté de l'angle droit avec le théorème de Pythagore.
+        \item \capAnalyser\ Démontrer si un triangle est rectangle ou non en utilisant la réciproque ou la contraposée.
+        \item \capRealiser\ Calculer la mesure d'un angle aigu à l'aide des touches $\arccos, \arcsin, \arctan$ de la calculatrice.
+        \item \capRealiser\ Calculer une longueur inconnue à l'aide des rapports trigonométriques.
+        \item \capValider\ Résoudre un problème géométrique de charpente, menuiserie, pente de toit ou accessibilité PMR.
+    \end{itemize}
+\end{itemize}
+\end{cadreretenu}
+
+\vspace{0.3cm}
+
+% ==============================================================================
+% 2. COURS ET NOTIONS ESSENTIELLES
+% ==============================================================================
+\section{Cours : Théorème de Pythagore}
+
+\subsection{Énoncé Direct et Calcul de Longueurs}
+
+\begin{cadreprop}[Théorème de Pythagore]
+Dans un triangle $ABC$ \textbf{rectangle en $A$}, le carré de la longueur de l'hypoténuse est égal à la somme des carrés des longueurs des deux autres côtés :
+\[ BC^2 = AB^2 + AC^2 \]
+\end{cadreprop}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (0,3);
+
+    \draw[fill=colDefBg, draw=colDef, line width=1.2pt] (A) -- (B) node[midway, below] {$côté = 4\text{ cm}$} -- (C) node[midway, above right] {Hypoténuse $BC = 5\text{ cm}$} -- cycle node[midway, left] {$côté = 3\text{ cm}$};
+
+    % Angle droit
+    \draw[thick, slate800] (0,0.3) -- (0.3,0.3) -- (0.3,0);
+    \node[below left] at (A) {$A$};
+    \node[below right] at (B) {$B$};
+    \node[above left] at (C) {$C$};
+\end{tikzpicture}
+\end{center}
+
+\begin{cadremethode}[Règles de calcul de longueurs]
+\begin{itemize}
+    \item \textbf{Pour calculer l'hypoténuse $BC$} :
+    $BC^2 = AB^2 + AC^2 \implies BC = \sqrt{AB^2 + AC^2}$.
+    \item \textbf{Pour calculer un côté de l'angle droit $AB$} :
+    $AB^2 = BC^2 - AC^2 \implies AB = \sqrt{BC^2 - AC^2}$.
+\end{itemize}
+\end{cadremethode}
+
+\subsection{Réciproque et Contraposée : Démontrer qu'un triangle est rectangle}
+
+\begin{cadreprop}[Réciproque de Pythagore]
+Dans un triangle, si le carré du plus grand côté est égal à la somme des carrés des deux autres côtés ($BC^2 = AB^2 + AC^2$), alors ce triangle est \textbf{rectangle} en $A$.
+\end{cadreprop}
+
+\begin{cadrepiege}[Rédaction rigoureuse exigée au DNB]
+Au Brevet, il est \textbf{strictement interdit} d'écrire l'égalité dès le début ! On doit séparer les calculs :
+\begin{enumerate}
+    \item On calcule d'une part le carré du plus grand côté : $BC^2 = \dots$
+    \item On calcule d'autre part la somme des carrés des deux autres côtés : $AB^2 + AC^2 = \dots$
+    \item On compare les deux résultats et on conclut avec la propriété adéquate.
+\end{enumerate}
+\end{cadrepiege}
+
+% ==============================================================================
+% 3. COURS : TRIGONOMÉTRIE DANS LE TRIANGLE RECTANGLE
+% ==============================================================================
+\section{Cours : Trigonométrie}
+
+\begin{cadredef}[Cosinus, Sinus, Tangente]
+Dans un triangle rectangle, pour un angle aigu $\widehat{B}$ :
+\begin{itemize}
+    \item $\cos(\widehat{B}) = \dfrac{\text{Côté Adjacent}}{\text{Hypoténuse}} = \dfrac{AB}{BC}$
+    \item $\sin(\widehat{B}) = \dfrac{\text{Côté Opposé}}{\text{Hypoténuse}} = \dfrac{AC}{BC}$
+    \item $\tan(\widehat{B}) = \dfrac{\text{Côté Opposé}}{\text{Côté Adjacent}} = \dfrac{AC}{AB}$
+\end{itemize}
+\end{cadredef}
+
+\begin{cadreretenu}[Moyen Mnémotechnique Incontournable : \textbf{CAH-SOH-TOA}]
+\begin{center}
+\textbf{C}osinus = \textbf{A}djacent / \textbf{H}ypoténuse \quad $\vert$ \quad
+\textbf{S}inus = \textbf{O}pposé / \textbf{H}ypoténuse \quad $\vert$ \quad
+\textbf{T}angente = \textbf{O}pposé / \textbf{A}djacent
+\end{center}
+\end{cadreretenu}
+
+% ==============================================================================
+% 4. AUTOMATISMES & QUESTIONS FLASH
+% ==============================================================================
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[Calculs Rapides \& Règle des Carrés (10 min)]
+\noindent
+\begin{tabularx}{\linewidth}{X|X}
+\textbf{1.} $3^2 + 4^2 = \pointille[1.5cm] \implies \sqrt{\dots} = \pointille[1cm]$ & \textbf{4.} Dans le triangle rectangle, le plus grand côté s'appelle : \pointille[2.5cm] \\
+\textbf{2.} $10^2 - 8^2 = \pointille[1.5cm] \implies \sqrt{\dots} = \pointille[1cm]$ & \textbf{5.} $\cos(60\degre) = \pointille[1.5cm]$ (valeur exacte ou décimale) \\
+\textbf{3.} Les triplets pythagoriciens usuels : $(3, 4, 5)$ et $(6, 8, \pointille[1cm])$ & \textbf{6.} Sur la calculatrice, pour trouver l'angle dont le cosinus vaut 0,5, on tape : \pointille[2cm] \\
+\end{tabularx}
+\end{automatisme}
+
+% ==============================================================================
+% 5. TRAVAUX DIRIGÉS (TD)
+% ==============================================================================
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[3 pts]{\capRealiser}{Calcul direct de longueur}
+Soit $RST$ un triangle rectangle en $S$ tel que $RS = 4{,}8\text{ cm}$ et $ST = 6{,}4\text{ cm}$.
+\begin{enumerate}
+    \item Faire un schéma à main levée.
+    \item Calculer la longueur exacte de l'hypoténuse $RT$.
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capAnalyser}{Démontrer si un triangle est rectangle}
+Un triangle $KLM$ a pour dimensions : $KL = 7\text{ cm}$, $LM = 24\text{ cm}$ et $KM = 25\text{ cm}$.
+Le triangle $KLM$ est-il rectangle ? Rédiger avec rigueur.
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capRealiser}{Calcul d'un angle avec la trigonométrie}
+Dans un triangle $ABC$ rectangle en $A$, on donne $AB = 5\text{ cm}$ et $BC = 8\text{ cm}$.
+\begin{enumerate}
+    \item Écrire la relation trigonométrique donnant $\cos(\widehat{ABC})$.
+    \item En déduire la mesure de l'angle $\widehat{ABC}$ arrondie au degré près.
+    \item Calculer alors la mesure de l'angle $\widehat{ACB}$.
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+% ==============================================================================
+% 6. VERS LE BREVET (DNB PRO)
+% ==============================================================================
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Polynésie][9 pts]{Charpente \& Pente de Toiture}
+Un charpentier pose les fermettes d'un comble de maison. La figure ci-dessous représente la coupe d'une ferme de charpente :
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Triangle principal
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (8,0);
+    \coordinate (S) at (4,2.5);
+    \coordinate (H) at (4,0);
+
+    \draw[fill=amber!15, draw=amber!80!black, line width=1.5pt] (A) -- (B) -- (S) -- cycle;
+    \draw[dashed, thick, slate700] (S) -- (H) node[midway, right] {Poinçon $SH = 2{,}4\text{ m}$};
+
+    % Angle droit
+    \draw[thick] (3.7,0) -- (3.7,0.3) -- (4,0.3);
+
+    \node[below left] at (A) {$A$};
+    \node[below right] at (B) {$B$};
+    \node[above] at (S) {Sommet $S$};
+    \node[below] at (H) {$H$};
+
+    \draw[<->, >=stealth, slate700] (0,-0.4) -- (8,-0.4) node[midway, below] {Entrait $AB = 8\text{ m}$};
+    \node at (2,-0.2) [below, font=\scriptsize] {$AH = 4\text{ m}$};
+    \node at (6,-0.2) [below, font=\scriptsize] {$HB = 4\text{ m}$};
+\end{tikzpicture}
+\end{center}
+
+Le triangle $ASB$ est isocèle en $S$. Le point $H$ est le milieu du segment $[AB]$ et le triangle $AHS$ est rectangle en $H$.
+
+\begin{enumerate}
+    \item \capSApproprier\ Justifier que la longueur $AH = 4\text{ m}$.
+    \item \capRealiser\ Dans le triangle $AHS$ rectangle en $H$, calculer la longueur de l'arbalétrier $[AS]$. Arrondir au centième de mètre.
+    \item \capRealiser\ Calculer l'angle de pente du toit $\widehat{SAH}$ formé avec l'horizontale. Arrondir au dixième de degré.
+    \item \capValider\ Pour installer des tuiles en terre cuite, le DTU (Document Technique Unifié) exige une pente minimale de $30\degre$. La toiture est-elle conforme à cette réglementation ? Justifier.
+\end{enumerate}
+\lignesreponse[7]
+\end{sujetdnb}
+
+% ==============================================================================
+% 7. CORRIGÉS DÉTAILLÉS
+% ==============================================================================
+\section{Corrigés Détaillés du Chapitre}
+
+\begin{solution}[Corrigé des Exercices et du Sujet DNB]
+\textbf{Exercice 1} :
+Dans le triangle $RST$ rectangle en $S$, d'après le théorème de Pythagore :
+$RT^2 = RS^2 + ST^2 = 4{,}8^2 + 6{,}4^2 = 23{,}04 + 40{,}96 = 64$.
+Donc $RT = \sqrt{64} = \repbox{8\text{ cm}}$.
+
+\vspace{2mm}
+\textbf{Exercice 2} :
+Le plus grand côté est $[KM]$ : $KM^2 = 25^2 = 625$. \\
+D'autre part : $KL^2 + LM^2 = 7^2 + 24^2 = 49 + 576 = 625$. \\
+On constate que $KM^2 = KL^2 + LM^2$. D'après la réciproque du théorème de Pythagore, le triangle $KLM$ est \textbf{rectangle en $L$}.
+
+\vspace{2mm}
+\textbf{Sujet DNB Pro (Charpente)} :
+1. $H$ est le milieu de $[AB]$, donc $AH = 8 / 2 = \repbox{4\text{ m}}$. \\
+2. Dans le triangle $AHS$ rectangle en $H$, d'après Pythagore : \\
+$AS^2 = AH^2 + SH^2 = 4^2 + 2{,}4^2 = 16 + 5{,}76 = 21{,}76 \implies AS = \sqrt{21{,}76} \approx \repbox{4{,}66\text{ m}}$. \\
+3. Dans le triangle $AHS$ rectangle en $H$ : $\tan(\widehat{SAH}) = \frac{SH}{AH} = \frac{2{,}4}{4} = 0{,}6$. \\
+D'où $\widehat{SAH} = \arctan(0{,}6) \approx \repbox{31{,}0\degre}$. \\
+4. L'angle calculé $31{,}0\degre \ge 30\degre$, la pente de la toiture est donc \textbf{pleinement conforme au DTU}.
+\end{solution}

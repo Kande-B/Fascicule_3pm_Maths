@@ -1,0 +1,150 @@
+\chapter{Aires, Volumes \& Conversions d'Unités}
+\label{chap:aires_volumes}
+
+% ==============================================================================
+% 1. OBJECTIFS & COMPÉTENCES DU RÉFÉRENTIEL
+% ==============================================================================
+\begin{cadreretenu}[Objectifs \& Compétences du DNB Pro]
+\begin{itemize}
+    \item \textbf{Connaissances} : Formules d'aires usuelles (rectangle, triangle, disque, trapèze), formules de volumes (pavé droit, prisme droit, cylindre, cône, pyramide, boule), équivalence $1\text{ L} = 1\text{ dm}^3$.
+    \item \textbf{Capacités} :
+    \begin{itemize}
+        \item \capRealiser\ Effectuer des conversions d'unités de longueurs, d'aires et de volumes/capacités.
+        \item \capRealiser\ Calculer l'aire d'une surface complexe en la décomposant en figures simples.
+        \item \capRealiser\ Calculer le volume d'un réservoir, d'un silo ou d'une cuve industrielle.
+        \item \capAnalyser\ Déterminer une masse à partir d'un volume et d'une masse volumique ($\rho = \frac{m}{V}$).
+    \end{itemize}
+\end{itemize}
+\end{cadreretenu}
+
+\vspace{0.3cm}
+
+% ==============================================================================
+% 2. COURS : FORMULAIRE OFFICIEL AIRES ET VOLUMES
+% ==============================================================================
+\section{Cours : Formulaire d'Aires et de Volumes}
+
+\subsection{Surfaces Planes Usuelles}
+
+\noindent
+\begin{tabularx}{\linewidth}{|X|X|X|}
+\hline
+\rowcolor{colDefBg} \textbf{Rectangle} & \textbf{Triangle} & \textbf{Disque} \\
+\hline
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+    \draw[fill=colDef!20, draw=colDef, thick] (0,0) rectangle (3,1.8);
+    \node at (1.5,0.9) {$\mathcal{A} = L \times \ell$};
+\end{tikzpicture}
+\end{center} &
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+    \draw[fill=colProp!20, draw=colProp, thick] (0,0) -- (3,0) -- (1,2) -- cycle;
+    \draw[dashed] (1,2) -- (1,0);
+    \node at (1.5,0.7) {$\mathcal{A} = \frac{b \times h}{2}$};
+\end{tikzpicture}
+\end{center} &
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+    \draw[fill=colExem!20, draw=colExem, thick] (0,0) circle (1.2);
+    \draw[->] (0,0) -- (1.2,0) node[midway, above, font=\tiny] {$R$};
+    \node at (0,-0.3) [font=\footnotesize] {$\mathcal{A} = \pi R^2$};
+\end{tikzpicture}
+\end{center} \\
+\hline
+\end{tabularx}
+
+\subsection{Solides et Volumes Usuels}
+
+\begin{cadreprop}[Volumes des solides de l'espace]
+\begin{itemize}
+    \item \textbf{Pavé droit (Parallélépipède)} : $\mathcal{V} = L \times \ell \times h$
+    \item \textbf{Prisme droit \& Cylindre de révolution} : $\mathcal{V} = \mathcal{A}_{\text{base}} \times h = \pi R^2 h$
+    \item \textbf{Pyramide \& Cône de révolution} : $\mathcal{V} = \dfrac{1}{3} \times \mathcal{A}_{\text{base}} \times h = \dfrac{1}{3} \pi R^2 h$
+    \item \textbf{Boule / Sphère} : $\mathcal{V} = \dfrac{4}{3} \pi R^3$ \quad et \quad $\mathcal{A}_{\text{sphère}} = 4 \pi R^2$
+\end{itemize}
+\end{cadreprop}
+
+\begin{cadreretenu}[Conversions d'Unités Incontournables]
+\[ 1\text{ m}^3 = 1\,000\text{ dm}^3 = 1\,000\text{ L} \qquad\text{et}\qquad 1\text{ dm}^3 = 1\text{ L} = 1\,000\text{ cm}^3 = 1\,000\text{ mL} \]
+\end{cadreretenu}
+
+% ==============================================================================
+% 3. QUESTIONS FLASH / AUTOMATISMES
+% ==============================================================================
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[Conversions \& Formules (10 min)]
+\noindent
+\begin{tabularx}{\linewidth}{X|X}
+\textbf{1.} $2{,}5\text{ m}^3 = \pointille[1.5cm]\text{ L}$ & \textbf{4.} Volume d'un cube d'arête $a = 4\text{ cm}$ : $V = \pointille[1.5cm]\text{ cm}^3$ \\
+\textbf{2.} $750\text{ cm}^3 = \pointille[1.5cm]\text{ L}$ & \textbf{5.} Aire d'un disque de rayon $R = 10\text{ cm}$ : $\mathcal{A} \approx \pointille[1.5cm]\text{ cm}^2$ \\
+\textbf{3.} $12\text{ m}^2 = \pointille[1.5cm]\text{ dm}^2$ & \textbf{6.} Masse volumique de l'eau : $1\text{ L d'eau} = \pointille[1cm]\text{ kg}$ \\
+\end{tabularx}
+\end{automatisme}
+
+% ==============================================================================
+% 4. TRAVAUX DIRIGÉS (TD)
+% ==============================================================================
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[4 pts]{\capRealiser}{Cuve de Récupération d'Eau de Pluie}
+Une cuve cylindrique de récupération d'eau a un diamètre intérieur de $D = 1{,}20\text{ m}$ et une hauteur utile de $h = 1{,}80\text{ m}$.
+\begin{enumerate}
+    \item Calculer le rayon intérieur $R$ en mètres.
+    \item Calculer le volume de la cuve en $\text{m}^3$. Arrondir au centième.
+    \item En déduire la capacité maximale de la cuve en Litres.
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Coulage d'une Dalle en Béton (BTP)}
+Un maçon réalise une dalle en béton rectangulaire de longueur $L = 8\text{ m}$, de largeur $\ell = 4{,}50\text{ m}$ et d'épaisseur $e = 15\text{ cm}$.
+\begin{enumerate}
+    \item Exprimer l'épaisseur $e$ en mètres.
+    \item Calculer le volume de béton nécessaire en $\text{m}^3$.
+    \item Sachant que la masse volumique du béton armé est $\rho = 2\,400\text{ kg/m}^3$, calculer la masse totale de la dalle en tonnes.
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+% ==============================================================================
+% 5. VERS LE BREVET (DNB PRO)
+% ==============================================================================
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][9 pts]{Traitement d'une Piscine Municipale}
+Une piscine municipale dispose d'un bassin de forme pavé droit de longueur $25\text{ m}$, de largeur $10\text{ m}$ et de profondeur constante $1{,}60\text{ m}$.
+
+\begin{enumerate}
+    \item \capRealiser\ Calculer le volume d'eau contenu dans ce bassin en $\text{m}^3$, puis en Litres.
+    \item \capAnalyser\ Pour traiter l'eau, le maître-nageur doit verser $2\text{ cL}$ de produit désinfectant pour $1\,000\text{ L}$ d'eau.
+    Calculer la quantité totale de désinfectant à verser (en Litres).
+    \item \capValider\ La pompe de filtration a un débit de $40\text{ m}^3/\text{h}$. Combien d'heures faut-il pour renouveler la totalité de l'eau du bassin ?
+\end{enumerate}
+\lignesreponse[6]
+\end{sujetdnb}
+
+% ==============================================================================
+% 6. CORRIGÉS DÉTAILLÉS
+% ==============================================================================
+\section{Corrigés Détaillés du Chapitre}
+
+\begin{solution}[Corrigé des Exercices et du Sujet DNB]
+\textbf{Exercice 1 (Cuve)} :
+1. $R = 1{,}20 / 2 = \repbox{0{,}60\text{ m}}$. \\
+2. $V = \pi \times R^2 \times h = \pi \times 0{,}60^2 \times 1{,}80 \approx \repbox{2{,}04\text{ m}^3}$. \\
+3. $1\text{ m}^3 = 1\,000\text{ L} \implies 2{,}04 \times 1\,000 = \repbox{2\,040\text{ Litres}}$.
+
+\vspace{2mm}
+\textbf{Exercice 2 (Béton BTP)} :
+1. $e = 15\text{ cm} = \repbox{0{,}15\text{ m}}$. \\
+2. $V = 8 \times 4{,}50 \times 0{,}15 = \repbox{5{,}40\text{ m}^3}$. \\
+3. Masse $= 5{,}40 \times 2\,400 = 12\,960\text{ kg} = \repbox{12{,}96\text{ tonnes}}$.
+
+\vspace{2mm}
+\textbf{Sujet DNB Pro (Piscine)} :
+1. $V = 25 \times 10 \times 1{,}60 = \repbox{400\text{ m}^3} = \repbox{400\,000\text{ Litres}}$. \\
+2. Produit $= \frac{400\,000}{1\,000} \times 2\text{ cL} = 400 \times 2 = 800\text{ cL} = \repbox{8\text{ Litres}}$. \\
+3. Temps de filtration $= \frac{400}{40} = \repbox{10\text{ heures}}$.
+\end{solution}
