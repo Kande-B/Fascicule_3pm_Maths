@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{fascicule_style}[2026/08/19 v1.0 Style Professionnel Fascicules Maths-Sciences]
+\ProvidesPackage{fascicule_style}[2026/08/19 v1.2 Style Professionnel Fascicules Maths-Sciences]
 
 % ==============================================================================
 % 1. ENCODAGE, LANGUE & TYPOGRAPHIE
@@ -27,32 +27,15 @@
 \pagestyle{fancy}
 \fancyhf{}
 
-% Définition des en-têtes et pieds de page
-\fancyhead[L]{\small\sffamily\bfseries\color{colPrimary}\nouppercase{\leftmark}}
-\fancyhead[R]{\small\sffamily\color{slate600}\thefiliere\ -- \thematiere}
-\fancyfoot[L]{\footnotesize\sffamily\color{slate500}Livret Pédagogique \theannee}
-\fancyfoot[C]{\small\sffamily\bfseries\color{colPrimary}\thepage}
-\fancyfoot[R]{\footnotesize\sffamily\color{slate500}\thelycee}
-\renewcommand{\headrulewidth}{0.6pt}
-\renewcommand{\footrulewidth}{0.4pt}
-\renewcommand{\headrule}{\hbox to\headwidth{\color{colSecondary}\leaders\hrule height \headrulewidth\hfill}}
-\renewcommand{\footrule}{\hbox to\headwidth{\color{slate300}\leaders\hrule height \footrulewidth\hfill}}
-
-% Style pour les pages de chapitre
-\fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyfoot[C]{\small\sffamily\bfseries\color{colPrimary}\thepage}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-}
-
 % ==============================================================================
-% 3. COULEURS THÉMATIQUES MODERNES
+% 3. COULEURS THÉMATIQUES MODERNES & TABLEAUX
 % ==============================================================================
 \RequirePackage{xcolor}
+\RequirePackage{colortbl}
 
-% Palette Principale
+% Palette Principale Slate
 \definecolor{navy900}{RGB}{15, 23, 42}
+\definecolor{slate900}{RGB}{15, 23, 42}
 \definecolor{slate800}{RGB}{30, 41, 59}
 \definecolor{slate700}{RGB}{51, 65, 85}
 \definecolor{slate600}{RGB}{71, 85, 105}
@@ -62,6 +45,16 @@
 \definecolor{slate200}{RGB}{226, 232, 240}
 \definecolor{slate100}{RGB}{241, 245, 249}
 \definecolor{slate50}{RGB}{248, 250, 252}
+
+% Couleurs vives
+\definecolor{amber}{RGB}{245, 158, 11}
+\definecolor{emerald}{RGB}{16, 185, 129}
+\definecolor{sky}{RGB}{14, 165, 233}
+\definecolor{indigo}{RGB}{79, 70, 229}
+\definecolor{rose}{RGB}{244, 63, 94}
+\definecolor{teal}{RGB}{13, 148, 136}
+\definecolor{purple}{RGB}{147, 51, 234}
+\definecolor{violet}{RGB}{139, 92, 246}
 
 % Couleurs par dominante (Maths / Sciences)
 \definecolor{mathPrimary}{RGB}{30, 58, 138}    % Bleu Nuit
@@ -92,6 +85,25 @@
 \definecolor{colTP}{RGB}{192, 38, 211}        % TP Tableur / Info (Magenta)
 \definecolor{colTPBg}{RGB}{253, 244, 255}
 
+% Définition des en-têtes et pieds de page
+\fancyhead[L]{\small\sffamily\bfseries\color{colPrimary}\nouppercase{\leftmark}}
+\fancyhead[R]{\small\sffamily\color{slate600}\thefiliere\ -- \thematiere}
+\fancyfoot[L]{\footnotesize\sffamily\color{slate500}Livret Pédagogique \theannee}
+\fancyfoot[C]{\small\sffamily\bfseries\color{colPrimary}\thepage}
+\fancyfoot[R]{\footnotesize\sffamily\color{slate500}\thelycee}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{colSecondary}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{slate300}\leaders\hrule height \footrulewidth\hfill}}
+
+% Style pour les pages de chapitre
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\small\sffamily\bfseries\color{colPrimary}\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
 % ==============================================================================
 % 4. PACKAGES MATHS, PHYSIQUE, SYMBOLES & TABLEAUX
 % ==============================================================================
@@ -110,7 +122,6 @@
 \setlist[itemize]{label=\textcolor{colSecondary}{\small$\blacktriangleright$}, leftmargin=1.5em, itemsep=2pt}
 \setlist[enumerate]{label=\textcolor{colPrimary}{\textbf{\arabic*.}}, leftmargin=1.5em, itemsep=2pt}
 \RequirePackage{pifont}
-\RequirePackage{eurosym}
 
 % ==============================================================================
 % 5. TIKZ & TCOLORBOX (DESIGN DES BLOCS ÉDITORIAUX)
@@ -316,7 +327,7 @@
 }
 
 % 12. Solution / Corrigé
-\newtcolorbox{solution}[1][Corrigé & Démarche]{
+\newtcolorbox{solution}[1][Corrigé \& Démarche]{
     enhanced,
     breakable,
     arc=4pt,
@@ -345,6 +356,7 @@
 % 6. OUTILS DE MISE EN PAGE & RÉDACTION ÉLÈVE
 % ==============================================================================
 % Lignes d'écriture pointillées
+\RequirePackage{multido}
 \newcommand{\lignesreponse}[1][3]{%
     \vspace{2mm}%
     \multido{\i=1+1}{#1}{%
@@ -352,7 +364,6 @@
     }%
     \vspace{-1mm}%
 }
-\RequirePackage{multido}
 
 % Quadrillage 5mm pour tracé
 \newcommand{\quadrillage}[1][3cm]{%

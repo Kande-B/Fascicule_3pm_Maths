@@ -1,55 +1,54 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{macros}[2026/08/19 v1.0 Macros et Raccourcis Maths-Sciences]
+\ProvidesPackage{macros}[2026/08/19 v1.2 Macros et Raccourcis Maths-Sciences]
 
 % ==============================================================================
 % 1. ENSEMBLES ET SYMBOLES MATHÉMATIQUES
 % ==============================================================================
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\D}{\mathbb{D}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\D}{\mathbb{D}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
 
-\newcommand{\intervalle}[2]{[#1\,;\,#2]}
-\newcommand{\intervallefo}[2]{[#1\,;\,#2[}
-\newcommand{\intervalleof}[2]{]#1\,;\,#2]}
-\newcommand{\intervalleoo}[2]{]#1\,;\,#2[}
+\providecommand{\intervalle}[2]{[#1\,;\,#2]}
+\providecommand{\intervallefo}[2]{[#1\,;\,#2[}
+\providecommand{\intervalleof}[2]{]#1\,;\,#2]}
+\providecommand{\intervalleoo}[2]{]#1\,;\,#2[}
 
 % Notations des vecteurs
-\newcommand{\vect}[1]{\overrightarrow{#1}}
-\newcommand{\vcoords}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
-\newcommand{\vcoordsz}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
+\providecommand{\vect}[1]{\overrightarrow{#1}}
+\providecommand{\vcoords}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\providecommand{\vcoordsz}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
 
 % Probabilités
-\renewcommand{\Pr}{\mathbb{P}}
-\newcommand{\Proba}[1]{\Pr\left(#1\right)}
-\newcommand{\ProbaCond}[2]{\Pr_{#2}\left(#1\right)}
+\providecommand{\Proba}[1]{\mathbb{P}\left(#1\right)}
+\providecommand{\ProbaCond}[2]{\mathbb{P}_{#2}\left(#1\right)}
 
 % ==============================================================================
 % 2. SYMBOLES D'OPÉRATIONS ET D'ÉVALUATION
 % ==============================================================================
-\newcommand{\x}{\times}
-\newcommand{\ssi}{\Longleftrightarrow}
-\newcommand{\donc}{\Longrightarrow}
-\newcommand{\equivalent}{\iff}
+\providecommand{\x}{\times}
+\providecommand{\ssi}{\Longleftrightarrow}
+\providecommand{\donc}{\Longrightarrow}
+\providecommand{\equivalent}{\iff}
 
-% Degré et unités fréquentes
-\newcommand{\degre}{^{\circ}}
-\newcommand{\euro}{\text{ \euro}}
+% Degré et symbole euro
+\providecommand{\degre}{^{\circ}}
+\providecommand{\euro}{\text{ \euro}}
 
 % Compétences du référentiel (Grille nationale Bac Pro / DNB Pro)
-\newcommand{\capSApproprier}{\badge[colPrimary]{C1 $\cdot$ S'approprier}}
-\newcommand{\capAnalyser}{\badge[colSecondary]{C2 $\cdot$ Analyser/Raisonner}}
-\newcommand{\capRealiser}{\badge[colProp]{C3 $\cdot$ Réaliser}}
-\newcommand{\capValider}{\badge[colExem]{C4 $\cdot$ Valider}}
-\newcommand{\capCommuniquer}{\badge[colMeth]{C5 $\cdot$ Communiquer}}
+\providecommand{\capSApproprier}{\badge[colPrimary]{C1 $\cdot$ S'approprier}}
+\providecommand{\capAnalyser}{\badge[colSecondary]{C2 $\cdot$ Analyser/Raisonner}}
+\providecommand{\capRealiser}{\badge[colProp]{C3 $\cdot$ Réaliser}}
+\providecommand{\capValider}{\badge[colExem]{C4 $\cdot$ Valider}}
+\providecommand{\capCommuniquer}{\badge[colMeth]{C5 $\cdot$ Communiquer}}
 
 % ==============================================================================
 % 3. DESSIN ET GRAPHES RAPIDES TIKZ
 % ==============================================================================
 % Repère orthonormé standard
-\newcommand{\repereOrtho}[4]{% [xmin, xmax, ymin, ymax]
+\providecommand{\repereOrtho}[4]{% [xmin, xmax, ymin, ymax]
     \draw[step=1cm, slate200, very thin] (#1,#3) grid (#2,#4);
     \draw[thick, ->, >=stealth, slate700] (#1,0) -- (#2,0) node[right] {\footnotesize $x$};
     \draw[thick, ->, >=stealth, slate700] (0,#3) -- (0,#4) node[above] {\footnotesize $y$};
