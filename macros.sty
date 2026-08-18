@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{macros}[2026/08/19 v1.2 Macros et Raccourcis Maths-Sciences]
+\ProvidesPackage{macros}[2026/08/19 v1.3 Macros et Raccourcis Maths-Sciences]
 
 % ==============================================================================
 % 1. ENSEMBLES ET SYMBOLES MATHÉMATIQUES
@@ -33,9 +33,9 @@
 \providecommand{\donc}{\Longrightarrow}
 \providecommand{\equivalent}{\iff}
 
-% Degré et symbole euro
+% Degré et symbole euro (robuste sans récursion)
 \providecommand{\degre}{^{\circ}}
-\providecommand{\euro}{\text{ \euro}}
+\DeclareRobustCommand{\euro}{\text{€}}
 
 % Compétences du référentiel (Grille nationale Bac Pro / DNB Pro)
 \providecommand{\capSApproprier}{\badge[colPrimary]{C1 $\cdot$ S'approprier}}
