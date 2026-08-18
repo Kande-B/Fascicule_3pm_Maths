@@ -16,71 +16,53 @@
 \begin{document}
 
 % ==============================================================================
-% PAGE DE COUVERTURE MODERNE & ÉLÉGANTE (DESIGN TIKZ)
+% PAGE DE COUVERTURE MODERNE & ÉLÉGANTE (100% TIKZ OPTIMISÉE)
 % ==============================================================================
 \begin{titlepage}
 \begin{tikzpicture}[remember picture, overlay]
-    % Fond et dégradé / bandes graphiques
+    % Fond sombre moderne
     \fill[navy900] (current page.north west) rectangle (current page.south east);
+    % Bande latérale bleu primaire
     \fill[colPrimary] (current page.north west) rectangle ([xshift=1.2cm]current page.south west);
-    \fill[colSecondary!80!navy900] ([yshift=-8cm]current page.north west) -- ([xshift=14cm, yshift=-8cm]current page.north west) -- ([xshift=6cm, yshift=-16cm]current page.north west) -- ([yshift=-16cm]current page.north west) -- cycle;
+    % Décoration géométrique
+    \fill[colSecondary!75!navy900] ([yshift=-7.5cm]current page.north west) -- ([xshift=14cm, yshift=-7.5cm]current page.north west) -- ([xshift=6cm, yshift=-15.5cm]current page.north west) -- ([yshift=-15.5cm]current page.north west) -- cycle;
     
-    % Encart supérieur
+    % En-tête Lycée & Année
     \node[anchor=north west, text=slate300, font=\sffamily\bfseries\large] at ([xshift=2.2cm, yshift=-2.2cm]current page.north west) {
         \thelycee\ -- Année Scolaire \theannee
     };
     
-    % Badge Filière
-    \node[anchor=north west] at ([xshift=2.2cm, yshift=-3.5cm]current page.north west) {
-        \tcbox[
-            colback=colSecondary,
-            colframe=colSecondary,
-            arc=6pt,
-            boxrule=0pt,
-            top=4pt, bottom=4pt, left=12pt, right=12pt,
-            fontupper=\sffamily\bfseries\color{navy900}\large
-        ]{RÉFÉRENTIEL NATIONAL $\cdot$ DNB PRO}
+    % Badge DNB Pro
+    \node[anchor=north west, fill=colSecondary, rounded corners=4pt, inner sep=6pt, text=navy900, font=\sffamily\bfseries\normalsize] at ([xshift=2.2cm, yshift=-3.5cm]current page.north west) {
+        RÉFÉRENTIEL NATIONAL $\cdot$ DNB PRO
     };
     
-    % Titre Principal
-    \node[anchor=north west, text=white, font=\sffamily\bfseries\fontsize{38}{44}\selectfont] at ([xshift=2.2cm, yshift=-5.2cm]current page.north west) {
-        FASCICULE DE COURS\\\& EXERCICES
+    % Grand Titre
+    \node[anchor=north west, text=white, font=\sffamily\bfseries\huge, text width=15cm, align=left] at ([xshift=2.2cm, yshift=-5cm]current page.north west) {
+        {\fontsize{32}{38}\selectfont FASCICULE DE COURS\\[2mm]\& EXERCICES}
     };
     
-    % Sous-Titre Matière & Classe
-    \node[anchor=north west, text=colSecondary, font=\sffamily\bfseries\fontsize{24}{28}\selectfont] at ([xshift=2.2cm, yshift=-8.5cm]current page.north west) {
+    % Matière & Filière
+    \node[anchor=north west, text=colSecondary, font=\sffamily\bfseries\LARGE] at ([xshift=2.2cm, yshift=-8.5cm]current page.north west) {
         \thematiere\ -- \thefiliere
     };
     
-    % Descriptif du contenu
-    \node[anchor=north west, text=slate200, font=\sffamily\normalsize, text width=14cm, align=left] at ([xshift=2.2cm, yshift=-10.2cm]current page.north west) {
-        \textbf{Le livret complet pour réussir son année et l'épreuve du Brevet :}
-        \begin{itemize}
-            \item \textbf{Cours structuré} avec définitions, propriétés et méthodes modèles
-            \item \textbf{Questions Flash \& Automatismes} de calcul mental
-            \item \textbf{Travaux Dirigés (TD)} progressifs et problèmes contextualisés
-            \item \textbf{TP TICE} (Tableur, GeoGebra, Scratch)
-            \item \textbf{Annales officielles DNB Pro} avec corrigés pas à pas
-        \end{itemize}
+    % Liste des composantes pédagogiques
+    \node[anchor=north west, text=slate200, font=\sffamily\normalsize, text width=14cm, align=left] at ([xshift=2.2cm, yshift=-10cm]current page.north west) {
+        \textbf{Le livret complet pour réussir son année et l'épreuve du Brevet :}\\[2mm]
+        $\blacktriangleright$ \textbf{Cours structuré} (définitions, propriétés, méthodes pas à pas)\\
+        $\blacktriangleright$ \textbf{Questions Flash \& Automatismes} de calcul mental\\
+        $\blacktriangleright$ \textbf{Travaux Dirigés (TD)} progressifs et situations professionnelles\\
+        $\blacktriangleright$ \textbf{TP TICE} (Tableur, GeoGebra, Scratch)\\
+        $\blacktriangleright$ \textbf{Annales officielles DNB Pro} avec corrigés détaillés
     };
     
-    % Cartouche Auteur / Nom de l'élève
-    \node[anchor=south west] at ([xshift=2.2cm, yshift=2.2cm]current page.south west) {
-        \begin{tcolorbox}[
-            enhanced,
-            width=16.5cm,
-            colback=slate800,
-            colframe=colSecondary,
-            boxrule=1.2pt,
-            arc=6pt,
-            fonttitle=\sffamily\bfseries\small\color{colSecondary},
-            title={INFORMATIONS ÉLÈVE},
-            coltext=white
-        ]
+    % Cartouche Informations Élève
+    \node[anchor=south west, fill=slate800, draw=colSecondary, line width=1.2pt, rounded corners=6pt, inner sep=12pt, text=white, text width=15cm, align=left] at ([xshift=2.2cm, yshift=2.2cm]current page.south west) {
         \sffamily
-        \textbf{Nom \& Prénom :} \pointille[8cm] \hfill \textbf{Classe :} 3\textsuperscript{ème} PM\dots \\[2mm]
+        {\bfseries\color{colSecondary} INFORMATIONS ÉLÈVE}\\[2mm]
+        \textbf{Nom \& Prénom :} \pointille[7.5cm] \hfill \textbf{Classe :} 3\textsuperscript{ème} PM\dots \\[2mm]
         \textbf{Professeur :} \theprof \hfill \textbf{Groupe :} \pointille[3cm]
-        \end{tcolorbox}
     };
 \end{tikzpicture}
 \end{titlepage}
@@ -120,37 +102,27 @@
 \begin{tikzpicture}[remember picture, overlay]
     \fill[slate900] (current page.north west) rectangle (current page.south east);
     
-    \node[anchor=north, text=colSecondary, font=\sffamily\bfseries\Large] at ([yshift=-3cm]current page.north) {
+    \node[anchor=north, text=colSecondary, font=\sffamily\bfseries\Large] at ([yshift=-2.5cm]current page.north) {
         FASCICULE PÉDAGOGIQUE MATHÉMATIQUES 3PM
     };
     
-    \node[anchor=center, text width=15cm, align=center, text=slate200, font=\sffamily\normalsize] at (current page.center) {
-        \begin{tcolorbox}[
-            enhanced,
-            colback=slate800,
-            colframe=colPrimary,
-            arc=8pt,
-            boxrule=1.5pt,
-            coltext=white,
-            title={\faCheckCircle\ \textbf{MÉMO DU RÉFÉRENTIEL DNB PRO}},
-            fonttitle=\sffamily\bfseries\large\color{colSecondary}
-        ]
+    \node[anchor=center, fill=slate800, draw=colPrimary, line width=1.5pt, rounded corners=8pt, inner sep=14pt, text=white, text width=15cm, align=left] at (current page.center) {
+        \sffamily
+        {\bfseries\large\color{colSecondary} \faCheckCircle\ MÉMO DU RÉFÉRENTIEL DNB PRO}\\[3mm]
         \small
-        \begin{itemize}
-            \item \textbf{Calcul Littéral \& Équations} : Distributivité simple et double, identité $a^2-b^2$, équations $ax+b=cx+d$ et produit nul.
-            \item \textbf{Fonctions} : Fonctions linéaires (droite par l'origine) et affines $f(x)=ax+b$.
-            \item \textbf{Géométrie} : Théorème de Pythagore ($BC^2 = AB^2 + AC^2$), Trigonométrie (\textbf{CAH-SOH-TOA}).
-            \item \textbf{Statistiques \& Probabilités} : Moyenne, médiane, étendue, équiprobabilité ($P(A) = \frac{\text{favorables}}{\text{totales}}$).
-            \item \textbf{Grandeurs \& Mesures} : $1\text{ L} = 1\text{ dm}^3$, $1\text{ m}^3 = 1\,000\text{ L}$, volumes prismes, cylindres, cônes et boules.
-        \end{itemize}
-        \end{tcolorbox}
-        
-        \vspace{1.5cm}
-        {\large\bfseries Conforme aux Programmes Officiels de l'Éducation Nationale}\\[2mm]
-        {\small Réalisé pour une utilisation autonome ou collective en classe et sur Overleaf.}
+        $\blacktriangleright$ \textbf{Calcul Littéral \& Équations} : Distributivité simple et double, identité $a^2-b^2$, équations $ax+b=cx+d$ et équation produit nul.\\[1.5mm]
+        $\blacktriangleright$ \textbf{Fonctions} : Fonctions linéaires ($f(x)=ax$) et affines ($f(x)=ax+b$), proportionnalité.\\[1.5mm]
+        $\blacktriangleright$ \textbf{Géométrie} : Théorème de Pythagore ($BC^2 = AB^2 + AC^2$), Trigonométrie (\textbf{CAH-SOH-TOA}).\\[1.5mm]
+        $\blacktriangleright$ \textbf{Statistiques \& Probabilités} : Moyenne, médiane, étendue, équiprobabilité ($P(A) = \frac{\text{favorables}}{\text{totales}}$).\\[1.5mm]
+        $\blacktriangleright$ \textbf{Grandeurs \& Mesures} : $1\text{ L} = 1\text{ dm}^3$, $1\text{ m}^3 = 1\,000\text{ L}$, formules de volumes.
     };
     
-    \node[anchor=south, text=slate500, font=\sffamily\footnotesize] at ([yshift=2cm]current page.south) {
+    \node[anchor=south, text=slate300, font=\sffamily\normalsize, align=center] at ([yshift=3.5cm]current page.south) {
+        {\bfseries Conforme aux Programmes Officiels de l'Éducation Nationale}\\[1.5mm]
+        {\small Support adapté pour le travail autonome et les séances en classe.}
+    };
+
+    \node[anchor=south, text=slate500, font=\sffamily\footnotesize] at ([yshift=1.8cm]current page.south) {
         \thelycee\ -- \theannee\ $\cdot$ Tous droits réservés.
     };
 \end{tikzpicture}
