@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{fascicule_style}[2026/08/19 v1.2 Style Professionnel Fascicules Maths-Sciences]
+\ProvidesPackage{fascicule_style}[2026/08/19 v1.4 Style Professionnel Ultra-Rapide Fascicules Maths-Sciences]
 
 % ==============================================================================
 % 1. ENCODAGE, LANGUE & TYPOGRAPHIE
@@ -8,7 +8,6 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[french]{babel}
 \RequirePackage{lmodern}
-\RequirePackage{microtype}
 
 % ==============================================================================
 % 2. GÉOMÉTRIE DE PAGE & EN-TÊTES
@@ -105,7 +104,7 @@
 }
 
 % ==============================================================================
-% 4. PACKAGES MATHS, PHYSIQUE, SYMBOLES & TABLEAUX
+% 4. PACKAGES MATHS, SYMBOLES & TABLEAUX
 % ==============================================================================
 \RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,mathtools}
 \RequirePackage{siunitx}
@@ -124,12 +123,12 @@
 \RequirePackage{pifont}
 
 % ==============================================================================
-% 5. TIKZ & TCOLORBOX (DESIGN DES BLOCS ÉDITORIAUX)
+% 5. TIKZ & TCOLORBOX (OPTIMISÉ HAUTE PERFORMANCE COMPILATION)
 % ==============================================================================
 \RequirePackage{tikz}
 \usetikzlibrary{calc,shapes,positioning,patterns,arrows.meta}
-\RequirePackage[many]{tcolorbox}
-\tcbuselibrary{skins,breakable,listings,theorems}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
 
 % --- Badge / Étiquette ---
 \newcommand{\badge}[2][slate700]{%
@@ -144,18 +143,17 @@
     ]{#2}%
 }
 
-% --- Style de base pour les boîtes de cours ---
+% --- Style de base rapide pour les boîtes de cours ---
 \tcbset{
     coursBoxStyle/.style={
         enhanced,
         breakable,
-        arc=6pt,
+        arc=5pt,
         boxrule=0.8pt,
         left=10pt,
         right=10pt,
         top=8pt,
-        bottom=8pt,
-        shadow={1mm}{-1mm}{0mm}{black!5}
+        bottom=8pt
     }
 }
 
@@ -235,10 +233,10 @@
 \newtcolorbox{cadreretenu}[1][L'Essentiel à Retenir]{
     enhanced,
     breakable,
-    arc=8pt,
+    arc=6pt,
     colback=slate900,
     colframe=colSecondary,
-    boxrule=1.5pt,
+    boxrule=1.2pt,
     coltext=white,
     fonttitle=\sffamily\bfseries\large\color{colSecondary},
     title={\faStar\ #1},
@@ -249,7 +247,7 @@
 \newtcolorbox{activite}[1]{
     enhanced,
     breakable,
-    arc=6pt,
+    arc=5pt,
     colback=slate50,
     colframe=slate700,
     boxrule=1pt,
@@ -270,7 +268,7 @@
     \begin{tcolorbox}[
         enhanced,
         breakable,
-        arc=6pt,
+        arc=5pt,
         boxrule=0.8pt,
         colback=white,
         colframe=colExo,
@@ -294,7 +292,7 @@
     \begin{tcolorbox}[
         enhanced,
         breakable,
-        arc=6pt,
+        arc=5pt,
         boxrule=1pt,
         colback=colDNBBg,
         colframe=colDNB,
@@ -314,7 +312,7 @@
 \newtcolorbox{tpinfo}[2][]{
     enhanced,
     breakable,
-    arc=6pt,
+    arc=5pt,
     boxrule=1pt,
     colback=colTPBg,
     colframe=colTP,
@@ -343,7 +341,7 @@
 \newtcolorbox{automatisme}[1][Questions Flash / Automatismes]{
     enhanced,
     breakable,
-    arc=6pt,
+    arc=5pt,
     boxrule=1pt,
     colback=colExemBg,
     colframe=colExem,
