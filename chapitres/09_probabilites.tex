@@ -7,55 +7,70 @@
 % 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : COMMERCE / LOTERIE)
 % ------------------------------------------------------------------------------
 \begin{activite}{La Roue de la Chance Commerciale (Vente \& Animation Magasin)}
-Pour l'inauguration d'un magasin d'outillage, les clients peuvent faire tourner une roue de loterie partagée en \textbf{8 secteurs identiques} :
-\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
-    \item \textbf{4 secteurs « Goodies »} (porte-clés ou casquette) ;
-    \item \textbf{2 secteurs « Bon d'achat de 10 \euro{} »} ;
-    \item \textbf{1 secteur « Bon d'achat de 50 \euro{} »} ;
-    \item \textbf{1 secteur « Perdu »}.
+Pour l'inauguration d'un nouveau magasin d'outillage, les clients peuvent faire tourner une roue de loterie partagée en \textbf{8 secteurs d'aires égales} :
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{4 secteurs \og Goodies \fg{}} (porte-clés, mètre ruban ou casquette de chantier) ;
+    \item \textbf{2 secteurs \og Bon d'achat de 10 \euro{} \fg{}} ;
+    \item \textbf{1 secteur \og Bon d'achat de 50 \euro{} \fg{}} ;
+    \item \textbf{1 secteur \og Perdu \fg{}}.
 \end{itemize}
 
-\vspace{1mm}
+\vspace{2mm}
 \noindent
-\begin{minipage}[c]{0.42\linewidth}
+\begin{minipage}[c]{0.44\linewidth}
 \centering
-\begin{tikzpicture}[scale=0.75]
-    % Roue 8 secteurs
-    \foreach \i/\col/\txt in {
-        0/colDefBg/Goodies, 
-        1/colMethBg/10 \euro{}, 
-        2/colDefBg/Goodies, 
-        3/colPropBg/50 \euro{}, 
-        4/colDefBg/Goodies, 
-        5/colPiegeBg/Perdu, 
-        6/colDefBg/Goodies, 
-        7/colMethBg/10 \euro{}%
-    }{
-        \draw[fill=\col, draw=slate800, line width=0.8pt] 
-            (0,0) -- ({\i*45}:1.8cm) arc ({\i*45}:{(\i+1)*45}:1.8cm) -- cycle;
-        \node[font=\bfseries\tiny, slate900] at ({\i*45+22.5}:1.15cm) {\txt};
-    }
-    \fill[slate900] (0,0) circle (3pt);
+\begin{tikzpicture}[scale=0.95]
+    % Disque 8 secteurs
+    \draw[fill=sky!20, draw=slate800, line width=0.8pt] (0,0) -- (0:2.1cm) arc (0:45:2.1cm) -- cycle;
+    \node[font=\bfseries\scriptsize, slate900] at (22.5:1.4cm) {Goodies};
+    
+    \draw[fill=amber!25, draw=slate800, line width=0.8pt] (0,0) -- (45:2.1cm) arc (45:90:2.1cm) -- cycle;
+    \node[font=\bfseries\scriptsize, amber!90!black] at (67.5:1.4cm) {10 \euro{}};
+    
+    \draw[fill=sky!20, draw=slate800, line width=0.8pt] (0,0) -- (90:2.1cm) arc (90:135:2.1cm) -- cycle;
+    \node[font=\bfseries\scriptsize, slate900] at (112.5:1.4cm) {Goodies};
+    
+    \draw[fill=emerald!25, draw=slate800, line width=0.8pt] (0,0) -- (135:2.1cm) arc (135:180:2.1cm) -- cycle;
+    \node[font=\bfseries\scriptsize, emerald!90!black] at (157.5:1.4cm) {50 \euro{}};
+    
+    \draw[fill=sky!20, draw=slate800, line width=0.8pt] (0,0) -- (180:2.1cm) arc (180:225:2.1cm) -- cycle;
+    \node[font=\bfseries\scriptsize, slate900] at (202.5:1.4cm) {Goodies};
+    
+    \draw[fill=rose!25, draw=slate800, line width=0.8pt] (0,0) -- (225:2.1cm) arc (225:270:2.1cm) -- cycle;
+    \node[font=\bfseries\scriptsize, rose!90!black] at (247.5:1.4cm) {Perdu};
+    
+    \draw[fill=sky!20, draw=slate800, line width=0.8pt] (0,0) -- (270:2.1cm) arc (270:315:2.1cm) -- cycle;
+    \node[font=\bfseries\scriptsize, slate900] at (292.5:1.4cm) {Goodies};
+    
+    \draw[fill=amber!25, draw=slate800, line width=0.8pt] (0,0) -- (315:2.1cm) arc (315:360:2.1cm) -- cycle;
+    \node[font=\bfseries\scriptsize, amber!90!black] at (337.5:1.4cm) {10 \euro{}};
+
+    % Contour et centre
+    \draw[slate900, line width=1.5pt] (0,0) circle (2.1cm);
+    \fill[slate900] (0,0) circle (4pt);
+    
     % Flèche repère
-    \draw[fill=colSecondary, draw=slate900, thick] (0,2.1) -- (-0.2,1.8) -- (0.2,1.8) -- cycle;
+    \draw[fill=colSecondary, draw=slate900, line width=1pt] (0,2.45) -- (-0.25,2.15) -- (0.25,2.15) -- cycle;
 \end{tikzpicture}
 \end{minipage}\hfill
-\begin{minipage}[c]{0.56\linewidth}
-\begin{tcolorbox}[colback=slate100, colframe=colPrimary, arc=4pt, boxrule=0.8pt, top=4pt, bottom=4pt, left=6pt, right=6pt]
-\sffamily\footnotesize
+\begin{minipage}[c]{0.54\linewidth}
+\begin{tcolorbox}[colback=slate100, colframe=colPrimary, arc=5pt, boxrule=0.8pt, top=6pt, bottom=6pt, left=8pt, right=8pt]
+\sffamily\small
 \textbf{Problématique :}
-\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+\begin{enumerate}[leftmargin=1.2em, itemsep=4pt]
     \item Combien d'issues possibles compte cette expérience aléatoire ?
     \item Quelle fraction simplifiée représente la chance de gagner un bon d'achat de $10\text{ \euro{}}$ ?
-    \item Quelle est la probabilité (en pourcentage) de repartir avec un lot ?
+    \item Quelle est la probabilité (en pourcentage) de repartir avec un lot (bon d'achat ou goodies) ?
 \end{enumerate}
 \end{tcolorbox}
 \end{minipage}
 
-\vspace{2mm}
+\vspace{3mm}
 \noindent\textbf{Espace de recherche :}
-\lignesreponse[3]
+\lignesreponse[5]
 \end{activite}
+
+\newpage
 
 % ------------------------------------------------------------------------------
 % 2. COURS : VOCABULAIRE DES PROBABILITÉS & ÉVÉNEMENTS
@@ -64,9 +79,9 @@ Pour l'inauguration d'un magasin d'outillage, les clients peuvent faire tourner 
 
 \begin{cadredef}[Expérience Aléatoire \& Issues]
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Une \textbf{expérience aléatoire} est une expérience dont on connaît tous les résultats possibles, mais dont le résultat dépend du hasard (impossible à prévoir avec certitude).
+    \item Une \textbf{expérience aléatoire} est une expérience reproductible dont on connaît toutes les possibilités, mais dont le résultat dépend du hasard (impossible à prévoir à l'avance).
     \item Chaque résultat possible est appelé une \textbf{issue}.
-    \item Un \textbf{événement} est un ensemble d'issues (ex : $A$ : « Obtenir un nombre pair »).
+    \item Un \textbf{événement} est constitué d'une ou plusieurs issues (ex : $A$ : \og Obtenir un nombre pair \fg{}).
 \end{itemize}
 \end{cadredef}
 
@@ -75,56 +90,43 @@ La \textbf{probabilité} d'un événement $A$, notée $P(A)$, est un nombre comp
 \[ \mathbf{0 \le P(A) \le 1} \qquad (\text{ou entre } 0\text{ \%} \text{ et } 100\text{ \%}) \]
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
     \item \textbf{Événement impossible} : sa probabilité vaut $\mathbf{0}$ (ex : obtenir un 7 avec un dé à 6 faces).
-    \item \textbf{Événement certain} : sa probabilité vaut $\mathbf{1}$ (ex : obtenir un nombre $\le 6$).
-    \item \textbf{Événement contraire $\bar{A}$} : l'événement « non $A$ », sa probabilité est : $\mathbf{P(\bar{A}) = 1 - P(A)}$.
+    \item \textbf{Événement certain} : sa probabilité vaut $\mathbf{1}$ (ex : obtenir un nombre inférieur ou égal à 6).
+    \item \textbf{Événement contraire $\bar{A}$} : l'événement qui se réalise lorsque $A$ ne se réalise pas.
+    \[ \mathbf{P(\bar{A}) = 1 - P(A)} \]
 \end{itemize}
 \end{cadredef}
 
 \begin{cadreexemple}
-Si la probabilité qu'un colis arrive en retard est $P(R) = 0{,}08$ ($8\text{ \%}$), alors la probabilité que le colis arrive à l'heure ($\bar{R}$) est :
+Si la probabilité qu'un colis subisse un retard est $P(R) = 0{,}08$ ($8\text{ \%}$), alors la probabilité que le colis arrive dans les délais (événement contraire $\bar{R}$) est :
 \[ P(\bar{R}) = 1 - P(R) = 1 - \pointille[1.5cm] = \pointille[1.5cm] \qquad (\text{soit } \pointille[1.5cm]\text{ \%}) \]
 \end{cadreexemple}
 
 % ------------------------------------------------------------------------------
-% 3. COURS : SITUATION D'ÉQUIPROBABILITÉ
+% 3. COURS : SITUATION D'ÉQUIPROBABILITÉ & ARBRES PONDÉRÉS
 % ------------------------------------------------------------------------------
-\section{Situation d'Équiprobabilité}
+\section{Loi d'Équiprobabilité \& Arbre des Possibles}
 
 \begin{cadredef}[Loi d'Équiprobabilité]
-Lorsque toutes les issues d'une expérience aléatoire ont \textbf{exactement la même chance} de se produire (dés équilibrés, pièces non truquées, tirage au sort au hasard), on est en situation d'\textbf{équiprobabilité}.
+Lorsque toutes les issues d'une expérience ont \textbf{exactement la même probabilité} de se produire (dés équilibrés, tirage au hasard sans triche), on est en situation d'\textbf{équiprobabilité} :
 \[ \mathbf{P(A) = \frac{\text{Nombre d'issues favorables à } A}{\text{Nombre total d'issues possibles}}} \]
 \end{cadredef}
 
-\begin{cadremethode}[Méthode : Écrire une Probabilité]
-On lance un dé classique à 6 faces non truqué. On note $A$ l'événement : « Obtenir un multiple de 3 » (issues : $3$ et $6$).
-\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
-    \item Nombre d'issues favorables : $2$ (le $3$ et le $6$).
-    \item Nombre total d'issues : $6$ ($1, 2, 3, 4, 5, 6$).
-    \item Probabilité : $P(A) = \frac{2}{6} = \mathbf{\frac{1}{3}} \approx \mathbf{0{,}333} \approx \mathbf{33{,}3\text{ \%}}$.
-\end{enumerate}
-\end{cadremethode}
-
-% ------------------------------------------------------------------------------
-% 4. COURS : EXPÉRIENCES À DEUX ÉPREUVES (ARBRE DES POSSIBLES)
-% ------------------------------------------------------------------------------
-\section{Expériences à Deux Épreuves \& Arbre des Choix}
-
-\begin{cadremethode}[Construire et Utiliser un Arbre Pondéré]
-Pour représenter une expérience à deux étapes successives (ex : lancer une pièce puis tirer une carte) :
+\begin{cadremethode}[Construire et Utiliser un Arbre Pondéré à Deux Épreuves]
+Pour représenter une expérience à deux étapes (ex : lancer d'une pièce puis tirage d'un jeton) :
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Chaque branche porte la \textbf{probabilité} de l'événement associé.
-    \item La somme des probabilités issues d'un même n\oe ud vaut toujours \textbf{1}.
-    \item \textbf{Règle du produit} : La probabilité de l'issue au bout d'un chemin est égale au \textbf{produit} des probabilités rencontrées le long de ce chemin.
+    \item Sur chaque branche, on inscrit la \textbf{probabilité} de l'événement correspondant.
+    \item La somme des probabilités issues d'un même n\oe ud est toujours égale à \textbf{1}.
+    \item \textbf{Règle du produit} : La probabilité d'une issue au bout d'un chemin est égale au \textbf{produit} des probabilités le long de ce chemin.
 \end{itemize}
 \end{cadremethode}
 
 \begin{center}
-\begin{tikzpicture}[scale=0.85, grow=right, sloped, level 1/.style={sibling distance=2.2cm, level distance=3cm}, level 2/.style={sibling distance=1.1cm, level distance=3cm}]
+\begin{tikzpicture}[scale=0.85, grow=right, sloped, level 1/.style={sibling distance=2.2cm, level distance=3.2cm}, level 2/.style={sibling distance=1.1cm, level distance=3.2cm}]
     \node[circle, fill=slate800, inner sep=2pt] {}
         child {
             node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Pile ($P$)}
             child {
-                node[draw=colSecondary, fill=colSecondary!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Gagné ($G$)}
+                node[draw=emerald, fill=emerald!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Gagné ($G$)}
                 edge from parent node[above, font=\scriptsize] {$\frac{1}{6}$}
             }
             child {
@@ -136,7 +138,7 @@ Pour représenter une expérience à deux étapes successives (ex : lancer une p
         child {
             node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Face ($F$)}
             child {
-                node[draw=colSecondary, fill=colSecondary!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Gagné ($G$)}
+                node[draw=emerald, fill=emerald!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Gagné ($G$)}
                 edge from parent node[above, font=\scriptsize] {$\frac{1}{6}$}
             }
             child {
@@ -150,69 +152,68 @@ Pour représenter une expérience à deux étapes successives (ex : lancer une p
 
 \begin{cadreretenu}[L'Essentiel du Chapitre 9]
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Une probabilité est toujours comprise entre $\mathbf{0}$ et $\mathbf{1}$ (jamais négative, jamais $>1$).
+    \item Une probabilité est toujours comprise entre $\mathbf{0}$ et $\mathbf{1}$ (jamais négative, jamais supérieure à $1$).
     \item Équiprobabilité : $P(A) = \frac{\text{issues favorables}}{\text{issues totales}}$.
     \item Événement contraire : $P(\bar{A}) = 1 - P(A)$.
-    \item Arbre des possibles : on multiplie les probabilités le long d'un chemin.
+    \item Arbre des possibles : on multiplie les probabilités le long de chaque chemin.
 \end{itemize}
 \end{cadreretenu}
 
+\newpage
+
 % ------------------------------------------------------------------------------
-% 5. QUESTIONS FLASH / AUTOMATISMES
+% 4. QUESTIONS FLASH / AUTOMATISMES
 % ------------------------------------------------------------------------------
 \section{Questions Flash / Automatismes}
 
 \begin{automatisme}[8 Questions Flash d'Entraînement]
 \begin{enumerate}[label=\textbf{Q\arabic*.}]
-    \item On lance un dé à 6 faces. Probabilité d'obtenir un nombre pair : $P = \pointille[3cm]$
-    \item On tire une boule dans un sac contenant 3 rouges et 7 vertes. $P(\text{rouge}) = \pointille[3cm]$
-    \item Donner la probabilité en pourcentage de tirer une boule verte du sac : \pointille[3cm]
-    \item Si $P(E) = 0{,}42$, calculer la probabilité de l'événement contraire : $P(\bar{E}) = \pointille[3cm]$
+    \item On lance un dé à 6 faces non truqué. Probabilité d'obtenir un nombre pair : $P = \pointille[3cm]$
+    \item Dans un sac contenant 3 boules rouges et 7 boules vertes, calculer $P(\text{rouge}) = \pointille[3cm]$
+    \item Exprimer en pourcentage la probabilité de tirer une boule verte de ce sac : \pointille[3cm]
+    \item Si $P(E) = 0{,}35$, calculer la probabilité de l'événement contraire : $P(\bar{E}) = \pointille[3cm]$
     \item Une expérience comporte 4 issues équiprobables. Quelle est la probabilité de chaque issue ? \pointille[3cm]
     \item On lance une pièce équilibrée. Quelle est la probabilité d'obtenir Face ? \pointille[3cm]
-    \item Quelle est la probabilité d'un événement certain ? \pointille[3cm]
+    \item Quelle est la valeur de la probabilité d'un événement certain ? \pointille[3cm]
     \item Une probabilité peut-elle être égale à $1{,}25$ ? Justifier : \pointille[3cm]
 \end{enumerate}
 \end{automatisme}
 
 % ------------------------------------------------------------------------------
-% 6. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
+% 5. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
 % ------------------------------------------------------------------------------
 \section{Travaux Dirigés (TD) : Exercices d'Entraînement}
 
 \begin{exercice}[2 pts]{\capRealiser}{Tirage dans un présentoir (Pâtisserie / Traiteur)}
-Un artisan pâtissier prépare une boîte de \textbf{24 macarons} contenant :
-\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
-    \item 6 macarons au chocolat ;
-    \item 8 macarons à la vanille ;
-    \item 4 macarons au café ;
-    \item 6 macarons à la framboise.
-\end{itemize}
+Un artisan pâtissier prépare une boîte de \textbf{24 macarons} comprenant :
+$6$ macarons chocolat, $8$ macarons vanille, $4$ macarons café et $6$ macarons framboise.
 Un client choisit un macaron au hasard.
 \begin{enumerate}[leftmargin=1.5em]
     \item Calculer la probabilité que le macaron soit à la vanille (fraction irréductible).
     \item Calculer la probabilité que le macaron soit au chocolat ou au café.
-    \item Calculer la probabilité de l'événement : « Le macaron n'est pas à la framboise ».
+    \item Calculer la probabilité de l'événement : \og Le macaron n'est pas à la framboise \fg{}.
 \end{enumerate}
 \lignesreponse[3]
 \end{exercice}
 
 \begin{exercice}[3 pts]{\capSApproprier}{Tirage dans un jeu de 32 cartes (Jeux / Loisirs)}
-On tire une carte au hasard dans un jeu de 32 cartes standard (c\oe ur, carreau, pique, trèfle) :
+On tire au hasard une carte dans un jeu de 32 cartes standard (c\oe ur, carreau, pique, trèfle) :
 \begin{enumerate}[leftmargin=1.5em]
     \item Calculer la probabilité de tirer un As : $P(\text{As}) = \pointille[3cm]$
     \item Calculer la probabilité de tirer un C\oe ur : $P(\text{C\oe ur}) = \pointille[3cm]$
     \item Calculer la probabilité de tirer une carte rouge (C\oe ur ou Carreau) : $P(\text{Rouge}) = \pointille[3cm]$
     \item Calculer la probabilité de tirer une figure (Valet, Dame, Roi) : $P(\text{Figure}) = \pointille[3cm]$
 \end{enumerate}
-\lignesreponse[3]
+\lignesreponse[2]
 \end{exercice}
 
+\newpage
+
 \begin{exercice}[3 pts]{\capRealiser}{Expérience à deux épreuves (Lancer combiné)}
-Un jeu consiste à lancer une pièce de 1 \euro{} (Pile ou Face), puis à tirer un jeton dans un sac contenant \textbf{1 jeton Vert} et \textbf{3 jetons Noirs}.
+Un jeu d'arcade consiste à lancer une pièce équilibrée (Pile ou Face), puis à tirer un jeton dans un sac contenant \textbf{1 jeton Vert} et \textbf{3 jetons Noirs}.
 \begin{enumerate}[leftmargin=1.5em]
-    \item Compléter l'arbre des possibles ci-dessous en indiquant les probabilités sur chaque branche.
-    \item Calculer la probabilité d'obtenir l'issue « Pile et Jeton Vert » : $P(P \text{ et } V) = \pointille[2cm] \times \pointille[2cm] = \pointille[2cm]$.
+    \item Compléter l'arbre des possibles ci-dessous en précisant les probabilités sur chaque branche.
+    \item Calculer la probabilité de l'issue \og Pile et Jeton Vert \fg{} : $P(P \text{ et } V) = \pointille[2cm] \times \pointille[2cm] = \pointille[2cm]$.
 \end{enumerate}
 
 \begin{center}
@@ -233,24 +234,24 @@ Un jeu consiste à lancer une pièce de 1 \euro{} (Pile ou Face), puis à tirer 
 \end{exercice}
 
 \begin{exercice}[4 pts]{\capAnalyser}{Contrôle de Qualité de Composants (Électronique / Industrie)}
-Une usine fabrique des cartes mères pour smartphones. Sur un lot de \textbf{500 cartes} contrôlées :
+Une unité de production fabrique des modules électroniques pour le secteur automobile. Sur un échantillon de \textbf{500 modules} testés en fin de chaîne :
 \begin{itemize}[leftmargin=1.5em, itemsep=1pt]
-    \item $460$ cartes ne présentent aucun défaut (conformes) ;
-    \item $30$ cartes présentent un défaut mineur réparable ;
-    \item $10$ cartes présentent un défaut majeur non réparable (rebutées).
+    \item $465$ modules ne présentent aucun défaut (entièrement conformes) ;
+    \item $25$ modules présentent un défaut mineur de soudure réparable ;
+    \item $10$ modules présentent un composant grillé (non réparables / rebutés).
 \end{itemize}
 
 \begin{enumerate}[leftmargin=1.5em]
-    \item On prélève une carte au hasard. Calculer la probabilité qu'elle soit conforme : $P(C) = \pointille[3cm]$
-    \item Calculer la probabilité que la carte soit réparable : $P(R) = \pointille[3cm]$
-    \item Calculer le pourcentage de cartes rebutées par l'usine.
-    \item L'usine annonce un taux de conformité supérieur à $90\text{ \%}$. Cette affirmation est-elle exacte ? Justifier.
+    \item On prélève un module au hasard. Calculer la probabilité qu'il soit conforme : $P(C) = \pointille[3cm]$
+    \item Calculer la probabilité que le module soit réparable : $P(R) = \pointille[3cm]$
+    \item Calculer le pourcentage de modules rebutés par l'usine.
+    \item L'usine s'est fixé un objectif qualité d'au moins $92\text{ \%}$ de modules conformes du premier coup. Cet objectif est-il atteint ? Justifier avec un calcul précis.
 \end{enumerate}
 \lignesreponse[4]
 \end{exercice}
 
 % ------------------------------------------------------------------------------
-% 7. TP TICE / CALCULATRICE NUMWORKS
+% 6. TP TICE / CALCULATRICE NUMWORKS
 % ------------------------------------------------------------------------------
 \section{TP TICE : Simuler le Hasard sur NumWorks}
 
@@ -260,43 +261,45 @@ Une usine fabrique des cartes mères pour smartphones. Sur un lot de \textbf{500
     \begin{itemize}
         \item Ouvrir l'application \textbf{Calculs}.
         \item Appuyer sur la touche \textbf{Boîte à outils} (\faTools\ Toolbox) $\rightarrow$ sélectionner \textbf{Probabilités} $\rightarrow$ \textbf{Aléatoire} $\rightarrow$ \texttt{randint(1,6)}.
-        \item Appuyer plusieurs fois sur \textbf{EXE} pour simuler des lancers successifs de dés.
+        \item Appuyer plusieurs fois sur la touche \textbf{EXE} pour observer des tirages aléatoires successifs.
     \end{itemize}
-    \item \textbf{Simuler $100$ tirages (Application Probabilités)} :
+    \item \textbf{Simuler une loi de probabilité (Application Probabilités)} :
     \begin{itemize}
         \item Ouvrir l'application \textbf{Probabilités} sur l'écran d'accueil.
-        \item Sélectionner la loi \textbf{Uniforme} pour observer la répartition théorique équiprobable.
+        \item Sélectionner la loi \textbf{Uniforme} (discrète) pour visualiser la répartition théorique équiprobable.
     \end{itemize}
 \end{enumerate}
 \end{tpinfo}
 
+\newpage
+
 % ------------------------------------------------------------------------------
-% 8. VERS LE BREVET (DNB PRO)
+% 7. VERS LE BREVET (DNB PRO)
 % ------------------------------------------------------------------------------
 \section{Vers le Brevet (DNB Pro)}
 
-\begin{sujetdnb}[DNB Pro Métropole][10 pts]{La Tombola du Club Sportif}
-Pour financer l'achat de nouveaux équipements, un club sportif organise une tombola. L'urne contient \textbf{100 billets} identiques et indiscernables au toucher :
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{La Tombola du Club Omnisports}
+Pour financer l'achat de matériel d'entraînement, un club omnisports organise une grande tombola. L'urne contient \textbf{100 billets} scellés, identiques et indiscernables au toucher :
 \begin{itemize}[leftmargin=1.5em, itemsep=1pt]
-    \item 1 billet « Gros Lot » (un VTT d'une valeur de 350 \euro{}) ;
-    \item 4 billets « Lot Sport » (un sac de sport et ballon) ;
-    \item 15 billets « Lot Consolation » (une gourde en inox) ;
-    \item Tous les autres billets sont « Perdants ».
+    \item 1 billet \og Gros Lot \fg{} (un VTT d'une valeur de 350 \euro{}) ;
+    \item 4 billets \og Lot Sport \fg{} (un sac de sport complet avec ballon) ;
+    \item 15 billets \og Lot Consolation \fg{} (une gourde isotherme inox) ;
+    \item Tous les autres billets sont \og Perdants \fg{}.
 \end{itemize}
 
-\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
-    \item \capSApproprier\ Combien de billets perdants se trouvent dans l'urne ? \pointille[3cm]
-    \item \capRealiser\ Un participant achète un billet au hasard. Calculer la probabilité des événements suivants (sous forme de fraction puis de pourcentage) :
-    \begin{enumerate}[label=\alph*)]
-        \item Événement $A$ : « Gagner le Gros Lot » $\implies P(A) = \pointille[3cm]$
-        \item Événement $B$ : « Gagner un Lot Sport » $\implies P(B) = \pointille[3cm]$
-        \item Événement $G$ : « Gagner un lot (quel qu'il soit) » $\implies P(G) = \pointille[3cm]$
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+    \item \capSApproprier\ Déterminer le nombre exact de billets perdants présents dans l'urne. \pointille[3cm]
+    \item \capRealiser\ Un participant achète un billet au hasard. Calculer la probabilité des événements suivants (donner les résultats sous forme de fraction simplifiée puis en pourcentage) :
+    \begin{enumerate}[label=\alph*), leftmargin=1.5em, itemsep=2pt]
+        \item Événement $A$ : \og Gagner le Gros Lot \fg{} $\implies P(A) = \pointille[3cm]$
+        \item Événement $B$ : \og Gagner un Lot Sport \fg{} $\implies P(B) = \pointille[3cm]$
+        \item Événement $G$ : \og Gagner un lot (quel qu'il soit) \fg{} $\implies P(G) = \pointille[3cm]$
     \end{enumerate}
-    \item \capAnalyser\ Définir par une phrase l'événement contraire $\bar{G}$ et calculer sa probabilité $P(\bar{G})$.
-    \item \capValider\ Un joueur affirme : « J'ai plus de $80\text{ \%}$ de chances de repartir les mains vides ». A-t-il raison ? Justifier par un calcul précis.
+    \item \capAnalyser\ Définir par une phrase en français l'événement contraire $\bar{G}$ et calculer sa probabilité $P(\bar{G})$.
+    \item \capValider\ Un joueur hésite à acheter un billet et affirme : \og J'ai plus de $75\text{ \%}$ de chances de ne rien gagner du tout \fg{}. A-t-il raison ? Justifier votre réponse par un calcul clair et argumenté.
 \end{enumerate}
 
-\vspace{1mm}
+\vspace{2mm}
 \noindent\textbf{Rédigez votre démarche ci-dessous :}
-\lignesreponse[6]
+\lignesreponse[8]
 \end{sujetdnb}
