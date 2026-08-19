@@ -1,0 +1,282 @@
+% ==============================================================================
+% CHAPITRE 10 : TRIGONOMÉTRIE DANS LE TRIANGLE RECTANGLE (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Trigonométrie dans le Triangle Rectangle}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : BTP / RAMPE D'ACCÈS PMR)
+% ------------------------------------------------------------------------------
+\begin{activite}{Conformité d'une Rampe d'Accès PMR (Bâtiment \& Travaux Publics)}
+Pour rendre accessible l'entrée d'un bâtiment administratif aux Personnes à Mobilité Réduite (PMR), une entreprise de BTP doit installer une rampe d'accès inclinée.
+La marche d'entrée se situe à une hauteur de \textbf{$45\text{ cm}$} ($0{,}45\text{ m}$) du sol horizontal.
+La longueur de la rampe disponible au sol est de \textbf{$6\text{ m}$}.
+
+\vspace{1mm}
+\begin{center}
+\begin{tcolorbox}[colback=amber!10, colframe=amber!80!black, arc=4pt, boxrule=0.8pt, left=8pt, right=8pt, top=4pt, bottom=4pt]
+\sffamily\footnotesize
+\textbf{Norme d'accessibilité PMR (Arrêté ministériel) :}
+Pour être homologuée et franchissable sans assistance en fauteuil roulant, l'angle d'inclinaison $\alpha$ de la rampe par rapport à l'horizontale ne doit pas dépasser \textbf{$5^\circ$}.
+\end{tcolorbox}
+\end{center}
+
+\vspace{1mm}
+\noindent
+\begin{minipage}[c]{0.48\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+    % Sol horizontal
+    \draw[slate600, thick] (-0.3,0) -- (5.2,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.3,-0.2) rectangle (5.2,0);
+    
+    % Triangle rectangle
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4.0,0);
+    \coordinate (C) at (4.0,1.5);
+    
+    % Rampe et mur
+    \draw[colPrimary, line width=1.8pt] (A) -- (C) node[midway, above left=1pt, font=\bfseries\scriptsize, text=colPrimary] {Rampe ($L$)};
+    \draw[slate800, line width=1.4pt] (B) -- (C) node[midway, right=2pt, font=\bfseries\scriptsize] {$h = 0{,}45\text{ m}$};
+    \draw[slate800, line width=0.9pt] (A) -- (B) node[midway, below=3pt, font=\bfseries\scriptsize] {Sol $= 6\text{ m}$};
+    
+    % Angle droit
+    \draw[draw=slate800, fill=slate200, thick] (4.0,0.25) -- (3.75,0.25) -- (3.75,0) -- cycle;
+    
+    % Angle alpha
+    \draw[colSecondary, thick, fill=colSecondary!20] (A) -- (1.0,0) arc (0:{atan(1.5/4.0)}:1.0) -- cycle;
+    \node[colSecondary!90!black, font=\bfseries\footnotesize] at (1.3,0.2) {$\alpha$};
+
+    % Sommets
+    \node[below left=1pt, font=\bfseries\footnotesize] at (A) {$A$};
+    \node[below right=1pt, font=\bfseries\footnotesize] at (B) {$B$};
+    \node[above right=1pt, font=\bfseries\footnotesize] at (C) {$C$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.48\linewidth}
+\begin{tcolorbox}[colback=slate100, colframe=colPrimary, arc=5pt, boxrule=0.8pt, top=6pt, bottom=6pt, left=8pt, right=8pt]
+\sffamily\small
+\textbf{Problématique :}
+\begin{enumerate}[leftmargin=1.2em, itemsep=4pt]
+    \item Identifier la nature du triangle $ABC$ ainsi que le côté adjacent et le côté opposé à l'angle $\alpha$.
+    \item À l'aide de la formule trigonométrique appropriée ($\tan$), déterminer la valeur de $\tan(\alpha)$.
+    \item En déduire l'angle $\alpha$ en degrés (arrondi au dixième). La rampe respecte-t-elle la norme PMR ?
+\end{enumerate}
+\end{tcolorbox}
+\end{minipage}
+
+\vspace{3mm}
+\noindent\textbf{Espace de recherche :}
+\lignesreponse[5]
+\end{activite}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 2. COURS : VOCABULAIRE ET RAPPORTS TRIGONOMÉTRIQUES
+% ------------------------------------------------------------------------------
+\section{Vocabulaire \& Rapports Trigonométriques}
+
+\begin{cadredef}[Côtés dans le Triangle Rectangle]
+Dans un triangle rectangle, par rapport à l'un des deux angles aigus $\widehat{A}$ :
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item L'\textbf{Hypoténuse} est le côté opposé à l'angle droit (c'est toujours le plus long côté).
+    \item Le \textbf{Côté Adjacent} est le côté qui forme l'angle $\widehat{A}$ avec l'hypoténuse.
+    \item Le \textbf{Côté Opposé} est le côté situé en face de l'angle $\widehat{A}$.
+\end{itemize}
+\end{cadredef}
+
+\begin{cadredef}[Formules Trigonométriques (Cosinus, Sinus, Tangente)]
+Pour tout angle aigu $\widehat{A}$ dans un triangle rectangle :
+\[ \mathbf{\cos(\widehat{A}) = \frac{\text{Côté Adjacent}}{\text{Hypoténuse}}} \qquad 
+   \mathbf{\sin(\widehat{A}) = \frac{\text{Côté Opposé}}{\text{Hypoténuse}}} \qquad 
+   \mathbf{\tan(\widehat{A}) = \frac{\text{Côté Opposé}}{\text{Côté Adjacent}}} \]
+\end{cadredef}
+
+\begin{center}
+\begin{tcolorbox}[colback=colPrimary!10, colframe=colPrimary, width=0.92\linewidth, arc=4pt, boxrule=1pt, top=4pt, bottom=4pt, left=8pt, right=8pt]
+\centering\sffamily\bfseries\normalsize
+Moyen Mnémotechnique Officiel : \quad \textcolor{colPrimary}{\Large SOH - CAH - TOA} \quad ou \quad \textcolor{colPrimary}{\Large CAH - SOH - TOA}
+\end{tcolorbox}
+\end{center}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : MÉTHODES DE CALCUL (LONGUEUR & ANGLE)
+% ------------------------------------------------------------------------------
+\section{Méthodes de Calcul : Longueur \& Angle}
+
+\begin{cadremethode}[1. Calculer la Longueur d'un Côté]
+\textbf{Exemple} : Dans un triangle $EFG$ rectangle en $E$, $EG = 7\text{ cm}$ et $\widehat{EFG} = 35^\circ$. Calculer l'hypoténuse $FG$.
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item On cherche l'\textbf{hypoténuse} et on connaît le côté \textbf{opposé} $EG \implies$ formule du \textbf{Sinus} ($\sin$).
+    \item On écrit la formule : $\sin(35^\circ) = \frac{EG}{FG} = \frac{7}{FG}$.
+    \item On isole $FG$ par produit en croix : $FG = \frac{7}{\sin(35^\circ)} \approx \pointille[2cm]\text{ cm}$ (au dixième).
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadremethode}[2. Calculer la Mesure d'un Angle]
+\textbf{Exemple} : Dans un triangle $RST$ rectangle en $S$, $RS = 4\text{ cm}$ (adjacent) et $RT = 9\text{ cm}$ (hypoténuse). Calculer l'angle $\widehat{SRT}$.
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item On connaît l'adjacent et l'hypoténuse $\implies$ formule du \textbf{Cosinus} ($\cos$).
+    \item On écrit : $\cos(\widehat{SRT}) = \frac{RS}{RT} = \frac{4}{9} \approx 0{,}444$.
+    \item Sur calculatrice (touches \texttt{shift} $\cos$ ou \texttt{arccos}) : $\widehat{SRT} = \arccos\left(\frac{4}{9}\right) \approx \pointille[2cm]^\circ$ (au degré près).
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 10]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Calculatrice} : toujours vérifier qu'elle est configurée en mode \textbf{Degrés (deg)}.
+    \item Le cosinus et le sinus sont toujours des nombres compris entre $\mathbf{0}$ et $\mathbf{1}$.
+    \item Pour trouver un angle : utiliser les fonctions inverses ($\arccos$, $\arcsin$, $\arctan$).
+\end{itemize}
+\end{cadreretenu}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 4. QUESTIONS FLASH / AUTOMATISMES
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+    \item Dans un triangle rectangle, quel est le nom du côté opposé à l'angle droit ? \pointille[3cm]
+    \item Compléter la formule mnémotechnique : $\text{C} = \text{A} / \text{H} \implies \cos(\alpha) = \frac{\pointille[2cm]}{\pointille[2cm]}$
+    \item Si le côté adjacent vaut $3\text{ cm}$ et l'hypoténuse $5\text{ cm}$, calculer $\cos(\alpha)$ sous forme décimale : \pointille[2cm]
+    \item Sur calculatrice en mode Degrés, calculer la valeur exacte ou arrondie au centième de $\cos(60^\circ) = \pointille[2cm]$
+    \item Quelle touche inverse de la calculatrice permet de trouver un angle dont on connaît le sinus ? \pointille[2.5cm]
+    \item Le sinus d'un angle aigu peut-il être égal à $1{,}35$ ? Justifier : \pointille[3cm]
+    \item Dans le triangle $ABC$ rectangle en $B$, quel est le côté opposé à l'angle $\widehat{C}$ ? \pointille[3cm]
+    \item Sachant que $\tan(\alpha) = 1$, donner la mesure exacte en degrés de l'angle $\alpha = \pointille[2cm]^\circ$
+\end{enumerate}
+\end{automatisme}
+
+% ------------------------------------------------------------------------------
+% 5. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
+% ------------------------------------------------------------------------------
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[2 pts]{\capRealiser}{Pente d'une Toiture Industrielle (BTP / Charpente)}
+Une charpente industrielle $ABC$ a la forme d'un triangle rectangle en $B$.
+Le versant du toit a une longueur $AC = 8{,}50\text{ m}$ et forme avec le plafond horizontal un angle $\widehat{BAC} = 22^\circ$.
+\begin{enumerate}[leftmargin=1.5em]
+    \item Calculer la hauteur sous faîtage $BC$ du bâtiment (arrondir au centième de mètre).
+    \item Calculer la largeur horizontale sous toiture $AB$ (arrondir au centième de mètre).
+\end{enumerate}
+\lignesreponse[3]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capSApproprier}{Sécurité d'une Échelle de Secours (Pompiers / Sécurité)}
+Les sapeurs-pompiers déploient une échelle de grande hauteur $L = 12\text{ m}$ contre la façade d'un immeuble pour évacuer un balcon.
+Pour garantir une stabilité parfaite sans risque de glissement au sol, l'angle avec le sol horizontal doit être de \textbf{$70^\circ$}.
+\begin{enumerate}[leftmargin=1.5em]
+    \item Calculer la hauteur maximale $h$ atteinte sur la façade par le haut de l'échelle (au centième de mètre).
+    \item Calculer la distance de sécurité $d$ à laquelle le pied de l'échelle doit être placé par rapport au mur.
+\end{enumerate}
+\lignesreponse[3]
+\end{exercice}
+
+\newpage
+
+\begin{exercice}[3 pts]{\capAnalyser}{Visée Maritime depuis un Phare Côtier (Navigation / Topographie)}
+Un gardien de phare observe un voilier en détresse au large.
+Le sommet du phare se trouve à une hauteur de \textbf{$48\text{ m}$} au-dessus du niveau de la mer.
+La distance horizontale séparant le pied du phare et le voilier est de \textbf{$160\text{ m}$}.
+\begin{enumerate}[leftmargin=1.5em]
+    \item Réaliser un schéma codé de la situation en faisant apparaître un triangle rectangle.
+    \item Calculer la valeur de la tangente de l'angle de visée $\widehat{\theta}$ formé avec l'horizontale.
+    \item En déduire la mesure de l'angle $\widehat{\theta}$ arrondi au dixième de degré.
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capRealiser}{Téléphérique de Montagne (Génie Civil / Transport)}
+Un câble de téléphérique relie une station inférieure $A$ (altitude $1\,200\text{ m}$) à une station supérieure $B$ (altitude $2\,100\text{ m}$).
+La longueur totale du câble tendu en ligne droite est $AB = 2\,400\text{ m}$.
+\begin{enumerate}[leftmargin=1.5em]
+    \item Calculer le dénivelé vertical $h$ franchi par le téléphérique entre les deux stations.
+    \item Déterminer le sinus de l'angle d'inclinaison $\beta$ du câble par rapport à l'horizontale.
+    \item Calculer la mesure de l'angle $\beta$ arrondie au degré près.
+    \item Calculer la distance horizontale parcourue au sol par la cabine (au mètre près).
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 6. TP TICE / CALCULATRICE NUMWORKS
+% ------------------------------------------------------------------------------
+\section{TP TICE : La Trigonométrie sur NumWorks}
+
+\begin{tpinfo}[Calculatrice NumWorks]{Configuration en Degrés \& Calculs d'Angles}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Vérifier le Mode Degrés} :
+    \begin{itemize}
+        \item Ouvrir les \textbf{Paramètres} de la calculatrice.
+        \item Dans la ligne \textbf{Unité d'angle}, sélectionner impérativement \textbf{Degré (deg)}.
+    \end{itemize}
+    \item \textbf{Calculer un rapport trigonométrique (Application Calculs)} :
+    \begin{itemize}
+        \item Saisir directement : \texttt{cos(45)} ou \texttt{sin(30)} puis valider avec \textbf{EXE}.
+        \item Calculer une longueur inconnue : taper directement \texttt{7 / sin(35)}.
+    \end{itemize}
+    \item \textbf{Calculer un angle inconnu (Fonctions Inverses)} :
+    \begin{itemize}
+        \item Appuyer sur la touche jaune \textbf{shift} puis sur la touche \textbf{cos} pour obtenir \texttt{acos(}.
+        \item Saisir \texttt{acos(4/9)} puis appuyer sur \textbf{EXE} pour obtenir l'angle en degrés.
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 7. VERS LE BREVET (DNB PRO)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Installation d'une Tyrolienne de Parc Aventure}
+Un parc de loisirs acrobatiques en forêt installe une nouvelle tyrolienne géante entre deux plates-formes fixées sur des arbres :
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
+    \item La plate-forme de départ $D$ est située à une hauteur de \textbf{$18\text{ m}$} du sol horizontal ;
+    \item La plate-forme d'arrivée $A$ est située à une hauteur de \textbf{$3\text{ m}$} du sol horizontal ;
+    \item La distance horizontale séparant les deux arbres est de \textbf{$40\text{ m}$}.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Sol
+    \draw[slate600, thick] (-0.5,0) -- (6.5,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.5,-0.25) rectangle (6.5,0);
+
+    % Arbre D (gauche)
+    \draw[slate800, line width=2pt] (0.5,0) -- (0.5,3.6) node[above, font=\bfseries\small] {Départ $D$ ($18\text{ m}$)};
+    
+    % Arbre A (droite)
+    \draw[slate800, line width=2pt] (5.5,0) -- (5.5,0.6) node[above, font=\bfseries\small] {Arrivée $A$ ($3\text{ m}$)};
+    
+    % Câble tyrolienne
+    \draw[colPrimary, line width=1.8pt] (0.5,3.6) -- (5.5,0.6);
+    
+    % Triangle rectangle auxiliaire
+    \draw[dashed, slate500, thick] (0.5,0.6) -- (5.5,0.6);
+    \draw[dashed, slate500, thick] (0.5,0.6) -- (0.5,3.6);
+    \node[left, font=\bfseries\footnotesize] at (0.5,2.1) {$h = 15\text{ m}$};
+    \node[below, font=\bfseries\footnotesize] at (3,0.6) {Distance $= 40\text{ m}$};
+    
+    % Angle droit et angle inclinaison
+    \draw[draw=slate800, thick] (0.5,0.85) -- (0.75,0.85) -- (0.75,0.6);
+    \node[below=2pt, font=\bfseries\footnotesize] at (0.5,0.6) {$H$};
+    \node[right=2pt, font=\bfseries\footnotesize] at (4.2,0.85) {$\gamma$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+    \item \capSApproprier\ Justifier par un calcul simple que le dénivelé vertical $DH$ vaut exactement \textbf{$15\text{ m}$}. \pointille[3cm]
+    \item \capRealiser\ À l'aide du théorème de Pythagore dans le triangle $DHA$ rectangle en $H$, calculer la longueur exacte du câble de tyrolienne $DA$ (arrondir au centième de mètre).
+    \item \capRealiser\ Calculer la tangente de l'angle de descente $\gamma = \widehat{DAH}$. En déduire la mesure de l'angle $\gamma$ en degrés (arrondir au dixième de degré).
+    \item \capValider\ Pour le confort et la sécurité des usagers, la vitesse à l'arrivée impose que l'angle de descente $\gamma$ soit inférieur à \textbf{$25^\circ$}. La tyrolienne respecte-t-elle cette norme de sécurité ? Justifier clairement.
+\end{enumerate}
+
+\vspace{2mm}
+\noindent\textbf{Rédigez votre démarche ci-dessous :}
+\lignesreponse[8]
+\end{sujetdnb}
