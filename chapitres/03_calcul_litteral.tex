@@ -1,0 +1,363 @@
+% ==============================================================================
+% CHAPITRE 3 : CALCUL LITTÉRAL, DÉVELOPPEMENTS & FACTORISATIONS (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Calcul Littéral, Développements \& Factorisations}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : AGENCEMENT / BTP)
+% ------------------------------------------------------------------------------
+\begin{activite}{Conception d'une terrasse modulaire (Menuiserie \& Agencement)}
+Un artisan menuisier conçoit une terrasse en bois modulable composée de deux zones rectangulaires juxtaposées :
+\begin{itemize}
+    \item Une première zone pour l'espace repas de longueur $x$ mètres et de largeur $4\text{ mètres}$.
+    \item Une deuxième zone pour l'espace détente de longueur $6\text{ mètres}$ et de largeur $4\text{ mètres}$.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Rectangle 1
+    \fill[colPrimary!15] (0,0) rectangle (4,2.5);
+    \draw[colPrimary, line width=1.5pt] (0,0) rectangle (4,2.5);
+    \node at (2,1.25) {\bfseries\sffamily Zone Repas : $\mathcal{A}_1$};
+    
+    % Rectangle 2
+    \fill[colSecondary!20] (4,0) rectangle (7.5,2.5);
+    \draw[colSecondary, line width=1.5pt] (4,0) rectangle (7.5,2.5);
+    \node at (5.75,1.25) {\bfseries\sffamily Zone Détente : $\mathcal{A}_2$};
+    
+    % Cotes
+    \draw[<->, >=stealth, thick] (0,-0.4) -- (4,-0.4) node[midway, below] {$x\text{ m}$};
+    \draw[<->, >=stealth, thick] (4,-0.4) -- (7.5,-0.4) node[midway, below] {$6\text{ m}$};
+    \draw[<->, >=stealth, thick] (-0.4,0) -- (-0.4,2.5) node[midway, left] {$4\text{ m}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colPrimary, fill=slate50, rounded corners=6pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \sffamily
+        \textbf{Problématique :}
+        \begin{enumerate}
+            \item Exprimer l'aire totale $\mathcal{A}$ de la terrasse en additionnant l'aire des deux zones : $\mathcal{A} = \mathcal{A}_1 + \mathcal{A}_2$.
+            \item Exprimer l'aire totale $\mathcal{A}$ en calculant directement l'aire du grand rectangle de longueur $(x+6)$ et de largeur $4$.
+            \item Que peut-on en déduire sur l'égalité entre $4 \times (x + 6)$ et $4x + 24$ ?
+        \end{enumerate}
+    };
+\end{tikzpicture}
+\end{center}
+
+\vspace{1mm}
+\noindent\textbf{Espace de recherche :}
+\lignesreponse[4]
+\end{activite}
+
+% ------------------------------------------------------------------------------
+% 2. COURS : EXPRESSIONS LITTÉRALES & RÉDUCTION
+% ------------------------------------------------------------------------------
+\section{Expressions Littérales \& Réduction}
+
+\begin{cadredef}[Expression littérale \& Conventions d'écriture]
+Une \textbf{expression littérale} est une expression mathématique contenant une ou plusieurs lettres qui désignent des nombres inconnus ou variables.
+\begin{itemize}
+    \item \textbf{Convention :} On peut supprimer le symbole de multiplication $\times$ devant une lettre ou une parenthèse.
+    \[ 4 \times x = 4x \qquad 3 \times (x + 2) = 3(x+2) \qquad x \times x = x^2 \]
+    \item Pour calculer la valeur d'une expression littérale, on \textbf{remplace} chaque lettre par le nombre donné.
+\end{itemize}
+\end{cadredef}
+
+\begin{cadreexemple}
+Soit l'expression $A = 3x^2 - 5x + 4$. Calculer la valeur de $A$ pour $x = 2$ :
+\[ A = 3 \times (\pointille[0.8cm])^2 - 5 \times (\pointille[0.8cm]) + 4 = 3 \times \pointille[0.8cm] - \pointille[1cm] + 4 = \pointille[1.5cm] \]
+\end{cadreexemple}
+
+\begin{cadredef}[Réduire une expression littérale]
+\textbf{Réduire} une expression, c'est l'écrire avec le moins de termes possibles en regroupant les termes de « même famille » (les termes en $x^2$, les termes en $x$ et les nombres seuls).
+\end{cadredef}
+
+\begin{cadremethode}[Méthode pas à pas : Réduire une somme]
+Pour réduire :
+\begin{enumerate}
+    \item On regroupe les termes de même nature.
+    \item On additionne ou soustrait les coefficients devant chaque lettre.
+\end{enumerate}
+
+\textbf{Exemples :}
+\begin{itemize}
+    \item $B = 4x + 7 + 3x - 2 = (4x + 3x) + (7 - 2) = \mathbf{7x + 5}$
+    \item $C = 5x^2 - 3x + 2 + 2x^2 + 8x - 9 = (\pointille[2.5cm]) + (\pointille[2.5cm]) + (\pointille[1.5cm]) = \pointille[3cm]$
+\end{itemize}
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : DÉVELOPPEMENT (SIMPLE ET DOUBLE DISTRIBUTIVITÉ)
+% ------------------------------------------------------------------------------
+\section{Développer une Expression (Distributivité)}
+
+\begin{cadredef}[Développer]
+\textbf{Développer} une expression, c'est transformer un \textbf{produit} en une \textbf{somme} ou une différence.
+\end{cadredef}
+
+\begin{cadreprop}[Simple Distributivité]
+Pour tous nombres relatifs $k$, $a$ et $b$ :
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{X|X}
+\rowcolor{colDefBg}
+\centering $\mathbf{k(a + b) = k \times a + k \times b = ka + kb}$ & \centering $\mathbf{k(a - b) = k \times a - k \times b = ka - kb}$ \tabularnewline
+\end{tabularx}
+\end{center}
+\end{cadreprop}
+
+\begin{cadremethode}[Développer avec la simple distributivité]
+Compléter les développements modèles :
+\begin{itemize}
+    \item $D = 3(x + 5) = 3 \times x + 3 \times 5 = \mathbf{3x + 15}$
+    \item $E = 7(2x - 4) = 7 \times \pointille[1cm] - 7 \times \pointille[1cm] = \pointille[3cm]$
+    \item $F = -4(3x - 2) = (-4) \times \pointille[1cm] - (-4) \times \pointille[1cm] = \pointille[3cm]$
+    \item $G = 2x(x + 6) = 2x \times \pointille[1cm] + 2x \times \pointille[1cm] = \pointille[3cm]$
+\end{itemize}
+\end{cadremethode}
+
+\begin{cadreprop}[Double Distributivité]
+Pour tous nombres relatifs $a$, $b$, $c$ et $d$ :
+\[ \mathbf{(a + b)(c + d) = a \times c + a \times d + b \times c + b \times d = ac + ad + bc + bd} \]
+\end{cadreprop}
+
+\begin{cadremethode}[Développer et réduire avec la double distributivité]
+Compléter le développement pas à pas :
+\begin{align*}
+H &= (2x + 3)(x + 4) \\
+  &= 2x \times x + 2x \times 4 + 3 \times x + 3 \times 4 \\
+  &= 2x^2 + 8x + 3x + 12 \\
+  &= \mathbf{2x^2 + 11x + 12}
+\end{align*}
+
+\textbf{À vous d'appliquer :}
+\begin{align*}
+I &= (3x - 2)(x + 5) \\
+  &= 3x \times \pointille[0.8cm] + 3x \times \pointille[0.8cm] - 2 \times \pointille[0.8cm] - 2 \times \pointille[0.8cm] \\
+  &= \pointille[8cm]
+\end{align*}
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 4. COURS : FACTORISATION
+% ------------------------------------------------------------------------------
+\section{Factoriser une Expression (Facteur Commun)}
+
+\begin{cadredef}[Factoriser]
+\textbf{Factoriser} une expression, c'est transformer une \textbf{somme} ou une différence en un \textbf{produit}.\\
+C'est le processus inverse du développement.
+\end{cadredef}
+
+\begin{cadreprop}[Factorisation par recherche d'un facteur commun]
+Pour tous nombres relatifs $k$, $a$ et $b$ :
+\[ \mathbf{ka + kb = k(a + b)} \qquad \text{et} \qquad \mathbf{ka - kb = k(a - b)} \]
+Le nombre ou la lettre $k$ est appelé le \textbf{facteur commun}.
+\end{cadreprop}
+
+\begin{cadremethode}[Méthode pas à pas : Factoriser avec un facteur commun]
+\begin{enumerate}
+    \item On repère le facteur commun dans chaque terme de la somme.
+    \item On le place devant une parenthèse, puis on regroupe ce qui reste à l'intérieur.
+\end{enumerate}
+
+\textbf{Exemples :}
+\begin{itemize}
+    \item $J = 5x + 15 = \underline{5} \times x + \underline{5} \times 3 = \mathbf{5(x + 3)}$
+    \item $K = 12x - 8 = \underline{4} \times 3x - \underline{4} \times 2 = \pointille[3cm]$
+    \item $L = x^2 + 7x = \underline{x} \times x + \underline{x} \times 7 = \pointille[3cm]$
+\end{itemize}
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 3]
+\begin{itemize}
+    \item \textbf{Réduire} : Additionner les termes de même degré ($3x^2 + 5x^2 = 8x^2$ ; $4x - 9x = -5x$).
+    \item \textbf{Simple distributivité} : $k(a+b) = ka + kb$ \quad ; \quad $k(a-b) = ka - kb$.
+    \item \textbf{Double distributivité} : $(a+b)(c+d) = ac + ad + bc + bd$.
+    \item \textbf{Factoriser} : $ka + kb = k(a+b)$.
+    \item \textbf{Règle des signes} : $(-) \times (-) = (+)$ \quad ; \quad $(-) \times (+) = (-)$.
+\end{itemize}
+\end{cadreretenu}
+
+% ------------------------------------------------------------------------------
+% 5. QUESTIONS FLASH / AUTOMATISMES
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+    \item Réduire l'expression : $7x + 5x = \pointille[4cm]$
+    \item Réduire l'expression : $4x - 9x = \pointille[4cm]$
+    \item Réduire l'expression : $3x^2 + 2x + 5x^2 = \pointille[4cm]$
+    \item Développer : $5(x + 4) = \pointille[4cm]$
+    \item Développer : $3(2x - 7) = \pointille[4cm]$
+    \item Développer : $-2(4x - 1) = \pointille[4cm]$
+    \item Factoriser : $6x + 18 = \pointille[4cm]$
+    \item Calculer la valeur de $2x + 7$ pour $x = 3$ : \pointille[4cm]
+\end{enumerate}
+\end{automatisme}
+
+% ------------------------------------------------------------------------------
+% 6. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
+% ------------------------------------------------------------------------------
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[2 pts]{\capRealiser}{Réduction d'expressions}
+Réduire les expressions suivantes au maximum :
+\begin{enumerate}
+    \item $A = 8x + 3 - 5x + 9 = \pointille[6cm]$
+    \item $B = 4x^2 - 7x + 2 + 3x^2 + 5x - 8 = \pointille[6cm]$
+    \item $C = -3x + 6 + 9x - 11 = \pointille[6cm]$
+    \item $D = 2x^2 + 5x - (x^2 + 3x) = \pointille[6cm]$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Simple distributivité}
+Développer et réduire chaque expression :
+\begin{enumerate}
+    \item $E = 6(3x + 2) = \pointille[6cm]$
+    \item $F = 4(5x - 3) = \pointille[6cm]$
+    \item $G = -3(2x - 8) = \pointille[6cm]$
+    \item $H = 5x(2x + 7) = \pointille[6cm]$
+    \item $I = 2(4x + 1) + 3(2x - 5) = \pointille[6cm]$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Double distributivité}
+Développer puis réduire les expressions suivantes :
+\begin{enumerate}
+    \item $J = (x + 3)(x + 5)$
+    \item $K = (2x + 1)(x + 4)$
+    \item $L = (3x - 2)(x + 6)$
+    \item $M = (2x - 3)(3x - 4)$
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Factorisation par facteur commun}
+Factoriser chaque expression en mettant en évidence le facteur commun :
+\begin{enumerate}
+    \item $N = 7x + 21 = \pointille[6cm]$
+    \item $P = 15x - 20 = \pointille[6cm]$
+    \item $Q = x^2 + 9x = \pointille[6cm]$
+    \item $R = 8x^2 - 12x = \pointille[6cm]$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Agencement d'un local professionnel (BTP)}
+Un artisan maçon réalise le sol d'un hangar rectangulaire.\\
+La longueur mesure $(2x + 5)\text{ mètres}$ et la largeur mesure $(x + 3)\text{ mètres}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+    \fill[slate100] (0,0) rectangle (6,3);
+    \draw[colPrimary, line width=1.5pt] (0,0) rectangle (6,3);
+    \node at (3,1.5) {\bfseries\sffamily Surface du hangar : $\mathcal{S}$};
+    \draw[<->, >=stealth, thick] (0,-0.4) -- (6,-0.4) node[midway, below] {Longueur : $2x + 5$};
+    \draw[<->, >=stealth, thick] (-0.4,0) -- (-0.4,3) node[midway, left] {Largeur : $x + 3$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item Exprimer le périmètre $\mathcal{P}$ du hangar en fonction de $x$, puis réduire l'expression.
+    \item Exprimer la surface $\mathcal{S}$ du hangar sous forme d'un produit en fonction de $x$.
+    \item Développer et réduire l'expression de la surface $\mathcal{S}$.
+    \item Calculer la surface exacte du sol si $x = 4\text{ mètres}$.
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+\begin{exercice}[5 pts]{\capAnalyser}{Coût de fabrication et Bénéfice (Gestion / Vente)}
+Une entreprise artisanale fabrique des pièces décoratives en métal.
+Pour une quantité $x$ de pièces produites ($x \geq 1$) :
+\begin{itemize}
+    \item Le coût total de fabrication (en euros) est donné par : $C(x) = 12x + 150$.
+    \item Chaque pièce est vendue au prix unitaire de $20\text{ \euro{}}$. La recette totale est donc : $R(x) = 20x$.
+\end{itemize}
+
+\begin{enumerate}
+    \item Calculer le coût de fabrication et la recette pour $x = 10$ pièces. L'artisan réalise-t-il un bénéfice ?
+    \item On rappelle que le bénéfice est donné par : $B(x) = R(x) - C(x)$.\\
+    Montrer que le bénéfice en fonction de $x$ s'écrit sous la forme réduite : $B(x) = 8x - 150$.
+    \item Calculer le bénéfice réalisé pour la vente de $50$ pièces.
+    \item À partir de combien de pièces produites et vendues l'entreprise commence-t-elle à être rentable ($B(x) \geq 0$) ?
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 7. TP TICE / CALCULATRICE
+% ------------------------------------------------------------------------------
+\section{TP TICE : Calcul Formel \& Vérification Algébrique}
+
+\begin{tpinfo}[Calcul Formel avec GeoGebra \& Calculatrice Casio / TI]{Vérifier un Développement}
+\begin{enumerate}
+    \item \textbf{GeoGebra (Calcul Formel - CAS)} :
+    \begin{itemize}
+        \item Ouvrir la vue \textbf{Calcul Formel} sur GeoGebra.
+        \item Pour développer $(3x+4)(2x-5)$ : saisir \texttt{Développer((3x+4)*(2x-5))} et appuyer sur \textbf{Entrée}.
+        \item Noter le résultat affiché : \pointille[6cm]
+        \item Pour factoriser $6x^2 - 7x - 20$ : saisir \texttt{Factoriser(6x\^{}2 - 7x - 20)}.
+    \end{itemize}
+    \item \textbf{Vérification au Tableur / Calculatrice} :
+    \begin{itemize}
+        \item Tester avec $x = 10$ pour vérifier si le développement $(x+3)(x+2) = x^2 + 5x + 6$ est exact :
+        \[ (10+3)(10+2) = 13 \times 12 = \pointille[2cm] \qquad 10^2 + 5 \times 10 + 6 = \pointille[2cm] \]
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+% ------------------------------------------------------------------------------
+% 8. VERS LE BREVET (DNB PRO)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Programmes de Calcul \& Modélisation Algébrique}
+On donne deux programmes de calcul ci-dessous :
+
+\begin{center}
+\begin{minipage}{0.46\linewidth}
+\begin{tikzpicture}
+    \node[draw=colPrimary, fill=slate50, rounded corners=6pt, line width=1pt, inner sep=8pt, text width=\linewidth-20pt] {
+        \bfseries\sffamily\color{colPrimary} PROGRAMME A
+        \begin{itemize}[leftmargin=15pt, itemsep=2pt]
+            \item Choisir un nombre.
+            \item Multiplier par $4$.
+            \item Ajouter $6$.
+        \end{itemize}
+    };
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.46\linewidth}
+\begin{tikzpicture}
+    \node[draw=colSecondary, fill=slate50, rounded corners=6pt, line width=1pt, inner sep=8pt, text width=\linewidth-20pt] {
+        \bfseries\sffamily\color{colSecondary} PROGRAMME B
+        \begin{itemize}[leftmargin=15pt, itemsep=2pt]
+            \item Choisir un nombre.
+            \item Ajouter $3$.
+            \item Multiplier le résultat par $2$.
+            \item Ajouter le double du nombre de départ.
+        \end{itemize}
+    };
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\begin{enumerate}
+    \item \capRealiser\ Montrer que si le nombre de départ est $5$, le Programme A donne $26$.
+    \item \capRealiser\ Calculer le résultat du Programme B si le nombre de départ est $5$.
+    \item \capAnalyser\ On choisit $x$ comme nombre de départ :
+    \begin{enumerate}
+        \item Exprimer le résultat final du Programme A en fonction de $x$ : \pointille[4cm]
+        \item Exprimer le résultat final du Programme B en fonction de $x$.
+        \item Développer et réduire l'expression du Programme B.
+    \end{enumerate}
+    \item \capValider\ Que peut-on affirmer concernant ces deux programmes de calcul quel que soit le nombre choisi au départ ? Justifier la réponse.
+\end{enumerate}
+
+\vspace{2mm}
+\noindent\textbf{Rédigez votre démarche ci-dessous :}
+\lignesreponse[8]
+\end{sujetdnb}
