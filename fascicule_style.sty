@@ -390,14 +390,18 @@
 {\normalfont\sffamily\raggedright}
 {
     \begin{tikzpicture}
-        \node[fill=colPrimary, text=white, rounded corners=6pt, inner sep=8pt, font=\Large\bfseries] {
+        \node[fill=colPrimary, text=white, rounded corners=5pt, inner sep=6pt, font=\large\bfseries] {
             CHAPITRE \thechapter
         };
     \end{tikzpicture}
 }
-{8pt}
-{\fontsize{22}{26}\selectfont\bfseries\color{navy900}}
-[\vspace{4pt}{\color{colSecondary}\hrule height 2pt}\vspace{12pt}]
+{3pt}
+{\fontsize{20}{24}\selectfont\bfseries\color{navy900}}
+[\vspace{3pt}{\color{colSecondary}\hrule height 2pt}\vspace{8pt}]
+
+\titlespacing*{\chapter}{0pt}{-30pt}{10pt}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
 
 % Format des sections
 \titleformat{\section}
