@@ -88,20 +88,23 @@
 % Définition des en-têtes et pieds de page
 \fancyhead[L]{\small\sffamily\bfseries\color{colPrimary}\nouppercase{\leftmark}}
 \fancyhead[R]{\small\sffamily\color{slate600}\thefiliere\ -- \thematiere}
-\fancyfoot[L]{\footnotesize\sffamily\color{slate500}Livret Pédagogique \theannee}
+\fancyfoot[L]{\footnotesize\sffamily\color{slate600}\textbf{\theprof}\ $\cdot$ \thefiliere}
 \fancyfoot[C]{\small\sffamily\bfseries\color{colPrimary}\thepage}
-\fancyfoot[R]{\footnotesize\sffamily\color{slate500}\thelycee}
+\fancyfoot[R]{\footnotesize\sffamily\href{\thesite}{\color{colPrimary}\faGlobe\ \underline{kande.forge.apps.education.fr}}}
 \renewcommand{\headrulewidth}{0.6pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{colSecondary}\leaders\hrule height \headrulewidth\hfill}}
 \renewcommand{\footrule}{\hbox to\headwidth{\color{slate300}\leaders\hrule height \footrulewidth\hfill}}
 
-% Style pour les pages de chapitre
+% Style pour les premières pages de fiches / chapitres
 \fancypagestyle{plain}{
     \fancyhf{}
+    \fancyfoot[L]{\footnotesize\sffamily\color{slate600}\textbf{\theprof}\ $\cdot$ \thefiliere}
     \fancyfoot[C]{\small\sffamily\bfseries\color{colPrimary}\thepage}
+    \fancyfoot[R]{\footnotesize\sffamily\href{\thesite}{\color{colPrimary}\faGlobe\ \underline{kande.forge.apps.education.fr}}}
     \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+    \renewcommand{\footrule}{\hbox to\headwidth{\color{slate300}\leaders\hrule height \footrulewidth\hfill}}
 }
 
 % ==============================================================================
@@ -426,13 +429,15 @@
 \newcommand{\thefiliere}{3ème Prépa-Métiers}
 \newcommand{\theannee}{2025--2026}
 \newcommand{\thelycee}{Lycée Professionnel}
-\newcommand{\theprof}{Équipe Pédagogique Maths-Sciences}
+\newcommand{\theprof}{M. KANDE}
+\newcommand{\thesite}{https://kande.forge.apps.education.fr/mathsciences/}
 
 \newcommand{\setmatiere}[1]{\renewcommand{\thematiere}{#1}}
 \newcommand{\setfiliere}[1]{\renewcommand{\thefiliere}{#1}}
 \newcommand{\setannee}[1]{\renewcommand{\theannee}{#1}}
 \newcommand{\setlycee}[1]{\renewcommand{\thelycee}{#1}}
 \newcommand{\setprof}[1]{\renewcommand{\theprof}{#1}}
+\newcommand{\setsite}[1]{\renewcommand{\thesite}{#1}}
 
 % Macro pour les icônes de substitution si fontawesome n'est pas utilisé
 \providecommand{\faBookOpen}{\ding{228}}
@@ -447,5 +452,6 @@
 \providecommand{\faLaptopCode}{\ding{227}}
 \providecommand{\faBolt}{\ding{161}}
 \providecommand{\faCheck}{\ding{52}}
+\providecommand{\faGlobe}{\ding{45}}
 
 \endinput
