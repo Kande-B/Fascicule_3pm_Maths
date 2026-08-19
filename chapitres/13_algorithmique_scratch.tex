@@ -1,0 +1,436 @@
+% ==============================================================================
+% CHAPITRE 13 : ALGORITHMIQUE & PROGRAMMATION SCRATCH (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Algorithmique \& Programmation Scratch}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : DOMOTIQUE / SÉCURITÉ)
+% ------------------------------------------------------------------------------
+\begin{activite}{Automatisation d'un Portique de Sécurité (Domotique / Industrie)}
+Dans un entrepôt logistique, un technicien domotique programme l'ouverture automatique d'un portique d'accès pour les chariots élévateurs à l'aide d'un capteur de présence et d'un feu bicolore.
+
+\vspace{1mm}
+\begin{center}
+\begin{tcolorbox}[colback=amber!10, colframe=amber!80!black, arc=4pt, boxrule=0.8pt, left=8pt, right=8pt, top=4pt, bottom=4pt]
+\sffamily\footnotesize
+\textbf{Cahier des charges du système automatisé :}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
+    \item Si la variable $\text{distance} \le 3\text{ mètres}$, le portique s'ouvre (angle de $90^\circ$) et le feu passe au \textbf{Vert}.
+    \item Sinon, le portique reste fermé (angle de $0^\circ$) et le feu reste au \textbf{Rouge}.
+    \item Le système effectue cette vérification en continu (boucle infinie).
+\end{itemize}
+\end{tcolorbox}
+\end{center}
+
+\vspace{1mm}
+\noindent
+\begin{minipage}[c]{0.48\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.85]
+    % Portique
+    \draw[slate800, fill=slate300, line width=1.5pt] (0,0) rectangle (0.4,2.5);
+    \draw[slate800, fill=slate300, line width=1.5pt] (3.0,0) rectangle (3.4,2.5);
+    \draw[slate800, fill=slate400, line width=1.5pt] (0,2.2) rectangle (3.4,2.6);
+    
+    % Barrière
+    \draw[colSecondary, line width=3pt] (0.4,1.2) -- (3.0,1.2) node[midway, above=1pt, font=\bfseries\tiny, text=colSecondary] {Barrière Fermée};
+    
+    % Feu tricolore
+    \draw[slate800, fill=slate900, thick] (3.6,1.0) rectangle (4.1,2.2);
+    \fill[red] (3.85,1.8) circle (3pt);
+    \fill[green!40!black] (3.85,1.3) circle (3pt);
+    
+    % Sol
+    \draw[slate600, thick] (-0.5,0) -- (4.5,0);
+    \fill[pattern=north east lines, pattern color=slate200] (-0.5,-0.2) rectangle (4.5,0);
+    
+    % Chariot
+    \node[font=\bfseries\tiny, align=center] at (1.7,0.5) {Chariot élévateur\\[-2pt](Capteur ultrason)};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.48\linewidth}
+\begin{tcolorbox}[colback=slate100, colframe=colPrimary, arc=5pt, boxrule=0.8pt, top=6pt, bottom=6pt, left=8pt, right=8pt]
+\sffamily\small
+\textbf{Problématique :}
+\begin{enumerate}[leftmargin=1.2em, itemsep=4pt]
+    \item Identifier la \textbf{variable} d'entrée testée par le capteur.
+    \item Quelle structure algorithmique permet de tester une condition (\texttt{Si ... Alors ... Sinon}) ?
+    \item Compléter le bloc Scratch correspondant pour commander l'ouverture de la barrière.
+\end{enumerate}
+\end{tcolorbox}
+\end{minipage}
+
+\vspace{3mm}
+\lignesreponse[6]
+\end{activite}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 2. COURS : NOTIONS CLÉS D'ALGORITHMIQUE & BLOCS SCRATCH
+% ------------------------------------------------------------------------------
+\section{Notions Clés d'Algorithmique \& Blocs Scratch}
+
+\begin{cadredef}[Les 4 Structures Fondamentales]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Séquence d'instructions} : Les blocs s'exécutent les uns après les autres, de haut en bas.
+    \item \textbf{Variable} : Un espace mémoire nommé qui stocke une valeur (ex : \texttt{score}, \texttt{longueur}, \texttt{x}).
+    \item \textbf{Boucle (Répétition)} : Répéter un bloc d'instructions un nombre fixé de fois (\texttt{répéter 4 fois}) ou indéfiniment.
+    \item \textbf{Condition (Test logique)} : Exécuter des actions selon qu'une condition est vraie ou fausse (\texttt{si ... alors ... sinon}).
+\end{itemize}
+\end{cadredef}
+
+\begin{center}
+\begin{tcolorbox}[colback=colPrimary!10, colframe=colPrimary, width=0.98\linewidth, arc=4pt, boxrule=1pt, top=4pt, bottom=4pt, left=6pt, right=6pt]
+\sffamily\bfseries\footnotesize\centering
+Palette des Blocs Scratch Principaux :\\[3pt]
+\begin{tabular}{lll}
+\colorbox{amber!80!black}{\textcolor{white}{\textbf{ Événements }}} & \texttt{quand drapeau vert cliqué} & Démarre le script \\
+\colorbox{blue!70!black}{\textcolor{white}{\textbf{ Mouvement }}} & \texttt{avancer de 50 pas}, \texttt{tourner de 90 degrés} & Déplace et oriente le lutin \\
+\colorbox{orange!90!black}{\textcolor{white}{\textbf{ Contrôle }}} & \texttt{répéter 10 fois}, \texttt{si ... alors ... sinon} & Gère les boucles et tests \\
+\colorbox{green!60!black}{\textcolor{white}{\textbf{ Opérateurs }}} & \texttt{a + b}, \texttt{a * b}, \texttt{nombre aléatoire entre 1 et 6} & Calculs et comparaisons \\
+\colorbox{teal}{\textcolor{white}{\textbf{ Stylo }}} & \texttt{stylo en position d'écriture}, \texttt{effacer tout} & Trace des figures géométriques
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : GÉOMÉTRIE DE LA TORTUE (TRACÉ DE POLYGONES AU STYLO)
+% ------------------------------------------------------------------------------
+\section{Tracé de Polygones Réguliers au Stylo Scratch}
+
+\begin{cadredef}[Règle Fondamentale de Rotation pour un Polygone Régulier à $n$ côtés]
+Pour tracer un polygone régulier à $\mathbf{n}$ côtés (carré, triangle équilatéral, hexagone...) :
+\begin{center}
+\textbf{Angle de rotation extérieure à chaque sommet :} \quad 
+$\mathbf{\text{Angle} = \frac{360^\circ}{n}}$
+\end{center}
+\end{cadredef}
+
+\begin{cadremethode}[Exemples Types de Tracés au Stylo]
+\noindent
+\begin{minipage}[c]{0.48\linewidth}
+\textbf{1. Carré ($n = 4$ côtés)} :
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt]
+    \item Rotation : $\frac{360^\circ}{4} = \mathbf{90^\circ}$.
+    \item \texttt{répéter 4 fois :}
+    \begin{itemize}
+        \item \texttt{avancer de 80 pas}
+        \item \texttt{tourner de 90 degrés}
+    \end{itemize}
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.48\linewidth}
+\textbf{2. Triangle Équilatéral ($n = 3$ côtés)} :
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt]
+    \item Rotation : $\frac{360^\circ}{3} = \mathbf{120^\circ}$ (\textbf{Attention} : pas $60^\circ$ !).
+    \item \texttt{répéter 3 fois :}
+    \begin{itemize}
+        \item \texttt{avancer de 100 pas}
+        \item \texttt{tourner de 120 degrés}
+    \end{itemize}
+\end{itemize}
+\end{minipage}
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 13]
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
+    \item Le lutin tourne toujours de l'\textbf{angle extérieur} : pour un triangle, on tourne de $180^\circ - 60^\circ = 120^\circ$.
+    \item Pour initialiser un dessin : toujours mettre \texttt{effacer tout}, \texttt{aller à x:0 y:0} et \texttt{s'orienter à 90}.
+    \item Une variable conserve sa valeur jusqu'à ce qu'un bloc \texttt{mettre ... à ...} ou \texttt{ajouter ... à ...} la modifie.
+\end{itemize}
+\end{cadreretenu}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 4. QUESTIONS FLASH / AUTOMATISMES & TD 1 & TD 2 (PAGE 3)
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}, itemsep=1pt]
+    \item De quel angle doit tourner le lutin pour tracer un carré ? \pointille[2.5cm]
+    \item Si une variable $x$ vaut $5$ et qu'on exécute \texttt{ajouter 3 à x}, que vaut $x$ ? \pointille[2cm]
+    \item De quel angle doit tourner le lutin pour tracer un hexagone régulier ($6$ côtés) ? \pointille[2cm]
+    \item Quel bloc permet d'initialiser le tracé en effaçant l'écran ? \pointille[3cm]
+    \item Combien de fois s'exécute le corps d'une boucle \texttt{répéter 5 fois} ? \pointille[2cm]
+    \item Dans Scratch, quelle coordonnée correspond à l'axe vertical ? ($x$ ou $y$) : \pointille[2cm]
+    \item Quelle est la valeur minimale tirée par \texttt{nombre aléatoire entre 1 et 10} ? \pointille[2cm]
+    \item Si le lutin avance de $40$ pas $3$ fois de suite, quelle distance totale a-t-il parcourue ? \pointille[2cm]
+\end{enumerate}
+\end{automatisme}
+
+\section{Travaux Dirigés (TD) : Problèmes d'Entraînement}
+
+\begin{exercice}[3 pts][\capRealiser]{Tracé d'un Triangle Équilatéral \& d'un Hexagone au Stylo}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+On souhaite programmer le lutin pour tracer un triangle équilatéral de côté $80\text{ pas}$, puis un hexagone régulier de côté $50\text{ pas}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item \capRealiser\ Justifier que l'angle de rotation pour le triangle vaut $120^\circ$.
+    \item \capRealiser\ Calculer l'angle de rotation nécessaire pour l'hexagone ($n = 6$).
+    \item \capValider\ Compléter les paramètres manquants dans la boucle du script.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    % Triangle équilatéral
+    \draw[colPrimary, line width=1.6pt] (0,0) -- (2.0,0) -- (1.0,1.732) -- cycle;
+    \node[below, font=\bfseries\tiny] at (1.0,0) {$80\text{ pas}$};
+    \draw[->, dashed, colSecondary, thick] (2.0,0) -- (2.8,0);
+    \draw[colSecondary, thick] (2.4,0) arc (0:120:0.4);
+    \node[right, font=\bfseries\tiny, text=colSecondary] at (2.4,0.3) {$120^\circ$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capSApproprier]{Gestion Domotique du Chauffage d'un Atelier}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un script teste la température d'un atelier :
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt]
+    \item \texttt{si température < 18 alors mettre Chauffage à "Actif"}
+    \item \texttt{sinon mettre Chauffage à "Éco"}
+\end{itemize}
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item \capSApproprier\ Si la température mesurée est de $16{,}5^\circ\text{C}$, quel est l'état du chauffage ?
+    \item \capValider\ Si la température passe à $21^\circ\text{C}$, quel est le nouvel état ?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=amber!15, thick, rounded corners=3pt] (0,0) rectangle (3.4,2.2);
+    \node[font=\bfseries\tiny, align=left] at (1.7,1.1) {
+        \texttt{si \textcolor{orange}{temp} < 18 alors}\\
+        \quad \texttt{\textcolor{blue}{Chauffage} = "Actif"}\\
+        \texttt{sinon}\\
+        \quad \texttt{\textcolor{blue}{Chauffage} = "Éco"}
+    };
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 5. TRAVAUX DIRIGÉS (TD) - EXERCICES 3, 4 & 5 (PAGE 4)
+% ------------------------------------------------------------------------------
+\begin{exercice}[3 pts][\capAnalyser]{Programme de Calcul Automatisé sous Scratch}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+On considère le script Scratch suivant :
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt]
+    \item \texttt{demander "Choisir un nombre" et attendre}
+    \item \texttt{mettre x à réponse}
+    \item \texttt{mettre résultat à (x * 3) + 7}
+    \item \texttt{dire résultat}
+\end{itemize}
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item \capRealiser\ Quel résultat annonce le lutin si on choisit le nombre $4$ au départ ?
+    \item \capAnalyser\ Quel résultat annonce le lutin si on choisit le nombre $-2$ ?
+    \item \capValider\ Exprimer le résultat final en fonction de $x$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=blue!10, thick, rounded corners=3pt] (0,0) rectangle (3.4,2.2);
+    \node[font=\bfseries\tiny, align=left] at (1.7,1.1) {
+        \texttt{demander \textcolor{colPrimary}{x}}\\
+        \texttt{mettre \textcolor{orange}{res} à (\textcolor{colPrimary}{x} * 3) + 7}\\
+        \texttt{dire \textcolor{orange}{res}}
+    };
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capValider]{Score \& Déplacement dans un Jeu Vidéo 2D}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Dans un jeu, un lutin part de la position $(x=0, y=0)$ avec un score initial de $0$.
+Chaque appui sur \texttt{flèche droite} ajoute $+20$ à $x$ et $+5$ au score.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item \capRealiser\ Après $4$ déplacements à droite, quelles sont les coordonnées du lutin ?
+    \item \capValider\ Quel est alors le score affiché ?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate300, step=0.5] (0,0) grid (3.0,2.0);
+    \draw[->, thick, slate700] (0,1.0) -- (3.0,1.0) node[right, font=\tiny] {$x$};
+    \draw[->, thick, slate700] (1.5,0) -- (1.5,2.0) node[above, font=\tiny] {$y$};
+    \fill[colPrimary] (1.5,1.0) circle (3pt) node[above right, font=\bfseries\tiny] {Départ};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capRealiser]{Frise Géométrique et Motif Répété (Bloc Personnalisé)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un bloc personnalisé \texttt{Motif} trace un carré de côté $30\text{ pas}$.
+Le script principal exécute :
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt]
+    \item \texttt{répéter 4 fois : \{ Motif ; avancer de 40 pas \}}
+\end{itemize}
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item \capRealiser\ Combien de carrés sont dessinés sur la frise ?
+    \item \capValider\ Quelle est la longueur totale parcourue par le lutin ?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[colPrimary, thick] (0,0) rectangle (0.6,0.6);
+    \draw[colPrimary, thick] (0.8,0) rectangle (1.4,0.6);
+    \draw[colPrimary, thick] (1.6,0) rectangle (2.2,0.6);
+    \draw[colPrimary, thick] (2.4,0) rectangle (3.0,0.6);
+    \node[below, font=\bfseries\tiny] at (1.5,-0.1) {Frise de 4 motifs};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 5. TRAVAUX DIRIGÉS (TD) & TP TICE (PAGE 5)
+% ------------------------------------------------------------------------------
+\begin{exercice}[3 pts][\capAnalyser]{Simulation d'un Lancer de Dé Aléatoire}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+On simule $100$ lancers d'un dé à 6 faces avec le bloc \texttt{nombre aléatoire entre 1 et 6}.
+Une variable \texttt{Nb\_Six} compte le nombre d'apparitions de la face 6.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item \capSApproprier\ Quel test logique permet de détecter la sortie d'un 6 ?
+    \item \capRealiser\ Si le compteur affiche $18$, calculer la fréquence observée en pourcentage.
+    \item \capValider\ La fréquence théorique vaut $\frac{1}{6} \approx 16{,}7\,\%$. Commenter le résultat.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=slate100, thick, rounded corners=4pt] (0.5,0.2) rectangle (2.5,2.2);
+    \fill[slate800] (0.9,0.6) circle (2pt);
+    \fill[slate800] (0.9,1.2) circle (2pt);
+    \fill[slate800] (0.9,1.8) circle (2pt);
+    \fill[slate800] (2.1,0.6) circle (2pt);
+    \fill[slate800] (2.1,1.2) circle (2pt);
+    \fill[slate800] (2.1,1.8) circle (2pt);
+    \node[below, font=\bfseries\tiny] at (1.5,0) {Dé 6 faces};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[4 pts][\capRealiser]{Calcul Automatique d'un Tarif Réduit de Cinéma}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un cinéma applique un plein tarif à $10\text{ \euro}$ et un tarif réduit à $7\text{ \euro}$ pour les moins de $18$ ans.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item \capRealiser\ Écrire en français l'algorithme qui demande l'âge et affiche le prix à payer.
+    \item \capValider\ Pour un groupe de deux adultes ($25$ ans) et trois enfants ($12, 14, 16$ ans), calculer le montant total de la commande.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=emerald!15, thick, rounded corners=3pt] (0,0) rectangle (3.4,2.2);
+    \node[font=\bfseries\tiny, align=left] at (1.7,1.1) {
+        \texttt{si \textcolor{orange}{age} < 18 alors}\\
+        \quad \texttt{\textcolor{blue}{prix} = 7 \euro}\\
+        \texttt{sinon}\\
+        \quad \texttt{\textcolor{blue}{prix} = 10 \euro}
+    };
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 6. TP TICE / SCRATCH
+% ------------------------------------------------------------------------------
+\section{TP TICE : Prise en Main du Logiciel Scratch}
+
+\begin{tpinfo}[Logiciel Scratch]{Création \& Exécution d'un Premier Programme}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Création d'un script de dessin} :
+    \begin{itemize}
+        \item Ajouter l'extension \textbf{Stylo} (bouton en bas à gauche).
+        \item Assembler : \texttt{quand drapeau cliqué} $\rightarrow$ \texttt{effacer tout} $\rightarrow$ \texttt{stylo en position d'écriture}.
+    \end{itemize}
+    \item \textbf{Tester une boucle} :
+    \begin{itemize}
+        \item Insérer une boucle \texttt{répéter 4 fois} avec \texttt{avancer de 100} et \texttt{tourner de 90}.
+        \item Cliquer sur le \textbf{Drapeau Vert} pour exécuter le tracé du carré.
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 7. VERS LE BREVET (DNB PRO) (PAGE 6)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Programmation du Parcours d'un Robot Aspirateur}
+Une entreprise conçoit un robot aspirateur autonome chargé de nettoyer le sol d'un showroom rectangulaire.
+Le robot part du point de départ $D(0\,;\,0)$ orienté vers la droite ($90^\circ$).
+
+\begin{center}
+\begin{tikzpicture}[scale=0.82]
+    % Grille sol
+    \draw[slate200, step=1cm] (0,0) grid (6,4);
+    \draw[slate800, line width=1.5pt] (0,0) rectangle (6,4);
+    
+    % Trajectoire robot
+    \coordinate (D) at (0.5,0.5);
+    \coordinate (P1) at (5.5,0.5);
+    \coordinate (P2) at (5.5,1.5);
+    \coordinate (P3) at (0.5,1.5);
+    \coordinate (P4) at (0.5,2.5);
+    \coordinate (P5) at (5.5,2.5);
+    
+    \draw[colPrimary, line width=2pt, ->] (D) -- (P1);
+    \draw[colSecondary, line width=2pt, ->] (P1) -- (P2);
+    \draw[colPrimary, line width=2pt, ->] (P2) -- (P3);
+    \draw[colSecondary, line width=2pt, ->] (P3) -- (P4);
+    \draw[colPrimary, line width=2pt, ->] (P4) -- (P5);
+    
+    \fill[colPrimary] (D) circle (3pt) node[below left, font=\bfseries\small] {Départ $D(0\,;\,0)$};
+    \node[right, font=\bfseries\small] at (6,2) {Showroom ($6\text{ m} \times 4\text{ m}$)};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+    \item \capSApproprier\ Décrire le mouvement du robot lors de sa première ligne droite (distance parcourue en mètres).
+    \item \capRealiser\ Quel bloc de rotation permet au robot de faire demi-tour vers la gauche (angle en degrés) ?
+    \item \capAnalyser\ On modélise le parcours par une boucle : \texttt{répéter 3 fois \{ avancer de 500 pas ; tourner à gauche de 90 ; avancer de 100 pas ; tourner à gauche de 90 ; avancer de 500 pas ; tourner à droite de 90 ; avancer de 100 pas ; tourner à droite de 90 \}}. Combien de mètres le robot parcourt-il au total ($100\text{ pas} = 1\text{ m}$) ?
+    \item \capValider\ Le robot avance à une vitesse constante $v = 0{,}2\text{ m/s}$. Calculer le temps total en secondes pour effectuer ce cycle complet ($t = \frac{d}{v}$).
+\end{enumerate}
+
+\vspace{3mm}
+\lignesreponse[8]
+\end{sujetdnb}
