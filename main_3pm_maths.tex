@@ -10,7 +10,7 @@
 \setfiliere{3\textsuperscript{ème} Prépa-Métiers}
 \setmatiere{Mathématiques}
 \setannee{2025--2026}
-\setlycee{Lycée Gustave Eiffel}
+\setlycee{Lycée Professionnel}
 \setprof{M. KANDE}
 \setsite{https://kande.forge.apps.education.fr/mathsciences/}
 
@@ -49,13 +49,15 @@
     };
     
     % Liste des composantes pédagogiques
-    \node[anchor=north west, text=slate200, font=\sffamily\normalsize, text width=14cm, align=left] at ([xshift=2.2cm, yshift=-10cm]current page.north west) {
-        \textbf{Le livret complet pour réussir son année et l'épreuve du Brevet :}\\[2mm]
+    \node[anchor=north west, text=slate200, font=\sffamily\normalsize, text width=14cm, align=left] at ([xshift=2.2cm, yshift=-10.2cm]current page.north west) {
+        \textbf{Le livret complet pour réussir son année et l'épreuve du Brevet :}\\[2.5mm]
+        $\blacktriangleright$ \textbf{13 Chapitres Complets} conformes aux programmes officiels\\
+        $\blacktriangleright$ \textbf{Activités professionnelles} d'investigation et situations concrètes\\
         $\blacktriangleright$ \textbf{Cours structuré} (définitions, propriétés, méthodes pas à pas)\\
         $\blacktriangleright$ \textbf{Questions Flash \& Automatismes} de calcul mental\\
-        $\blacktriangleright$ \textbf{Travaux Dirigés (TD)} progressifs et situations professionnelles\\
-        $\blacktriangleright$ \textbf{TP TICE} (Tableur, GeoGebra, Scratch)\\
-        $\blacktriangleright$ \textbf{Annales officielles DNB Pro} avec corrigés détaillés
+        $\blacktriangleright$ \textbf{Travaux Dirigés (TD)} progressifs et contextualisés métiers\\
+        $\blacktriangleright$ \textbf{TP TICE} (Calculatrice NumWorks, GeoGebra, Scratch)\\
+        $\blacktriangleright$ \textbf{Sujets officiels DNB Pro / 10 pts} pour chaque chapitre
     };
     
     % Cartouche Informations Élève
@@ -79,7 +81,7 @@
 \setcounter{page}{1}
 
 % ==============================================================================
-% INCLUSION MODULAIRE DES CHAPITRES (VERSION ÉLÈVE ACTIVE)
+% INCLUSION MODULAIRE DES 13 CHAPITRES (VERSION ÉLÈVE COMPLÈTE)
 % ==============================================================================
 \input{chapitres/00_progression_annuelle}
 
@@ -101,6 +103,14 @@
 
 \input{chapitres/09_probabilites}
 
+\input{chapitres/10_trigonometrie}
+
+\input{chapitres/11_thales_agrandissement_reduction}
+
+\input{chapitres/12_espace_aires_volumes_conversions}
+
+\input{chapitres/13_algorithmique_scratch}
+
 % ==============================================================================
 % QUATRIÈME DE COUVERTURE (PAGE DE FIN DU LIVRET)
 % ==============================================================================
@@ -115,18 +125,19 @@
     
     \node[anchor=center, fill=slate800, draw=colPrimary, line width=1.5pt, rounded corners=8pt, inner sep=14pt, text=white, text width=15cm, align=left] at (current page.center) {
         \sffamily
-        {\bfseries\large\color{colSecondary} \faCheckCircle\ MÉMO DU RÉFÉRENTIEL DNB PRO}\\[3mm]
+        {\bfseries\large\color{colSecondary} $\blacksquare$\ MÉMO DU RÉFÉRENTIEL DNB PRO}\\[3mm]
         \small
         $\blacktriangleright$ \textbf{Arithmétique \& Puissances} : Nombres premiers, décomposition en facteurs premiers, fractions irréductibles, puissances de 10 et notation scientifique.\\[1.5mm]
         $\blacktriangleright$ \textbf{Calcul Littéral \& Équations} : Distributivité simple et double, factorisation, équations $ax+b=cx+d$ et équation produit nul.\\[1.5mm]
         $\blacktriangleright$ \textbf{Proportionnalité \& Ratios} : Produit en croix, pourcentages d'évolution ($1 \pm \frac{p}{100}$), partages selon un ratio $a:b:c$ et échelles de plans.\\[1.5mm]
-        $\blacktriangleright$ \textbf{Géométrie \& Grandeurs} : Théorème de Pythagore ($BC^2 = AB^2 + AC^2$), réciproque et contraposée, calculs de surfaces et volumes.\\[1.5mm]
-        $\blacktriangleright$ \textbf{Outil Numérique} : Prise en main experte de la calculatrice \textbf{NumWorks} et du logiciel GeoGebra.
+        $\blacktriangleright$ \textbf{Géométrie \& Espace} : Théorème de Pythagore, Trigonométrie ($\cos, \sin, \tan$), Théorème de Thalès, Agrandissements-Réductions, calculs d'aires et de volumes ($1\text{ m}^3 = 1\,000\text{ L}$).\\[1.5mm]
+        $\blacktriangleright$ \textbf{Statistiques \& Probabilités} : Moyenne pondérée, médiane, étendue, fréquences, probabilités d'événements et arbres pondérés.\\[1.5mm]
+        $\blacktriangleright$ \textbf{Algorithmique \& TICE} : Blocs de programmation Scratch, tracé géométrique au stylo, calculatrice \textbf{NumWorks} et GeoGebra.
     };
     
     \node[anchor=south, text=slate300, font=\sffamily\normalsize, align=center] at ([yshift=3.5cm]current page.south) {
         {\bfseries Conforme aux Programmes Officiels de l'Éducation Nationale}\\[1.5mm]
-        {\small Support élève adapté pour le travail guidé en classe et l'entraînement DNB Pro.}
+        {\small Support élève adapté pour le travail guidé en classe et l'entraînement intensif DNB Pro.}
     };
 
     \node[anchor=south, text=slate400, font=\sffamily\footnotesize, align=center] at ([yshift=1.8cm]current page.south) {
