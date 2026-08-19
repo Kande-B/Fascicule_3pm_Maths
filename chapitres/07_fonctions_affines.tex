@@ -7,53 +7,53 @@
 % 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : TRANSPORT / FORFAIT)
 % ------------------------------------------------------------------------------
 \begin{activite}{Tarification d'un service de livraison express (Transport \& Logistique)}
-Une entreprise de transport express propose deux formules tarifaires pour la livraison de colis en zone régionale :
-\begin{itemize}
+Une entreprise de transport propose deux formules tarifaires pour la livraison régionale de colis :
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
     \item \textbf{Tarif Éco (Formule Linéaire)} : Aucun abonnement, facturation de \textbf{2 \euro{}} par kilomètre parcouru $x$.
-    \item \textbf{Tarif Pro (Formule Affine)} : Forfait fixe mensuel de prise en charge de \textbf{30 \euro{}}, puis \textbf{1 \euro{}} par kilomètre parcouru $x$.
+    \item \textbf{Tarif Pro (Formule Affine)} : Forfait fixe de prise en charge de \textbf{30 \euro{}}, puis \textbf{1 \euro{}} par kilomètre parcouru $x$.
 \end{itemize}
 
-\begin{center}
-\begin{tikzpicture}[scale=0.85]
+\vspace{1mm}
+\noindent
+\begin{minipage}[c]{0.48\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.55]
     % Repère
     \draw[step=1cm, slate200, very thin] (0,0) grid (8,6);
-    \draw[thick, ->, >=stealth, slate800] (0,0) -- (8.3,0) node[right, font=\footnotesize] {Distance $x$ (km)};
-    \draw[thick, ->, >=stealth, slate800] (0,0) -- (0,6.3) node[above, font=\footnotesize] {Prix $y$ (\euro{})};
+    \draw[thick, ->, >=stealth, slate800] (0,0) -- (8.4,0) node[right, font=\tiny] {$x$ (km)};
+    \draw[thick, ->, >=stealth, slate800] (0,0) -- (0,6.4) node[above, font=\tiny] {$y$ (\euro{})};
     
     % Graduations
     \foreach \x/\val in {2/20, 4/40, 6/60, 8/80}
-        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\scriptsize] {\val};
+        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\tiny] {\val};
     \foreach \y/\val in {1/20, 2/40, 3/60, 4/80, 5/100, 6/120}
-        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\scriptsize] {\val};
+        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\tiny] {\val};
         
     % Droites
-    \draw[line width=1.5pt, colPrimary] (0,0) -- (4,4) -- (6,6) node[above left, font=\bfseries\footnotesize] {Tarif Éco : $f(x)=2x$};
-    \draw[line width=1.5pt, colSecondary] (0,1.5) -- (6,4.5) -- (8,5.5) node[above right, font=\bfseries\footnotesize] {Tarif Pro : $g(x)=x+30$};
+    \draw[line width=1.3pt, colPrimary] (0,0) -- (4,4) -- (6,6) node[above left, font=\bfseries\tiny] {Éco : $f(x)=2x$};
+    \draw[line width=1.3pt, colSecondary] (0,1.5) -- (6,4.5) -- (8,5.5) node[above right, font=\bfseries\tiny] {Pro : $g(x)=x+30$};
     
     % Point d'intersection
-    \fill[amber!90!black] (3,3) circle (3.5pt);
+    \fill[amber!90!black] (3,3) circle (3pt);
     \draw[dashed, thick, amber!90!black] (3,0) -- (3,3) -- (0,3);
-    \node[above left, font=\bfseries\footnotesize, amber!90!black] at (3,3) {Intersection $(30\text{ km} ; 60\text{ \euro{}})$};
+    \node[above left, font=\bfseries\tiny, amber!90!black] at (3.2,3) {$(30\text{ km} ; 60\text{ \euro{}})$};
 \end{tikzpicture}
-\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.50\linewidth}
+\begin{tcolorbox}[colback=slate100, colframe=colPrimary, arc=4pt, boxrule=0.8pt, top=4pt, bottom=4pt, left=6pt, right=6pt]
+\sffamily\footnotesize
+\textbf{Problématique :}
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Quelle droite passe par l'origine $(0;0)$ ? Que traduit-elle sur la proportionnalité ?
+    \item À partir de quelle distance le Tarif Pro devient-il plus économique que le Tarif Éco ?
+    \item Exprimer le coût $f(x)$ et $g(x)$ en fonction du nombre de kilomètres $x$.
+\end{enumerate}
+\end{tcolorbox}
+\end{minipage}
 
-\begin{center}
-\begin{tikzpicture}
-    \node[draw=colPrimary, fill=slate50, rounded corners=6pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
-        \sffamily
-        \textbf{Problématique :}
-        \begin{enumerate}
-            \item Quelle droite passe par l'origine du repère $(0;0)$ ? Que traduit-elle sur la proportionnalité ?
-            \item À partir de quelle distance parcourue le Tarif Pro devient-il plus avantageux pour le client ?
-            \item Comment modéliser mathématiquement ces deux tarifs à l'aide de fonctions ?
-        \end{enumerate}
-    };
-\end{tikzpicture}
-\end{center}
-
-\vspace{1mm}
+\vspace{2mm}
 \noindent\textbf{Espace de recherche :}
-\lignesreponse[4]
+\lignesreponse[3]
 \end{activite}
 
 % ------------------------------------------------------------------------------
@@ -62,17 +62,17 @@ Une entreprise de transport express propose deux formules tarifaires pour la liv
 \section{Notion de Fonction, Image \& Antécédent}
 
 \begin{cadredef}[Fonction, Image et Antécédent]
-Une \textbf{fonction} $f$ est un processus mathématique (une « machine ») qui, à chaque nombre de départ noté $x$, associe un \textbf{unique} nombre d'arrivée noté $f(x)$ (se lit « $f$ de $x$ »).
+Une \textbf{fonction} $f$ est un processus mathématique qui, à chaque nombre de départ noté $x$, associe un \textbf{unique} nombre d'arrivée noté $f(x)$ (se lit « $f$ de $x$ »).
 \[ x \xrightarrow{\quad f \quad} f(x) \]
-\begin{itemize}
-    \item $f(x)$ est l'\textbf{image} du nombre $x$ par la fonction $f$ (axe vertical des ordonnées $y$).
-    \item $x$ est un \textbf{antécédent} de $f(x)$ par la fonction $f$ (axe horizontal des abscisses $x$).
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item $f(x)$ est l'\textbf{image} de $x$ par la fonction $f$ (lue sur l'axe vertical des ordonnées $y$).
+    \item $x$ est un \textbf{antécédent} de $f(x)$ par la fonction $f$ (lu sur l'axe horizontal des abscisses $x$).
 \end{itemize}
 \end{cadredef}
 
 \begin{cadremethode}[Calculer une Image et un Antécédent]
 Soit la fonction $f$ définie par $f(x) = 3x - 5$.
-\begin{enumerate}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
     \item \textbf{Calculer l'image de 4} : On remplace $x$ par $4$ dans la formule :
     \[ f(4) = 3 \times 4 - 5 = 12 - 5 = \mathbf{7} \qquad \text{(L'image de $4$ est $7$)}. \]
     \item \textbf{Calculer l'antécédent de 16} : On résout l'équation $f(x) = 16$ :
@@ -82,7 +82,7 @@ Soit la fonction $f$ définie par $f(x) = 3x - 5$.
 
 \begin{cadreexemple}
 Soit la fonction $g(x) = 2x + 8$.
-\begin{itemize}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
     \item Calculer l'image de $5$ : $g(5) = 2 \times \pointille[0.8cm] + 8 = \pointille[1cm] + 8 = \pointille[1.5cm]$
     \item Trouver l'antécédent de $20$ : $2x + 8 = 20 \iff 2x = 20 - 8 \iff 2x = \pointille[1cm] \iff x = \pointille[1.5cm]$
 \end{itemize}
@@ -96,43 +96,39 @@ Soit la fonction $g(x) = 2x + 8$.
 \begin{cadredef}[Fonction Linéaire]
 Une \textbf{fonction linéaire} est une fonction de la forme :
 \[ \mathbf{f(x) = ax} \quad (\text{où } a \text{ est un nombre réel fixé}) \]
-\begin{itemize}
-    \item Elle modélise une situation de \textbf{proportionnalité}.
-    \item Sa représentation graphique est une \textbf{droite passant par l'origine} du repère $(0;0)$.
-    \item Le nombre $a$ est appelé le \textbf{coefficient directeur} (ou pente de la droite).
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item Elle traduit une situation de \textbf{proportionnalité}.
+    \item Sa représentation graphique est une \textbf{droite passant par l'origine} $(0;0)$.
+    \item Le nombre $a$ est appelé le \textbf{coefficient directeur} (la pente de la droite).
 \end{itemize}
 \end{cadredef}
 
 \begin{cadredef}[Fonction Affine]
 Une \textbf{fonction affine} est une fonction de la forme :
 \[ \mathbf{f(x) = ax + b} \quad (\text{où } a \text{ et } b \text{ sont des nombres fixés}) \]
-\begin{itemize}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
     \item Sa représentation graphique est une \textbf{droite}.
-    \item $\mathbf{a}$ est le \textbf{coefficient directeur} : il indique l'inclinaison / la pente de la droite.
-    \item $\mathbf{b}$ est l'\textbf{ordonnée à l'origine} : c'est la valeur où la droite coupe l'axe vertical $(y)$ en $(0;b)$.
+    \item $\mathbf{a}$ est le \textbf{coefficient directeur} (inclinaison / pente de la droite).
+    \item $\mathbf{b}$ est l'\textbf{ordonnée à l'origine} (point d'intersection avec l'axe vertical $(y)$ en $(0;b)$).
 \end{itemize}
 \end{cadredef}
 
-\begin{cadremethode}[Méthode pas à pas : Tracer la droite d'une fonction affine]
+\begin{cadremethode}[Tracer la droite d'une fonction affine]
 Pour tracer la droite représentant la fonction $f(x) = 2x - 3$ :
-\begin{enumerate}
-    \item On choisit deux valeurs de $x$ au hasard (par exemple $x = 0$ et $x = 3$).
-    \item On calcule leurs images pour obtenir les coordonnées de deux points $A$ et $B$ :
-    \begin{itemize}
-        \item Pour $x = 0$ : $f(0) = 2 \times 0 - 3 = -3 \implies \text{Point } A(0\,;\,-3)$.
-        \item Pour $x = 3$ : $f(3) = 2 \times 3 - 3 = 6 - 3 = 3 \implies \text{Point } B(3\,;\,3)$.
-    \end{itemize}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item On choisit deux valeurs de $x$ (ex : $x = 0$ et $x = 3$).
+    \item On calcule leurs images : $f(0) = -3 \implies A(0\,;\,-3)$ et $f(3) = 3 \implies B(3\,;\,3)$.
     \item On place les points $A$ et $B$ dans le repère, puis on trace la droite à la règle.
 \end{enumerate}
 \end{cadremethode}
 
 \begin{cadreretenu}[L'Essentiel du Chapitre 7]
-\begin{itemize}
-    \item Image : calcul sur l'axe vertical ($y$) en remplaçant $x$.
-    \item Antécédent : calcul sur l'axe horizontal ($x$) en résolvant l'équation $f(x) = k$.
-    \item Fonction linéaire : $f(x) = ax$ $\implies$ droite qui \textbf{passe par l'origine} $(0;0)$.
-    \item Fonction affine : $f(x) = ax + b$ $\implies$ droite qui coupe l'axe vertical en $(0;b)$.
-    \item Si $a > 0$, la fonction est \textbf{croissante} (la droite monte). Si $a < 0$, elle est \textbf{décroissante} (la droite descend).
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Image} : calculée sur l'axe vertical ($y$) en remplaçant $x$ dans $f(x)$.
+    \item \textbf{Antécédent} : calculé sur l'axe horizontal ($x$) en résolvant l'équation $f(x) = k$.
+    \item \textbf{Fonction linéaire} : $f(x) = ax \implies$ droite qui \textbf{passe par l'origine} $(0;0)$.
+    \item \textbf{Fonction affine} : $f(x) = ax + b \implies$ droite qui coupe l'axe vertical en $(0;b)$.
+    \item Si $a > 0$, la droite monte (croissante). Si $a < 0$, la droite descend (décroissante).
 \end{itemize}
 \end{cadreretenu}
 
@@ -161,95 +157,95 @@ Pour tracer la droite représentant la fonction $f(x) = 2x - 3$ :
 
 \begin{exercice}[2 pts]{\capRealiser}{Calculs d'images et tableau de valeurs}
 Soit la fonction affine $f$ définie par : $f(x) = 3x - 4$.
-\begin{enumerate}
-    \item Calculer les images de $-2$, de $0$ et de $5$ :
+\begin{enumerate}[leftmargin=1.5em]
+    \item Calculer les images suivantes :
     \begin{itemize}
-        \item $f(-2) = \pointille[4cm]$
-        \item $f(0) = \pointille[4cm]$
-        \item $f(5) = \pointille[4cm]$
+        \item $f(-2) = 3 \times (-2) - 4 = \pointille[3cm]$
+        \item $f(0) = 3 \times 0 - 4 = \pointille[3cm]$
+        \item $f(5) = 3 \times 5 - 4 = \pointille[3cm]$
     \end{itemize}
     \item Déterminer par le calcul l'antécédent de $17$ par la fonction $f$.
 \end{enumerate}
-\lignesreponse[3]
+\lignesreponse[2]
 \end{exercice}
 
 \begin{exercice}[3 pts]{\capSApproprier}{Lectures graphiques directes}
-On donne la représentation graphique d'une fonction $f$ ci-dessous :
+On donne la représentation graphique de la fonction $f$ ci-dessous :
 
 \begin{center}
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=0.7]
     \draw[step=1cm, slate200, very thin] (-3,-2) grid (5,5);
-    \draw[thick, ->, >=stealth, slate800] (-3,0) -- (5.3,0) node[right] {$x$};
-    \draw[thick, ->, >=stealth, slate800] (0,-2) -- (0,5.3) node[above] {$y$};
+    \draw[thick, ->, >=stealth, slate800] (-3,0) -- (5.3,0) node[right, font=\scriptsize] {$x$};
+    \draw[thick, ->, >=stealth, slate800] (0,-2) -- (0,5.3) node[above, font=\scriptsize] {$y$};
     \foreach \x in {-2,-1,1,2,3,4}
-        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\scriptsize] {\x};
+        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\tiny] {\x};
     \foreach \y in {-1,1,2,3,4}
-        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\scriptsize] {\y};
-    \node[below left, font=\scriptsize] at (0,0) {$0$};
+        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\tiny] {\y};
+    \node[below left, font=\tiny] at (0,0) {$0$};
     
     % Droite y = x + 1
-    \draw[line width=1.5pt, colPrimary] (-3,-2) -- (4,5) node[above right] {$(d_f)$};
+    \draw[line width=1.3pt, colPrimary] (-3,-2) -- (4,5) node[above right, font=\footnotesize] {$(d_f)$};
 \end{tikzpicture}
 \end{center}
 
-Par lecture graphique (en laissant apparaître les pointillés sur le repère) :
-\begin{enumerate}
+Par lecture graphique :
+\begin{enumerate}[leftmargin=1.5em]
     \item Lire l'image de $2$ par $f$ : $f(2) = \pointille[2cm]$
     \item Lire l'image de $-1$ par $f$ : $f(-1) = \pointille[2cm]$
     \item Lire l'antécédent de $4$ par $f$ : $x = \pointille[2cm]$
-    \item Donner l'ordonnée à l'origine $b$ de cette droite : $b = \pointille[2cm]$
+    \item Donner l'ordonnée à l'origine de cette droite : $b = \pointille[2cm]$
 \end{enumerate}
 \end{exercice}
 
 \begin{exercice}[3 pts]{\capRealiser}{Tracé de représentations graphiques}
-Dans le repère orthonormé ci-dessous :
-\begin{enumerate}
+Dans le repère ci-dessous :
+\begin{enumerate}[leftmargin=1.5em]
     \item Tracer la droite $(d_1)$ représentant la fonction linéaire $f(x) = 2x$.
     \item Tracer la droite $(d_2)$ représentant la fonction affine $g(x) = -x + 3$.
 \end{enumerate}
 
 \begin{center}
-\begin{tikzpicture}[scale=0.85]
+\begin{tikzpicture}[scale=0.7]
     \draw[step=1cm, slate200, very thin] (-3,-3) grid (5,5);
-    \draw[thick, ->, >=stealth, slate800] (-3,0) -- (5.3,0) node[right] {$x$};
-    \draw[thick, ->, >=stealth, slate800] (0,-3) -- (0,5.3) node[above] {$y$};
+    \draw[thick, ->, >=stealth, slate800] (-3,0) -- (5.3,0) node[right, font=\scriptsize] {$x$};
+    \draw[thick, ->, >=stealth, slate800] (0,-3) -- (0,5.3) node[above, font=\scriptsize] {$y$};
     \foreach \x in {-2,-1,1,2,3,4}
-        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\scriptsize] {\x};
+        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\tiny] {\x};
     \foreach \y in {-2,-1,1,2,3,4}
-        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\scriptsize] {\y};
-    \node[below left, font=\scriptsize] at (0,0) {$0$};
+        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\tiny] {\y};
+    \node[below left, font=\tiny] at (0,0) {$0$};
 \end{tikzpicture}
 \end{center}
 \end{exercice}
 
 \begin{exercice}[4 pts]{\capAnalyser}{Comparaison de Tarifs Télécom (Vente / Tertiaire)}
 Un opérateur propose deux formules pour les communications professionnelles :
-\begin{itemize}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
     \item \textbf{Formule A} : $0{,}20\text{ \euro{}}$ par minute de communication.
     \item \textbf{Formule B} : Abonnement fixe de $12\text{ \euro{}}$ par mois plus $0{,}05\text{ \euro{}}$ par minute.
 \end{itemize}
 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=1.5em]
     \item Exprimer le coût mensuel $C_A(x)$ de la Formule A pour $x$ minutes : $C_A(x) = \pointille[3cm]$
     \item Exprimer le coût mensuel $C_B(x)$ de la Formule B pour $x$ minutes : $C_B(x) = \pointille[3cm]$
     \item Préciser la nature de chaque fonction ($C_A$ et $C_B$).
     \item Calculer le coût de chaque formule pour $x = 100\text{ minutes}$ d'appels dans le mois.
     \item Résoudre l'équation $0{,}20x = 0{,}05x + 12$. Interpréter la valeur trouvée.
 \end{enumerate}
-\lignesreponse[5]
+\lignesreponse[4]
 \end{exercice}
 
 \begin{exercice}[4 pts]{\capAnalyser}{Facturation d'Intervention d'un Chauffagiste (BTP / Énergie)}
 Un artisan chauffagiste facture ses dépannages à domicile selon le barème suivant :
 Forfait déplacement fixe de \textbf{45 \euro{}}, plus un tarif horaire de \textbf{35 \euro{}} par heure passée.
 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=1.5em]
     \item Exprimer le montant total de la facture $F(x)$ en fonction du nombre d'heures d'intervention $x$.
     \item S'agit-il d'une fonction linéaire ou affine ? Justifier.
     \item Une intervention a duré $3\text{ heures et demie}$ ($3{,}5\text{ h}$). Calculer le montant de la facture.
     \item Un client a payé une facture totale de $185\text{ \euro{}}$. Combien de temps le chauffagiste a-t-il travaillé chez ce client ?
 \end{enumerate}
-\lignesreponse[5]
+\lignesreponse[4]
 \end{exercice}
 
 % ------------------------------------------------------------------------------
@@ -258,24 +254,24 @@ Forfait déplacement fixe de \textbf{45 \euro{}}, plus un tarif horaire de \text
 \section{TP TICE : Étude de Fonctions sur NumWorks}
 
 \begin{tpinfo}[Calculatrice NumWorks]{Application Fonctions \& Tableau de Valeurs}
-\begin{enumerate}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
     \item \textbf{Ajouter une fonction (Application Fonctions)} :
     \begin{itemize}
         \item Ouvrir l'application \textbf{Fonctions} (icône bleue avec courbe).
-        \item Sélectionner \textbf{Ajouter une fonction} $\rightarrow$ choisir \textbf{Affine} ou taper directement : \texttt{f(x) = 2x - 3}.
+        \item Sélectionner \textbf{Ajouter une fonction} $\rightarrow$ choisir \textbf{Affine} ou taper : \texttt{f(x) = 2x - 3}.
         \item Ajouter une seconde fonction : \texttt{g(x) = -x + 6}.
     \end{itemize}
     \item \textbf{Tracer le graphique} :
     \begin{itemize}
         \item Aller dans l'onglet \textbf{Graphique} en haut de l'écran avec les flèches.
-        \item Observer les deux droites. Déplacer le curseur jusqu'au point d'intersection des deux droites.
+        \item Observer les deux droites et déplacer le curseur au point d'intersection.
         \item Noter les coordonnées du point d'intersection : $(\pointille[1.5cm]\,;\,\pointille[1.5cm])$.
     \end{itemize}
     \item \textbf{Afficher le Tableau de valeurs} :
     \begin{itemize}
         \item Aller dans l'onglet \textbf{Tableau}.
         \item Régler l'intervalle avec \textbf{Régler le tableau} (Début : $0$, Fin : $10$, Pas : $1$).
-        \item Noter la valeur de $f(5)$ donnée par la machine : $f(5) = \pointille[2cm]$.
+        \item Noter la valeur de $f(5)$ affichée par la calculatrice : $f(5) = \pointille[2cm]$.
     \end{itemize}
 \end{enumerate}
 \end{tpinfo}
@@ -287,13 +283,13 @@ Forfait déplacement fixe de \textbf{45 \euro{}}, plus un tarif horaire de \text
 
 \begin{sujetdnb}[DNB Pro Métropole][10 pts]{Tarifs d'Entrée à un Parc Aquatique}
 Un parc d'attractions aquatique propose deux options d'accès pour la saison estivale :
-\begin{itemize}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
     \item \textbf{Option 1 (Tarif Plein)} : $15\text{ \euro{}}$ par entrée.
     \item \textbf{Option 2 (Carte Club)} : Achat d'une carte d'adhérent à $40\text{ \euro{}}$ pour la saison, puis $7\text{ \euro{}}$ par entrée.
 \end{itemize}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{\linewidth}{|l|X|X|X|}
 \hline
 \rowcolor{slate800} \textcolor{white}{\textbf{Nombre d'entrées ($x$)}} & \textcolor{white}{\textbf{2 entrées}} & \textcolor{white}{\textbf{5 entrées}} & \textcolor{white}{\textbf{10 entrées}} \\
@@ -305,7 +301,7 @@ Un parc d'attractions aquatique propose deux options d'accès pour la saison est
 \end{tabularx}
 \end{center}
 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
     \item \capSApproprier\ Compléter le tableau de valeurs ci-dessus.
     \item \capRealiser\ Exprimer $P_1(x)$ et $P_2(x)$ en fonction du nombre d'entrées $x$.
     \item \capAnalyser\ Parmi ces deux fonctions, laquelle est une fonction linéaire ? Justifier.
@@ -314,7 +310,7 @@ Un parc d'attractions aquatique propose deux options d'accès pour la saison est
     \item \capCommuniquer\ Un jeune prévoit de se rendre $8\text{ fois}$ au parc aquatique durant l'été. Quelle option doit-il choisir pour payer le moins cher ? Justifier avec les calculs détaillés.
 \end{enumerate}
 
-\vspace{2mm}
+\vspace{1mm}
 \noindent\textbf{Rédigez votre démarche ci-dessous :}
-\lignesreponse[8]
+\lignesreponse[6]
 \end{sujetdnb}
