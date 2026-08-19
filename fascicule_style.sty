@@ -252,7 +252,7 @@
     top=10pt, bottom=8pt, left=10pt, right=10pt
 }
 
-% 9. Exercice de TD (Robuste avec XParse pour supporter les arguments optionnels)
+% 9. Exercice de TD (Ultra-lisible, titre blanc sur fond indigo)
 \newcounter{numexo}[chapter]
 \renewcommand{\thenumexo}{\arabic{numexo}}
 
@@ -262,15 +262,15 @@
         enhanced,
         breakable,
         arc=5pt,
-        boxrule=0.8pt,
+        boxrule=1pt,
         colback=white,
         colframe=colExo,
-        coltitle=colExo!90!black,
-        fonttitle=\sffamily\bfseries\normalsize,
+        coltitle=white,
+        fonttitle=\sffamily\bfseries\normalsize\color{white},
         title={%
-            \textbf{Exercice \thenumexo} \ifstrempty{#3}{}{\ -- #3}%
-            \hfill \ifstrempty{#1}{}{\badge[colExo]{#1}}%
-            \ifstrempty{#2}{}{\ \badge[slate600]{#2}}%
+            \textbf{\color{white}Exercice \thenumexo} \ifstrempty{#3}{}{\ -- \textbf{\color{white}#3}}%
+            \hfill \ifstrempty{#2}{}{\colorbox{white!20}{\textcolor{white}{\sffamily\bfseries\scriptsize\ #2\ }}}%
+            \ifstrempty{#1}{}{\ \colorbox{white}{\textcolor{colExo}{\sffamily\bfseries\scriptsize\ #1\ }}}%
         },
         top=8pt, bottom=8pt, left=10pt, right=10pt
     ]%
@@ -278,7 +278,7 @@
     \end{tcolorbox}%
 }
 
-% 10. Sujet Brevet / DNB Pro
+% 10. Sujet Brevet / DNB Pro (Ultra-lisible, titre blanc sur fond teal)
 \newcounter{numdnb}[chapter]
 \NewDocumentEnvironment{sujetdnb}{ O{} O{} m }{%
     \refstepcounter{numdnb}%
@@ -286,14 +286,15 @@
         enhanced,
         breakable,
         arc=5pt,
-        boxrule=1pt,
+        boxrule=1.2pt,
         colback=colDNBBg,
         colframe=colDNB,
-        fonttitle=\sffamily\bfseries\normalsize\color{colDNB!90!black},
+        coltitle=white,
+        fonttitle=\sffamily\bfseries\normalsize\color{white},
         title={%
-            \faGraduationCap\ \textbf{Sujet DNB Pro \thenumdnb} : #3%
-            \hfill \ifstrempty{#1}{}{\badge[colDNB]{#1}}%
-            \ifstrempty{#2}{}{\ \badge[slate700]{#2}}%
+            \faGraduationCap\ \textbf{\color{white}Sujet DNB Pro \thenumdnb} : \textbf{\color{white}#3}%
+            \hfill \ifstrempty{#1}{}{\colorbox{white!20}{\textcolor{white}{\sffamily\bfseries\scriptsize\ #1\ }}}%
+            \ifstrempty{#2}{}{\ \colorbox{white}{\textcolor{colDNB}{\sffamily\bfseries\scriptsize\ #2\ }}}%
         },
         top=8pt, bottom=8pt, left=10pt, right=10pt
     ]%
@@ -301,18 +302,19 @@
     \end{tcolorbox}%
 }
 
-% 11. TP TICE / Tableur / Informatique
+% 11. TP TICE / Tableur / Informatique (Ultra-lisible, titre blanc sur fond magenta)
 \newtcolorbox{tpinfo}[2][]{
     enhanced,
     breakable,
     arc=5pt,
-    boxrule=1pt,
+    boxrule=1.2pt,
     colback=colTPBg,
     colframe=colTP,
-    fonttitle=\sffamily\bfseries\normalsize\color{colTP!90!black},
+    coltitle=white,
+    fonttitle=\sffamily\bfseries\normalsize\color{white},
     title={%
-        \faLaptopCode\ \textbf{TP TICE} : #2%
-        \hfill \ifstrempty{#1}{}{\badge[colTP]{#1}}%
+        \faLaptopCode\ \textbf{\color{white}TP TICE} : \textbf{\color{white}#2}%
+        \hfill \ifstrempty{#1}{}{\colorbox{white}{\textcolor{colTP}{\sffamily\bfseries\scriptsize\ #1\ }}}%
     },
     top=8pt, bottom=8pt, left=10pt, right=10pt
 }
@@ -325,21 +327,23 @@
     boxrule=0.5pt,
     colback=slate100,
     colframe=slate400,
-    fonttitle=\sffamily\bfseries\small\color{slate700},
+    coltitle=slate800,
+    fonttitle=\sffamily\bfseries\small\color{slate800},
     title={\faCheck\ #1},
     top=6pt, bottom=6pt, left=8pt, right=8pt
 }
 
-% 13. Questions Flash / Automatismes
+% 13. Questions Flash / Automatismes (Ultra-lisible, titre blanc sur fond ambre)
 \newtcolorbox{automatisme}[1][Questions Flash / Automatismes]{
     enhanced,
     breakable,
     arc=5pt,
-    boxrule=1pt,
+    boxrule=1.2pt,
     colback=colExemBg,
-    colframe=colExem,
-    fonttitle=\sffamily\bfseries\normalsize\color{colExem!90!black},
-    title={\faBolt\ \textbf{#1}},
+    colframe=amber!90!black,
+    coltitle=white,
+    fonttitle=\sffamily\bfseries\normalsize\color{white},
+    title={\faBolt\ \textbf{\color{white}#1}},
     top=8pt, bottom=8pt, left=10pt, right=10pt
 }
 
