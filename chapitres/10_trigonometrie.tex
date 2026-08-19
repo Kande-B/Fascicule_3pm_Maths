@@ -156,49 +156,134 @@ Moyen Mnémotechnique Officiel : \quad \textcolor{colPrimary}{\Large SOH - CAH -
 \section{Travaux Dirigés (TD) : Exercices d'Entraînement}
 
 \begin{exercice}[2 pts]{\capRealiser}{Pente d'une Toiture Industrielle (BTP / Charpente)}
-Une charpente industrielle $ABC$ a la forme d'un triangle rectangle en $B$.
-Le versant du toit a une longueur $AC = 8{,}50\text{ m}$ et forme avec le plafond horizontal un angle $\widehat{BAC} = 22^\circ$.
-\begin{enumerate}[leftmargin=1.5em]
-    \item Calculer la hauteur sous faîtage $BC$ du bâtiment (arrondir au centième de mètre).
-    \item Calculer la largeur horizontale sous toiture $AB$ (arrondir au centième de mètre).
+\noindent\begin{minipage}[t]{0.52\linewidth}
+Une charpente a la forme d'un triangle $ABC$ rectangle en $B$.
+Le versant mesure $AC = 8{,}50\text{ m}$ et forme avec l'horizontale un angle $\widehat{BAC} = 22^\circ$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Calculer la hauteur $BC$ sous faîtage (au centième).
+    \item Calculer la portée horizontale $AB$ (au centième).
 \end{enumerate}
-\lignesreponse[3]
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.44\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.68]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (3.5,0);
+    \coordinate (C) at (3.5,1.4);
+    \draw[slate800, line width=1.2pt] (A) -- (B) -- (C) -- cycle;
+    \draw[colPrimary, line width=1.8pt] (A) -- (C) node[midway, above left=1pt, font=\bfseries\tiny] {$8{,}50\text{ m}$};
+    \draw[draw=slate800, fill=slate200] (3.5,0.2) -- (3.3,0.2) -- (3.3,0) -- cycle;
+    \draw[colSecondary, thick, fill=colSecondary!20] (A) -- (0.8,0) arc (0:22:0.8) -- cycle;
+    \node[colSecondary!90!black, font=\bfseries\tiny] at (1.05,0.15) {$22^\circ$};
+    \node[below left=1pt, font=\bfseries\scriptsize] at (A) {$A$};
+    \node[below right=1pt, font=\bfseries\scriptsize] at (B) {$B$};
+    \node[above right=1pt, font=\bfseries\scriptsize] at (C) {$C$};
+    \draw[dashed, slate400] (0,-0.3) -- (0,0);
+    \draw[dashed, slate400] (3.5,-0.3) -- (3.5,0);
+    \draw[pattern=north east lines, pattern color=slate300] (0,-0.3) rectangle (3.5,-0.15);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
 \end{exercice}
 
 \begin{exercice}[3 pts]{\capSApproprier}{Sécurité d'une Échelle de Secours (Pompiers / Sécurité)}
-Les sapeurs-pompiers déploient une échelle de grande hauteur $L = 12\text{ m}$ contre la façade d'un immeuble pour évacuer un balcon.
-Pour garantir une stabilité parfaite sans risque de glissement au sol, l'angle avec le sol horizontal doit être de \textbf{$70^\circ$}.
-\begin{enumerate}[leftmargin=1.5em]
-    \item Calculer la hauteur maximale $h$ atteinte sur la façade par le haut de l'échelle (au centième de mètre).
-    \item Calculer la distance de sécurité $d$ à laquelle le pied de l'échelle doit être placé par rapport au mur.
+\noindent\begin{minipage}[t]{0.52\linewidth}
+Une grande échelle $L = 12\text{ m}$ ($PM$) est posée contre un mur avec un angle au sol de \textbf{$70^\circ$}.
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Calculer la hauteur $h = MS$ atteinte (au centième).
+    \item Calculer la distance de sécurité $d = PS$ au sol.
 \end{enumerate}
-\lignesreponse[3]
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.44\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.68]
+    \draw[slate600, thick] (-0.3,0) -- (2.3,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.3,-0.2) rectangle (2.3,0);
+    \draw[slate800, line width=1.4pt] (1.9,0) -- (1.9,2.8);
+    \coordinate (P) at (0.9,0);
+    \coordinate (M) at (1.9,2.6);
+    \draw[colPrimary, line width=1.8pt] (P) -- (M) node[midway, above left=1pt, font=\bfseries\tiny] {$12\text{ m}$};
+    \draw[colSecondary, thick, fill=colSecondary!20] (P) -- ($(P)+(0.5,0)$) arc (0:70:0.5) -- cycle;
+    \node[colSecondary!90!black, font=\bfseries\tiny] at ($(P)+(0.38,0.25)$) {$70^\circ$};
+    \draw[draw=slate800, fill=slate200] (1.9,0.2) -- (1.7,0.2) -- (1.7,0) -- cycle;
+    \node[below=2pt, font=\bfseries\scriptsize] at (P) {$P$};
+    \node[above left=1pt, font=\bfseries\scriptsize] at (M) {$M$};
+    \node[below right=1pt, font=\bfseries\scriptsize] at (1.9,0) {$S$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
 \end{exercice}
 
 \newpage
 
 \begin{exercice}[3 pts]{\capAnalyser}{Visée Maritime depuis un Phare Côtier (Navigation / Topographie)}
-Un gardien de phare observe un voilier en détresse au large.
-Le sommet du phare se trouve à une hauteur de \textbf{$48\text{ m}$} au-dessus du niveau de la mer.
-La distance horizontale séparant le pied du phare et le voilier est de \textbf{$160\text{ m}$}.
-\begin{enumerate}[leftmargin=1.5em]
-    \item Réaliser un schéma codé de la situation en faisant apparaître un triangle rectangle.
-    \item Calculer la valeur de la tangente de l'angle de visée $\widehat{\theta}$ formé avec l'horizontale.
-    \item En déduire la mesure de l'angle $\widehat{\theta}$ arrondi au dixième de degré.
+\noindent\begin{minipage}[t]{0.52\linewidth}
+Un gardien de phare ($SH = 48\text{ m}$) observe un voilier $B$ situé à une distance horizontale $HB = 160\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Calculer la tangente de l'angle $\widehat{\theta} = \widehat{SBH}$.
+    \item En déduire l'angle de visée $\widehat{\theta}$ (au dixième).
 \end{enumerate}
-\lignesreponse[4]
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.44\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.68]
+    \draw[sky!80!blue, line width=1.2pt] (-0.2,0) -- (4.0,0);
+    \fill[sky!10] (-0.2,-0.2) rectangle (4.0,0);
+    \draw[slate800, fill=slate200, line width=1.1pt] (0,0) rectangle (0.35,2.1);
+    \draw[fill=amber!40, draw=slate800] (0,2.1) -- (0.175,2.4) -- (0.35,2.1) -- cycle;
+    \node[left=1pt, font=\bfseries\tiny] at (0,1.0) {$48\text{ m}$};
+    \coordinate (B) at (3.6,0);
+    \draw[fill=colPrimary!30, draw=slate800, thick] (3.3,0) -- (3.9,0) -- (3.75,-0.15) -- (3.45,-0.15) -- cycle;
+    \draw[slate800, thick] (3.6,0) -- (3.6,0.3) -- (3.8,0.15) -- cycle;
+    \coordinate (S) at (0.175,2.1);
+    \draw[colSecondary, line width=1.2pt, dashed] (S) -- (B);
+    \draw[colSecondary, thick, fill=colSecondary!20] (B) -- ($(B)+(-0.7,0)$) arc (180:{180-atan(2.1/3.425)}:0.7) -- cycle;
+    \node[colSecondary!90!black, font=\bfseries\tiny] at (2.7,0.18) {$\widehat{\theta}$};
+    \node[below=2pt, font=\bfseries\tiny] at (1.8,-0.05) {$160\text{ m}$};
+    \node[above left=1pt, font=\bfseries\tiny] at (S) {$S$};
+    \node[below left=1pt, font=\bfseries\tiny] at (0,0) {$H$};
+    \node[below right=1pt, font=\bfseries\tiny] at (B) {$B$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
 \end{exercice}
 
 \begin{exercice}[4 pts]{\capRealiser}{Téléphérique de Montagne (Génie Civil / Transport)}
-Un câble de téléphérique relie une station inférieure $A$ (altitude $1\,200\text{ m}$) à une station supérieure $B$ (altitude $2\,100\text{ m}$).
-La longueur totale du câble tendu en ligne droite est $AB = 2\,400\text{ m}$.
-\begin{enumerate}[leftmargin=1.5em]
-    \item Calculer le dénivelé vertical $h$ franchi par le téléphérique entre les deux stations.
-    \item Déterminer le sinus de l'angle d'inclinaison $\beta$ du câble par rapport à l'horizontale.
-    \item Calculer la mesure de l'angle $\beta$ arrondie au degré près.
-    \item Calculer la distance horizontale parcourue au sol par la cabine (au mètre près).
+\noindent\begin{minipage}[t]{0.52\linewidth}
+Un téléphérique relie la station $A$ ($1\,200\text{ m}$) à la station $B$ ($2\,100\text{ m}$). Le câble mesure $AB = 2\,400\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Calculer le dénivelé vertical $h = BH$.
+    \item Calculer $\sin(\beta)$ puis la mesure de l'angle $\beta$ (au degré près).
+    \item Calculer la distance horizontale $AH$ parcourue.
 \end{enumerate}
-\lignesreponse[4]
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.44\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.68]
+    \coordinate (A) at (0,0.35);
+    \coordinate (B) at (3.5,2.1);
+    \coordinate (H) at (3.5,0.35);
+    \draw[slate400, fill=slate100] (-0.2,0) -- (A) -- (B) -- (3.8,2.1) -- (3.8,-0.1) -- (-0.2,-0.1) -- cycle;
+    \draw[colPrimary, line width=1.8pt] (A) -- (B) node[midway, above left=1pt, font=\bfseries\tiny] {$2\,400\text{ m}$};
+    \draw[dashed, slate700, thick] (A) -- (H);
+    \draw[slate800, line width=1.2pt] (H) -- (B) node[midway, right=1pt, font=\bfseries\tiny] {$h$};
+    \draw[draw=slate800, fill=slate200] (3.5,0.55) -- (3.3,0.55) -- (3.3,0.35) -- cycle;
+    \draw[colSecondary, thick, fill=colSecondary!20] (A) -- ($(A)+(0.6,0)$) arc (0:{atan(1.75/3.5)}:0.6) -- cycle;
+    \node[colSecondary!90!black, font=\bfseries\tiny] at ($(A)+(0.8,0.15)$) {$\beta$};
+    \node[above left=1pt, font=\bfseries\tiny] at (A) {$A$};
+    \node[above right=1pt, font=\bfseries\tiny] at (B) {$B$};
+    \node[below right=1pt, font=\bfseries\tiny] at (H) {$H$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
 \end{exercice}
 
 % ------------------------------------------------------------------------------
