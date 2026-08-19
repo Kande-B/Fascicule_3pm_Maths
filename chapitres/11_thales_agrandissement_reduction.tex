@@ -1,0 +1,465 @@
+% ==============================================================================
+% CHAPITRE 11 : THÉORÈME DE THALÈS & AGRANDISSEMENTS / RÉDUCTIONS (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Théorème de Thalès \& Agrandissements -- Réductions}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : MENUISERIE / BTP)
+% ------------------------------------------------------------------------------
+\begin{activite}{Sécurité et Stabilité d'un Escabeau de Chantier (Menuiserie / BTP)}
+Un artisan menuisier fabrique un escabeau double en bois composé de deux montants $[AB]$ et $[AC]$ articulés au sommet $A$.
+Pour garantir la stabilité et respecter les normes de sécurité de l'atelier, une traverse de renfort horizontale $[MN]$ est fixée entre les deux montants, parallèlement au sol horizontal $[BC]$.
+
+\vspace{1mm}
+\begin{center}
+\begin{tcolorbox}[colback=amber!10, colframe=amber!80!black, arc=4pt, boxrule=0.8pt, left=8pt, right=8pt, top=4pt, bottom=4pt]
+\sffamily\footnotesize
+\textbf{Données techniques relevées sur le plan d'atelier :}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
+    \item Longueur totale du montant : $AB = 150\text{ cm}$ ;
+    \item Position de la fixation de la traverse : $AM = 60\text{ cm}$ (donc $M$ appartient à $[AB]$) ;
+    \item Écartement au sol des pieds : $BC = 80\text{ cm}$ ;
+    \item La traverse $(MN)$ est strictement parallèle à la ligne de sol $(BC)$.
+\end{itemize}
+\end{tcolorbox}
+\end{center}
+
+\vspace{1mm}
+\noindent
+\begin{minipage}[c]{0.48\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.95]
+    % Sol horizontal
+    \draw[slate600, thick] (-0.5,0) -- (4.5,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.5,-0.2) rectangle (4.5,0);
+    
+    % Montants escabeau
+    \coordinate (A) at (2.0,3.6);
+    \coordinate (B) at (0.4,0);
+    \coordinate (C) at (3.6,0);
+    
+    % Points M et N (à 40% depuis A)
+    \coordinate (M) at ($(A)!0.4!(B)$);
+    \coordinate (N) at ($(A)!0.4!(C)$);
+    
+    % Dessin montants
+    \draw[slate800, line width=2pt] (A) -- (B);
+    \draw[slate800, line width=2pt] (A) -- (C);
+    
+    % Traverse de renfort (MN)
+    \draw[colPrimary, line width=2.2pt] (M) -- (N) node[midway, above=1pt, font=\bfseries\scriptsize, text=colPrimary] {Traverse ($MN$)};
+    
+    % Écartement sol
+    \draw[dashed, slate600, thick] (B) -- (C) node[midway, below=2pt, font=\bfseries\scriptsize] {$BC = 80\text{ cm}$};
+    
+    % Cotes et labels
+    \node[above=2pt, font=\bfseries\small] at (A) {$A$};
+    \node[below left=1pt, font=\bfseries\small] at (B) {$B$};
+    \node[below right=1pt, font=\bfseries\small] at (C) {$C$};
+    \node[left=2pt, font=\bfseries\small, text=colSecondary] at (M) {$M$};
+    \node[right=2pt, font=\bfseries\small, text=colSecondary] at (N) {$N$};
+    
+    % Flèches de cote
+    \draw[<->, colSecondary, thick] ($(A)+(-0.35,0)$) -- ($(M)+(-0.35,0)$) node[midway, left=1pt, font=\bfseries\tiny] {$60\text{ cm}$};
+    \draw[<->, slate600, thick] ($(A)+(-0.8,0)$) -- ($(B)+(-0.8,0)$) node[midway, left=1pt, font=\bfseries\tiny] {$150\text{ cm}$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.48\linewidth}
+\begin{tcolorbox}[colback=slate100, colframe=colPrimary, arc=5pt, boxrule=0.8pt, top=6pt, bottom=6pt, left=8pt, right=8pt]
+\sffamily\small
+\textbf{Problématique :}
+\begin{enumerate}[leftmargin=1.2em, itemsep=4pt]
+    \item Les triangles $AMN$ et $ABC$ forment-ils une configuration de proportionnalité ?
+    \item Calculer le rapport de réduction $k = \frac{AM}{AB}$ sous forme décimale.
+    \item À l'aide de l'égalité de Thalès $\frac{AM}{AB} = \frac{MN}{BC}$, calculer la longueur exacte de la traverse $[MN]$ à couper.
+\end{enumerate}
+\end{tcolorbox}
+\end{minipage}
+
+\vspace{3mm}
+\lignesreponse[6]
+\end{activite}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 2. COURS : THÉORÈME DE THALÈS & PROPORTIONNALITÉ
+% ------------------------------------------------------------------------------
+\section{Théorème de Thalès : Calcul d'une Longueur}
+
+\begin{cadredef}[Conditions d'Application du Théorème de Thalès]
+Soient deux droites sécantes en un point $A$, coupées par deux droites $(MN)$ et $(BC)$.
+\begin{center}
+\textbf{Si les droites $(MN)$ et $(BC)$ sont strictement parallèles, alors :}
+\[ \mathbf{\frac{AM}{AB} = \frac{AN}{AC} = \frac{MN}{BC}} \quad \left(\frac{\text{Petit triangle}}{\text{Grand triangle}}\right) \]
+\end{center}
+\end{cadredef}
+
+\begin{cadremethode}[Calculer une Longueur Inconnue par Produit en Croix]
+\textbf{Exemple} : Dans un triangle $ABC$, $(DE) \parallel (BC)$ avec $AB = 10\text{ cm}$, $AD = 4\text{ cm}$ et $BC = 15\text{ cm}$.
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item Les droites $(DB)$ et $(EC)$ sont sécantes en $A$, et $(DE) \parallel (BC)$.
+    \item D'après le théorème de Thalès : $\frac{AD}{AB} = \frac{AE}{AC} = \frac{DE}{BC} \implies \frac{4}{10} = \frac{DE}{15}$.
+    \item Produit en croix : $DE = \frac{4 \times 15}{10} = \frac{60}{10} = \mathbf{6\text{ cm}}$.
+\end{enumerate}
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : AGRANDISSEMENTS & RÉDUCTIONS (LONGUEURS, AIRES, VOLUMES)
+% ------------------------------------------------------------------------------
+\section{Agrandissements \& Réductions (Effets sur $k$, $k^2$, $k^3$)}
+
+\begin{cadredef}[Rapport d'Agrandissement / Réduction ($k$)]
+Lorsqu'on multiplie toutes les dimensions d'une figure par un nombre strictement positif $k$ :
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item Si $\mathbf{k > 1}$ : il s'agit d'un \textbf{agrandissement} (ex : échelle $2:1 \implies k = 2$).
+    \item Si $\mathbf{0 < k < 1}$ : il s'agit d'une \textbf{réduction} (ex : maquette à l'échelle $1:50 \implies k = 0{,}02$).
+\end{itemize}
+\end{cadredef}
+
+\begin{center}
+\begin{tcolorbox}[colback=colPrimary!10, colframe=colPrimary, width=0.96\linewidth, arc=4pt, boxrule=1pt, top=4pt, bottom=4pt, left=8pt, right=8pt]
+\sffamily\bfseries\normalsize\centering
+Propriété Fondamentale des Échelles ($k$) :\\[2pt]
+\begin{tabular}{rcccl}
+$\bullet$ Les \textbf{Longueurs} & sont multipliées par & $\mathbf{k}$ & & ($\text{Périmètre}' = k \times \text{Périmètre}$) \\
+$\bullet$ Les \textbf{Aires} & sont multipliées par & $\mathbf{k^2}$ & & ($\text{Aire}' = k^2 \times \text{Aire}$) \\
+$\bullet$ Les \textbf{Volumes} & sont multipliés par & $\mathbf{k^3}$ & & ($\text{Volume}' = k^3 \times \text{Volume}$)
+\end{tabular}
+\end{tcolorbox}
+\end{center}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 11]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item Toujours vérifier l'alignement des points et le parallélisme des droites avant d'écrire les 3 rapports.
+    \item Le coefficient $k = \frac{\text{longueur finale}}{\text{longueur initiale}}$ permet de passer directement d'une figure à l'autre.
+    \item Pour une surface $\implies k^2$ ; pour un volume ou une contenance $\implies k^3$.
+\end{itemize}
+\end{cadreretenu}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 4. QUESTIONS FLASH / AUTOMATISMES & TD 1 & TD 2 (PAGE 3)
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}, itemsep=1pt]
+    \item Configuration de Thalès avec $(MN) \parallel (BC)$ : $\frac{AM}{AB} = \frac{\pointille[2cm]}{AC} = \frac{MN}{\pointille[2cm]}$
+    \item Si $\frac{x}{6} = \frac{5}{10}$, calculer la valeur exacte de $x$ : $x = \pointille[2cm]$
+    \item Échelle $1:50$ : s'agit-il d'un agrandissement ou d'une réduction ? \pointille[3cm]
+    \item Un carré de côté $4\text{ cm}$ est agrandi avec $k = 3$. Nouveau côté : \pointille[2cm]
+    \item Si les longueurs sont multipliées par $k = 2$, l'aire est multipliée par : \pointille[2cm]
+    \item Volume initial $100\text{ cm}^3$, agrandi avec $k=2$. Nouveau volume : \pointille[2cm]
+    \item Donner sous forme décimale le rapport $k = \frac{3}{12} = \pointille[2cm]$
+    \item Droites parallèles si les quotients de Thalès sont \pointille[3cm]
+\end{enumerate}
+\end{automatisme}
+
+\section{Travaux Dirigés (TD) : Problèmes d'Entraînement}
+
+\begin{exercice}[2 pts][\capRealiser]{Renfort d'une Ferme de Toit (Charpente / BTP)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Une ferme de charpente $ABC$ est renforcée par un entrait horizontal $[MN]$ parallèle à $[BC]$.
+On donne : $AB = 6\text{ m}$, $AM = 4\text{ m}$, et $BC = 7{,}50\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer la longueur de la poutre $[MN]$.
+    \item Sachant que $AC = 5{,}40\text{ m}$, calculer $AN$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \coordinate (A) at (2.0,2.5);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (4.0,0);
+    \coordinate (M) at ($(A)!0.666!(B)$);
+    \coordinate (N) at ($(A)!0.666!(C)$);
+    \draw[slate800, line width=1.4pt] (A) -- (B) -- (C) -- cycle;
+    \draw[colPrimary, line width=1.8pt] (M) -- (N) node[midway, above=1pt, font=\bfseries\tiny] {$MN$};
+    \node[above=1pt, font=\bfseries\scriptsize] at (A) {$A$};
+    \node[below left=1pt, font=\bfseries\scriptsize] at (B) {$B$};
+    \node[below right=1pt, font=\bfseries\scriptsize] at (C) {$C$};
+    \node[left=1pt, font=\bfseries\scriptsize] at (M) {$M$};
+    \node[right=1pt, font=\bfseries\scriptsize] at (N) {$N$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capSApproprier]{Sangle de Sécurité d'un Escabeau Professionnel}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un escabeau de peintre possède une sangle $[DE]$ parallèle au sol $[BC]$.
+On a : $AD = 45\text{ cm}$, $AB = 120\text{ cm}$, et $DE = 30\text{ cm}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer l'écartement au sol $BC$.
+    \item Si le montant mesure $AC = 120\text{ cm}$, calculer $AE$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \coordinate (A) at (1.8,2.6);
+    \coordinate (B) at (0.3,0);
+    \coordinate (C) at (3.3,0);
+    \coordinate (D) at ($(A)!0.375!(B)$);
+    \coordinate (E) at ($(A)!0.375!(C)$);
+    \draw[slate600, thick] (0,0) -- (3.6,0);
+    \fill[pattern=north east lines, pattern color=slate300] (0,-0.2) rectangle (3.6,0);
+    \draw[slate800, line width=1.4pt] (A) -- (B);
+    \draw[slate800, line width=1.4pt] (A) -- (C);
+    \draw[colSecondary, line width=1.8pt] (D) -- (E) node[midway, above=1pt, font=\bfseries\tiny] {$30\text{ cm}$};
+    \node[above=1pt, font=\bfseries\scriptsize] at (A) {$A$};
+    \node[below left=1pt, font=\bfseries\scriptsize] at (B) {$B$};
+    \node[below right=1pt, font=\bfseries\scriptsize] at (C) {$C$};
+    \node[left=1pt, font=\bfseries\scriptsize] at (D) {$D$};
+    \node[right=1pt, font=\bfseries\scriptsize] at (E) {$E$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 5. TRAVAUX DIRIGÉS (TD) - EXERCICES 3, 4 & 5 (PAGE 4)
+% ------------------------------------------------------------------------------
+\begin{exercice}[3 pts][\capAnalyser]{Mesure de la Largeur d'une Rivière (Configuration Sablier)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un géomètre mesure la distance $AB$ séparant les deux rives d'un fleuve.
+Les droites $(AD)$ et $(BC)$ se coupent en $O$, avec $(AB) \parallel (CD)$.
+Mesures : $OC = 18\text{ m}$, $OB = 45\text{ m}$, et $CD = 24\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Écrire l'égalité des trois rapports de Thalès en $O$.
+    \item Calculer la largeur de la rivière $AB$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \fill[sky!15] (-0.3,0.7) rectangle (4.2,1.8);
+    \draw[sky!80!blue, dashed] (-0.3,0.7) -- (4.2,0.7);
+    \draw[sky!80!blue, dashed] (-0.3,1.8) -- (4.2,1.8);
+    \coordinate (A) at (0.4,2.3);
+    \coordinate (B) at (3.2,2.3);
+    \coordinate (O) at (1.8,1.25);
+    \coordinate (C) at (1.0,0.2);
+    \coordinate (D) at (2.6,0.2);
+    \draw[colPrimary, line width=1.4pt] (A) -- (D);
+    \draw[colPrimary, line width=1.4pt] (B) -- (C);
+    \draw[slate800, line width=1.6pt] (A) -- (B) node[midway, above=1pt, font=\bfseries\tiny] {$AB$};
+    \draw[slate800, line width=1.6pt] (C) -- (D) node[midway, below=1pt, font=\bfseries\tiny] {$24\text{ m}$};
+    \node[above left=1pt, font=\bfseries\scriptsize] at (A) {$A$};
+    \node[above right=1pt, font=\bfseries\scriptsize] at (B) {$B$};
+    \node[right=1pt, font=\bfseries\scriptsize] at (O) {$O$};
+    \node[below left=1pt, font=\bfseries\scriptsize] at (C) {$C$};
+    \node[below right=1pt, font=\bfseries\scriptsize] at (D) {$D$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capValider]{Contrôle d'Horizontalité d'une Étagère (Réciproque de Thalès)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un poseur vérifie si une tablette d'étagère $[MN]$ est bien parallèle au montant bas $[BC]$.
+Il mesure : $AM = 24\text{ cm}$, $AB = 60\text{ cm}$, $AN = 20\text{ cm}$, et $AC = 50\text{ cm}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer et comparer les quotients $\frac{AM}{AB}$ et $\frac{AN}{AC}$.
+    \item Conclure sur le parallélisme de la tablette $(MN)$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \coordinate (A) at (1.8,2.4);
+    \coordinate (B) at (0.2,0);
+    \coordinate (C) at (3.4,0);
+    \coordinate (M) at ($(A)!0.4!(B)$);
+    \coordinate (N) at ($(A)!0.4!(C)$);
+    \draw[slate800, line width=1.4pt] (A) -- (B) -- (C) -- cycle;
+    \draw[colSecondary, line width=1.8pt] (M) -- (N) node[midway, above=1pt, font=\bfseries\tiny] {Tablette ($MN$)};
+    \node[above=1pt, font=\bfseries\scriptsize] at (A) {$A$};
+    \node[below left=1pt, font=\bfseries\scriptsize] at (B) {$B$};
+    \node[below right=1pt, font=\bfseries\scriptsize] at (C) {$C$};
+    \node[left=1pt, font=\bfseries\scriptsize] at (M) {$M$};
+    \node[right=1pt, font=\bfseries\scriptsize] at (N) {$N$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capRealiser]{Maquette d'Architecture et Surface d'un Atelier}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un architecte réalise la maquette à l'échelle $\mathbf{1:50}$ ($k = 0{,}02$) d'un atelier rectangulaire de dimensions réelles $L = 25\text{ m}$ et $l = 12\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer les dimensions de la maquette $L'$ et $l'$ en centimètres.
+    \item L'aire réelle vaut $300\text{ m}^2$. Calculer l'aire de la maquette en $\text{cm}^2$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[colPrimary, fill=colPrimary!10, line width=1.1pt] (0,0.6) rectangle (2.0,1.9);
+    \node[font=\bfseries\tiny] at (1.0,1.25) {Atelier Réel};
+    \node[below, font=\bfseries\tiny] at (1.0,0.6) {$25\text{ m}$};
+    \draw[colSecondary, fill=colSecondary!15, line width=1.1pt] (2.5,0.6) rectangle (3.4,1.1);
+    \node[font=\bfseries\tiny] at (2.95,0.85) {Maquette};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 5. TRAVAUX DIRIGÉS (TD) & TP TICE (PAGE 5)
+% ------------------------------------------------------------------------------
+\begin{exercice}[3 pts][\capAnalyser]{Hauteur d'un Bâtiment par l'Ombre Portée (Méthode de Thalès)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Les rayons du soleil sont considérés comme parallèles.
+Un piquet vertical de $1{,}50\text{ m}$ projette une ombre au sol de $2{,}00\text{ m}$.
+Au même moment, l'ombre d'un bâtiment mesure $36{,}00\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Justifier pourquoi les triangles d'ombre sont semblables.
+    \item Calculer la hauteur réelle $H$ du bâtiment.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate600, thick] (-0.3,0) -- (4.0,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.3,-0.2) rectangle (4.0,0);
+    \draw[slate800, fill=slate200, line width=1.1pt] (0,0) rectangle (1.1,1.9);
+    \node[font=\bfseries\tiny] at (0.55,0.95) {Bâtiment};
+    \draw[amber!90!black, line width=1.2pt, dashed] (1.1,1.9) -- (3.3,0);
+    \node[below=1pt, font=\bfseries\tiny] at (2.2,0) {Ombre $= 36\text{ m}$};
+    \draw[colPrimary, line width=1.6pt] (3.5,0) -- (3.5,0.45);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[4 pts][\capRealiser]{Impression 3D \& Réduction de Volume d'un Flacon}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Une entreprise de cosmétique fabrique un flacon de contenance $V = 250\text{ mL}$ et de hauteur $h = 15\text{ cm}$.
+Elle crée un échantillon miniature avec un coefficient $\mathbf{k = 0{,}6}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer la hauteur $h'$ de l'échantillon miniature.
+    \item Calculer la contenance $V'$ de l'échantillon (en $\text{mL}$, rappel : $\times k^3$).
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[colPrimary, fill=colPrimary!10, line width=1.1pt] (0.4,0) -- (1.4,0) -- (1.4,1.6) -- (1.1,1.9) -- (1.1,2.2) -- (0.7,2.2) -- (0.7,1.9) -- (0.4,1.6) -- cycle;
+    \node[font=\bfseries\tiny] at (0.9,0.8) {$250\text{ mL}$};
+    \draw[colSecondary, fill=colSecondary!15, line width=1.1pt] (2.4,0) -- (3.0,0) -- (3.0,0.96) -- (2.82,1.14) -- (2.82,1.32) -- (2.58,1.32) -- (2.58,1.14) -- (2.4,0.96) -- cycle;
+    \node[font=\bfseries\tiny] at (2.7,0.48) {$V'$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 6. TP TICE / CALCULATRICE NUMWORKS
+% ------------------------------------------------------------------------------
+\section{TP TICE : Proportions \& Équations sur NumWorks}
+
+\begin{tpinfo}[Calculatrice NumWorks]{Résolution d'Égalités de Rapports \& Fractions}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Calcul direct d'une quatrième proportionnelle (Application Calculs)} :
+    \begin{itemize}
+        \item Pour résoudre $\frac{x}{15} = \frac{4}{10}$, taper directement \texttt{(4 * 15) / 10} puis valider avec \textbf{EXE}.
+        \item Utiliser la touche fraction $\mathbf{\frac{\Box}{\Box}}$ pour saisir directement les écritures rationnelles.
+    \end{itemize}
+    \item \textbf{Résolution automatique d'équations (Application Équations)} :
+    \begin{itemize}
+        \item Ouvrir l'application \textbf{Équations} $\rightarrow$ \textbf{Ajouter une équation}.
+        \item Saisir : \texttt{x/15 = 4/10} puis sélectionner \textbf{Résoudre l'équation}.
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 7. VERS LE BREVET (DNB PRO) (PAGE 6)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Installation d'un Échafaudage et Monte-Charge de Façade}
+Pour ravaler la façade d'un immeuble, une entreprise de maçonnerie monte un échafaudage vertical adossé au mur $[AB]$.
+Pour monter les sacs de mortier au 2\textsuperscript{ème} étage, un câble de treuil $[AC]$ de longueur \textbf{$13\text{ m}$} est fixé au sommet $A$ ($12\text{ m}$).
+Une jambe de force de maintien horizontal $[MN]$ est fixée à mi-hauteur ($AM = 6\text{ m}$), parallèlement au sol horizontal $[BC]$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.82]
+    % Sol
+    \draw[slate600, thick] (-0.5,0) -- (6.0,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.5,-0.25) rectangle (6.0,0);
+
+    % Façade immeuble (mur vertical AB)
+    \draw[slate800, line width=2.5pt] (0.5,0) -- (0.5,3.6) node[above, font=\bfseries\small] {Sommet $A$ ($12\text{ m}$)};
+    \draw[pattern=crosshatch dots, pattern color=slate300] (0,0) rectangle (0.5,3.6);
+    
+    % Point d'ancrage sol C
+    \coordinate (A) at (0.5,3.6);
+    \coordinate (B) at (0.5,0);
+    \coordinate (C) at (5.3,0);
+    
+    % Câble de treuil (AC)
+    \draw[colPrimary, line width=2pt] (A) -- (C) node[midway, above right=1pt, font=\bfseries\small] {Câble $AC = 13\text{ m}$};
+    
+    % Renfort horizontal (MN) à 50% de la hauteur
+    \coordinate (M) at ($(A)!0.5!(B)$);
+    \coordinate (N) at ($(A)!0.5!(C)$);
+    \draw[colSecondary, line width=2.2pt] (M) -- (N) node[midway, above=1pt, font=\bfseries\footnotesize, text=colSecondary] {Renfort ($MN$)};
+    
+    % Angle droit au sol
+    \draw[draw=slate800, fill=slate200, thick] (0.5,0.3) -- (0.8,0.3) -- (0.8,0) -- cycle;
+    \draw[draw=slate800, fill=slate200, thick] (0.5,2.1) -- (0.8,2.1) -- (0.8,1.8) -- cycle;
+    
+    % Labels sommets
+    \node[below left=1pt, font=\bfseries\small] at (B) {$B$};
+    \node[below right=1pt, font=\bfseries\small] at (C) {$C$};
+    \node[left=2pt, font=\bfseries\small] at (M) {$M$};
+    \node[right=2pt, font=\bfseries\small] at (N) {$N$};
+    
+    % Cotes
+    \node[left=2pt, font=\bfseries\footnotesize] at (0.5,2.7) {$AM = 6\text{ m}$};
+    \node[left=2pt, font=\bfseries\footnotesize] at (0.5,0.9) {$MB = 6\text{ m}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+    \item \capSApproprier\ Identifier la nature du triangle $ABC$ formé par la façade, le sol et le câble.
+    \item \capRealiser\ À l'aide du théorème de Pythagore dans le triangle $ABC$ rectangle en $B$, calculer la distance au sol $BC$.
+    \item \capRealiser\ Les droites $(MN)$ et $(BC)$ étant parallèles, appliquer le théorème de Thalès pour calculer la longueur du renfort $[MN]$.
+    \item \capValider\ Le fabricant exige que l'aire triangulaire $AMN$ soit d'au moins \textbf{$7{,}5\text{ m}^2$} pour la stabilité. L'installation est-elle conforme ?
+\end{enumerate}
+
+\vspace{3mm}
+\lignesreponse[8]
+\end{sujetdnb}
