@@ -77,27 +77,18 @@ Pour l'inauguration d'un nouveau magasin d'outillage, les clients peuvent faire 
 % ------------------------------------------------------------------------------
 \section{Vocabulaire des Probabilités \& Événements}
 
-\begin{cadredef}[Expérience Aléatoire \& Issues]
+\begin{cadredef}[Notions Fondamentales de Probabilité]
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Une \textbf{expérience aléatoire} est une expérience reproductible dont on connaît toutes les possibilités, mais dont le résultat dépend du hasard (impossible à prévoir à l'avance).
-    \item Chaque résultat possible est appelé une \textbf{issue}.
-    \item Un \textbf{événement} est constitué d'une ou plusieurs issues (ex : $A$ : \og Obtenir un nombre pair \fg{}).
-\end{itemize}
-\end{cadredef}
-
-\begin{cadredef}[Probabilité d'un Événement]
-La \textbf{probabilité} d'un événement $A$, notée $P(A)$, est un nombre compris entre \textbf{0} et \textbf{1} :
-\[ \mathbf{0 \le P(A) \le 1} \qquad (\text{ou entre } 0\text{ \%} \text{ et } 100\text{ \%}) \]
-\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item \textbf{Événement impossible} : sa probabilité vaut $\mathbf{0}$ (ex : obtenir un 7 avec un dé à 6 faces).
-    \item \textbf{Événement certain} : sa probabilité vaut $\mathbf{1}$ (ex : obtenir un nombre inférieur ou égal à 6).
-    \item \textbf{Événement contraire $\bar{A}$} : l'événement qui se réalise lorsque $A$ ne se réalise pas.
-    \[ \mathbf{P(\bar{A}) = 1 - P(A)} \]
+    \item Une \textbf{expérience aléatoire} est une expérience dont le résultat dépend du hasard. Chaque résultat possible est une \textbf{issue}.
+    \item La \textbf{probabilité} d'un événement $A$, notée $P(A)$, est un nombre compris entre \textbf{0} et \textbf{1} (ou entre $0\text{ \%}$ et $100\text{ \%}$) :
+    \[ \mathbf{0 \le P(A) \le 1} \]
+    \item \textbf{Événement certain} : $P = \mathbf{1}$ \quad $\bullet$ \quad \textbf{Événement impossible} : $P = \mathbf{0}$.
+    \item \textbf{Événement contraire $\bar{A}$} (l'événement inverse) : $\mathbf{P(\bar{A}) = 1 - P(A)}$.
 \end{itemize}
 \end{cadredef}
 
 \begin{cadreexemple}
-Si la probabilité qu'un colis subisse un retard est $P(R) = 0{,}08$ ($8\text{ \%}$), alors la probabilité que le colis arrive dans les délais (événement contraire $\bar{R}$) est :
+Si la probabilité qu'une commande présente un retard est $P(R) = 0{,}08$ ($8\text{ \%}$), alors la probabilité que la commande arrive à l'heure (événement contraire $\bar{R}$) est :
 \[ P(\bar{R}) = 1 - P(R) = 1 - \pointille[1.5cm] = \pointille[1.5cm] \qquad (\text{soit } \pointille[1.5cm]\text{ \%}) \]
 \end{cadreexemple}
 
@@ -106,47 +97,50 @@ Si la probabilité qu'un colis subisse un retard est $P(R) = 0{,}08$ ($8\text{ \
 % ------------------------------------------------------------------------------
 \section{Loi d'Équiprobabilité \& Arbre des Possibles}
 
-\begin{cadredef}[Loi d'Équiprobabilité]
-Lorsque toutes les issues d'une expérience ont \textbf{exactement la même probabilité} de se produire (dés équilibrés, tirage au hasard sans triche), on est en situation d'\textbf{équiprobabilité} :
-\[ \mathbf{P(A) = \frac{\text{Nombre d'issues favorables à } A}{\text{Nombre total d'issues possibles}}} \]
+\begin{cadredef}[Loi d'Équiprobabilité \& Règle de l'Arbre]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Équiprobabilité} (issues ayant toutes la même chance) :
+    \[ \mathbf{P(A) = \frac{\text{Nombre d'issues favorables à } A}{\text{Nombre total d'issues possibles}}} \]
+    \item \textbf{Arbre pondéré à 2 épreuves} : la somme des branches issues d'un n\oe ud vaut \textbf{1}. Pour trouver la probabilité au bout d'un chemin, on \textbf{multiplie} les probabilités.
+\end{itemize}
 \end{cadredef}
 
-\begin{cadremethode}[Construire et Utiliser un Arbre Pondéré à Deux Épreuves]
-Pour représenter une expérience à deux étapes (ex : lancer d'une pièce puis tirage d'un jeton) :
-\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Sur chaque branche, on inscrit la \textbf{probabilité} de l'événement correspondant.
-    \item La somme des probabilités issues d'un même n\oe ud est toujours égale à \textbf{1}.
-    \item \textbf{Règle du produit} : La probabilité d'une issue au bout d'un chemin est égale au \textbf{produit} des probabilités le long de ce chemin.
-\end{itemize}
-\end{cadremethode}
-
+\vspace{1mm}
 \begin{center}
-\begin{tikzpicture}[scale=0.85, grow=right, sloped, level 1/.style={sibling distance=2.2cm, level distance=3.2cm}, level 2/.style={sibling distance=1.1cm, level distance=3.2cm}]
-    \node[circle, fill=slate800, inner sep=2pt] {}
-        child {
-            node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Pile ($P$)}
-            child {
-                node[draw=emerald, fill=emerald!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Gagné ($G$)}
-                edge from parent node[above, font=\scriptsize] {$\frac{1}{6}$}
-            }
-            child {
-                node[draw=slate500, fill=slate100, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Perdu ($R$)}
-                edge from parent node[below, font=\scriptsize] {$\frac{5}{6}$}
-            }
-            edge from parent node[above, font=\scriptsize] {$\frac{1}{2}$}
-        }
-        child {
-            node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Face ($F$)}
-            child {
-                node[draw=emerald, fill=emerald!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Gagné ($G$)}
-                edge from parent node[above, font=\scriptsize] {$\frac{1}{6}$}
-            }
-            child {
-                node[draw=slate500, fill=slate100, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Perdu ($R$)}
-                edge from parent node[below, font=\scriptsize] {$\frac{5}{6}$}
-            }
-            edge from parent node[below, font=\scriptsize] {$\frac{1}{2}$}
-        };
+\begin{tikzpicture}[scale=0.9, >=latex]
+    % Racine
+    \coordinate (O) at (0, 0);
+    \fill[slate800] (O) circle (3pt);
+
+    % Niveau 1 : Face et Pile
+    \coordinate (F) at (2.8, 1.2);
+    \coordinate (P) at (2.8, -1.2);
+
+    \draw[slate700, line width=0.9pt] (O) -- (F) node[midway, above left=1pt, font=\small] {$\frac{1}{2}$};
+    \draw[slate700, line width=0.9pt] (O) -- (P) node[midway, below left=1pt, font=\small] {$\frac{1}{2}$};
+
+    \node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=4pt, font=\sffamily\bfseries\scriptsize] at (F) {Face ($F$)};
+    \node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=4pt, font=\sffamily\bfseries\scriptsize] at (P) {Pile ($P$)};
+
+    % Niveau 2 depuis Face
+    \coordinate (FG) at (6.8, 1.8);
+    \coordinate (FR) at (6.8, 0.6);
+
+    \draw[slate700, line width=0.9pt] (F) -- (FG) node[midway, above=1pt, font=\small] {$\frac{1}{6}$};
+    \draw[slate700, line width=0.9pt] (F) -- (FR) node[midway, below=1pt, font=\small] {$\frac{5}{6}$};
+
+    \node[draw=emerald!80!black, fill=emerald!15, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] at (FG) {Gagné ($G$)};
+    \node[draw=slate500, fill=slate100, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] at (FR) {Perdu ($R$)};
+
+    % Niveau 2 depuis Pile
+    \coordinate (PG) at (6.8, -0.6);
+    \coordinate (PR) at (6.8, -1.8);
+
+    \draw[slate700, line width=0.9pt] (P) -- (PG) node[midway, above=1pt, font=\small] {$\frac{1}{6}$};
+    \draw[slate700, line width=0.9pt] (P) -- (PR) node[midway, below=1pt, font=\small] {$\frac{5}{6}$};
+
+    \node[draw=emerald!80!black, fill=emerald!15, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] at (PG) {Gagné ($G$)};
+    \node[draw=slate500, fill=slate100, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] at (PR) {Perdu ($R$)};
 \end{tikzpicture}
 \end{center}
 
@@ -155,7 +149,7 @@ Pour représenter une expérience à deux étapes (ex : lancer d'une pièce puis
     \item Une probabilité est toujours comprise entre $\mathbf{0}$ et $\mathbf{1}$ (jamais négative, jamais supérieure à $1$).
     \item Équiprobabilité : $P(A) = \frac{\text{issues favorables}}{\text{issues totales}}$.
     \item Événement contraire : $P(\bar{A}) = 1 - P(A)$.
-    \item Arbre des possibles : on multiplie les probabilités le long de chaque chemin.
+    \item Arbre pondéré : on multiplie les probabilités le long de chaque chemin.
 \end{itemize}
 \end{cadreretenu}
 
@@ -212,23 +206,47 @@ On tire au hasard une carte dans un jeu de 32 cartes standard (c\oe ur, carreau,
 \begin{exercice}[3 pts]{\capRealiser}{Expérience à deux épreuves (Lancer combiné)}
 Un jeu d'arcade consiste à lancer une pièce équilibrée (Pile ou Face), puis à tirer un jeton dans un sac contenant \textbf{1 jeton Vert} et \textbf{3 jetons Noirs}.
 \begin{enumerate}[leftmargin=1.5em]
-    \item Compléter l'arbre des possibles ci-dessous en précisant les probabilités sur chaque branche.
-    \item Calculer la probabilité de l'issue \og Pile et Jeton Vert \fg{} : $P(P \text{ et } V) = \pointille[2cm] \times \pointille[2cm] = \pointille[2cm]$.
+    \item Compléter l'arbre des possibles ci-dessous en inscrivant les probabilités sur chaque branche.
+    \item Calculer la probabilité de l'issue \og Pile et Jeton Vert \fg{} : 
+    \[ P(P \text{ et } V) = \pointille[1.8cm] \times \pointille[1.8cm] = \pointille[1.8cm] \]
 \end{enumerate}
 
+\vspace{2mm}
 \begin{center}
-\begin{tikzpicture}[scale=0.8, grow=right, sloped, level 1/.style={sibling distance=1.8cm, level distance=2.8cm}, level 2/.style={sibling distance=0.9cm, level distance=2.8cm}]
-    \node[circle, fill=slate800, inner sep=2pt] {}
-        child {
-            node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Pile ($P$)}
-            child { node[draw=emerald, fill=emerald!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Vert ($V$)} }
-            child { node[draw=slate700, fill=slate100, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Noir ($N$)} }
-        }
-        child {
-            node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Face ($F$)}
-            child { node[draw=emerald, fill=emerald!10, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Vert ($V$)} }
-            child { node[draw=slate700, fill=slate100, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] {Noir ($N$)} }
-        };
+\begin{tikzpicture}[scale=0.9, >=latex]
+    % Racine
+    \coordinate (O) at (0, 0);
+    \fill[slate800] (O) circle (3pt);
+
+    % Niveau 1 : Pile et Face
+    \coordinate (P) at (2.8, 1.2);
+    \coordinate (F) at (2.8, -1.2);
+
+    \draw[slate700, line width=0.9pt] (O) -- (P) node[midway, above left=1pt, font=\small] {\pointille[1cm]};
+    \draw[slate700, line width=0.9pt] (O) -- (F) node[midway, below left=1pt, font=\small] {\pointille[1cm]};
+
+    \node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=4pt, font=\sffamily\bfseries\scriptsize] at (P) {Pile ($P$)};
+    \node[draw=colPrimary, fill=colPrimary!10, rounded corners=3pt, inner sep=4pt, font=\sffamily\bfseries\scriptsize] at (F) {Face ($F$)};
+
+    % Niveau 2 depuis Pile
+    \coordinate (PV) at (6.8, 1.8);
+    \coordinate (PN) at (6.8, 0.6);
+
+    \draw[slate700, line width=0.9pt] (P) -- (PV) node[midway, above=1pt, font=\small] {\pointille[1cm]};
+    \draw[slate700, line width=0.9pt] (P) -- (PN) node[midway, below=1pt, font=\small] {\pointille[1cm]};
+
+    \node[draw=emerald!80!black, fill=emerald!15, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] at (PV) {Vert ($V$)};
+    \node[draw=slate600, fill=slate100, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] at (PN) {Noir ($N$)};
+
+    % Niveau 2 depuis Face
+    \coordinate (FV) at (6.8, -0.6);
+    \coordinate (FN) at (6.8, -1.8);
+
+    \draw[slate700, line width=0.9pt] (F) -- (FV) node[midway, above=1pt, font=\small] {\pointille[1cm]};
+    \draw[slate700, line width=0.9pt] (F) -- (FN) node[midway, below=1pt, font=\small] {\pointille[1cm]};
+
+    \node[draw=emerald!80!black, fill=emerald!15, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] at (FV) {Vert ($V$)};
+    \node[draw=slate600, fill=slate100, rounded corners=3pt, inner sep=3pt, font=\sffamily\bfseries\scriptsize] at (FN) {Noir ($N$)};
 \end{tikzpicture}
 \end{center}
 \end{exercice}
