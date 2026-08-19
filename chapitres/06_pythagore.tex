@@ -1,0 +1,326 @@
+% ==============================================================================
+% CHAPITRE 6 : THÉORÈME DE PYTHAGORE & APPLICATIONS (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Théorème de Pythagore \& Applications Professionnelles}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : BTP / CHARPENTE)
+% ------------------------------------------------------------------------------
+\begin{activite}{L'équerre du maçon et la corde à 13 n\oe uds (BTP \& Charpente)}
+Depuis l'Antiquité égyptienne jusqu'aux chantiers de construction actuels, les bâtisseurs utilisent une technique simple et infaillible pour tracer des angles droits parfaits sur le terrain sans outil électronique : la \textbf{corde à 13 n\oe uds} formant 12 intervalles égaux.
+
+En tendant la corde pour former un triangle ayant des côtés de \textbf{3 unités}, \textbf{4 unités} et \textbf{5 unités}, on obtient systématiquement un angle droit.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Triangle 3-4-5
+    \draw[fill=colPrimary!10, draw=colPrimary, line width=1.5pt] (0,0) -- (4,0) -- (4,3) -- cycle;
+    % Nœuds
+    \foreach \x in {0,1,2,3,4}
+        \fill[colSecondary] (\x,0) circle (3pt);
+    \foreach \y in {1,2,3}
+        \fill[colSecondary] (4,\y) circle (3pt);
+    \foreach \i in {1,2,3,4}
+        \fill[colSecondary] ({4 - \i*0.8}, {3 - \i*0.6}) circle (3pt);
+    
+    % Angle droit
+    \draw[thick, slate800] (3.6,0) -- (3.6,0.4) -- (4,0.4);
+    
+    % Cotes
+    \node[below, font=\bfseries\sffamily] at (2,-0.2) {$4\text{ intervalles}$};
+    \node[right, font=\bfseries\sffamily] at (4.2,1.5) {$3\text{ intervalles}$};
+    \node[above left, font=\bfseries\sffamily] at (2,1.7) {$5\text{ intervalles (Hypoténuse)}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colPrimary, fill=slate50, rounded corners=6pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \sffamily
+        \textbf{Problématique :}
+        \begin{enumerate}
+            \item Calculer le carré de chaque côté :
+            \[ 3^2 = \pointille[1.5cm] \qquad 4^2 = \pointille[1.5cm] \qquad 5^2 = \pointille[1.5cm] \]
+            \item Que constate-t-on entre la somme des carrés des deux petits côtés ($3^2 + 4^2$) et le carré du grand côté ($5^2$) ?
+            \[ 3^2 + 4^2 = \pointille[1.5cm] + \pointille[1.5cm] = \pointille[1.5cm] = 5^2 \]
+            \item Cette égalité remarquable est-elle vraie pour tous les triangles rectangles ?
+        \end{enumerate}
+    };
+\end{tikzpicture}
+\end{center}
+
+\vspace{1mm}
+\noindent\textbf{Espace de recherche :}
+\lignesreponse[4]
+\end{activite}
+
+% ------------------------------------------------------------------------------
+% 2. COURS : VOCABULAIRE & THÉORÈME DE PYTHAGORE DIRECT
+% ------------------------------------------------------------------------------
+\section{Vocabulaire du Triangle Rectangle \& Théorème Direct}
+
+\begin{cadredef}[Hypoténuse d'un triangle rectangle]
+Dans un triangle rectangle, l'\textbf{hypoténuse} est :
+\begin{itemize}
+    \item Le côté opposé à l'angle droit ;
+    \item Le \textbf{plus grand côté} du triangle.
+\end{itemize}
+\end{cadredef}
+
+\begin{cadreprop}[Théorème de Pythagore (Calcul de longueurs)]
+\textbf{Si} un triangle $ABC$ est rectangle en $A$,\\
+\textbf{alors} le carré de la longueur de l'hypoténuse est égal à la somme des carrés des longueurs des deux autres côtés :
+\[ \mathbf{BC^2 = AB^2 + AC^2} \]
+\end{cadreprop}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw[fill=colPropBg, draw=colProp, line width=1.2pt] (0,0) node[below left] {$A$} -- (5,0) node[below right] {$B$} -- (0,3) node[above left] {$C$} -- cycle;
+    \draw[thick, slate800] (0,0.4) -- (0.4,0.4) -- (0.4,0);
+    \node[below] at (2.5,0) {Côté de l'angle droit};
+    \node[left] at (0,1.5) {Côté};
+    \node[above right, font=\bfseries] at (2.5,1.5) {Hypoténuse (le plus grand côté)};
+\end{tikzpicture}
+\end{center}
+
+\begin{cadremethode}[Méthode 1 : Calculer la longueur de l'hypoténuse]
+Soit un triangle $EFG$ rectangle en $E$ tel que $EF = 6\text{ cm}$ et $EG = 8\text{ cm}$. Calculer $FG$.
+\begin{enumerate}
+    \item \textbf{Hypothèse :} Le triangle $EFG$ est rectangle en $E$.
+    \item \textbf{D'après le théorème de Pythagore :}
+    \begin{align*}
+    FG^2 &= EF^2 + EG^2 \\
+    FG^2 &= 6^2 + 8^2 \\
+    FG^2 &= 36 + 64 = 100 \\
+    FG &= \sqrt{100} = \mathbf{10\text{ cm}}
+    \end{align*}
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadremethode}[Méthode 2 : Calculer la longueur d'un côté de l'angle droit]
+Soit un triangle $RST$ rectangle en $R$ tel que l'hypoténuse $ST = 13\text{ cm}$ et $RS = 5\text{ cm}$. Calculer $RT$.
+\begin{enumerate}
+    \item \textbf{D'après le théorème de Pythagore :} $ST^2 = RS^2 + RT^2$.
+    \item \textbf{On isole le côté cherché :}
+    \begin{align*}
+    RT^2 &= ST^2 - RS^2 \\
+    RT^2 &= 13^2 - 5^2 \\
+    RT^2 &= 169 - 25 = 144 \\
+    RT &= \sqrt{144} = \mathbf{12\text{ cm}}
+    \end{align*}
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadreexemple}
+Soit un triangle $KLM$ rectangle en $K$ avec $KL = 7\text{ cm}$ et $KM = 4\text{ cm}$.
+Calculer la valeur exacte de l'hypoténuse $LM$, puis son arrondi au dixième de cm :
+\begin{align*}
+LM^2 &= KL^2 + KM^2 = (\pointille[0.8cm])^2 + (\pointille[0.8cm])^2 = \pointille[1cm] + \pointille[1cm] = \pointille[1.5cm] \\
+LM &= \sqrt{\pointille[1.5cm]} \approx \pointille[2cm]\text{ cm}
+\end{align*}
+\end{cadreexemple}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : RÉCIPROQUE ET CONTRAPOSÉE (DÉMONTRER L'ANGLE DROIT)
+% ------------------------------------------------------------------------------
+\section{Démontrer qu'un Triangle est Rectangle ou Non}
+
+\begin{cadreprop}[Réciproque du Théorème de Pythagore]
+Dans un triangle $ABC$, si le carré du plus grand côté est égal à la somme des carrés des deux autres côtés ($BC^2 = AB^2 + AC^2$),\\
+\textbf{alors} le triangle $ABC$ est \textbf{rectangle} en $A$.
+\end{cadreprop}
+
+\begin{cadremethode}[Rédaction type : Démontrer qu'un triangle est rectangle]
+Soit un triangle $ABC$ tel que $AB = 9\text{ m}$, $AC = 12\text{ m}$ et $BC = 15\text{ m}$. Le triangle est-il rectangle ?
+\begin{enumerate}
+    \item Le plus grand côté est $[BC]$.
+    \item On calcule séparément :
+    \begin{itemize}
+        \item $BC^2 = 15^2 = \mathbf{225}$
+        \item $AB^2 + AC^2 = 9^2 + 12^2 = 81 + 144 = \mathbf{225}$
+    \end{itemize}
+    \item On constate que : $\mathbf{BC^2 = AB^2 + AC^2}$.
+    \item \textbf{Conclusion :} D'après la réciproque du théorème de Pythagore, le triangle $ABC$ est \textbf{rectangle en $A$}.
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadremethode}[Rédaction type : Démontrer qu'un triangle n'est PAS rectangle]
+Soit un triangle $XYZ$ tel que $XY = 5\text{ cm}$, $XZ = 6\text{ cm}$ et $YZ = 8\text{ cm}$.
+\begin{enumerate}
+    \item Le plus grand côté est $[YZ]$.
+    \item On calcule séparément :
+    \begin{itemize}
+        \item $YZ^2 = 8^2 = \mathbf{64}$
+        \item $XY^2 + XZ^2 = 5^2 + 6^2 = 25 + 36 = \mathbf{61}$
+    \end{itemize}
+    \item On constate que : $\mathbf{YZ^2 \neq XY^2 + XZ^2}$ ($64 \neq 61$).
+    \item \textbf{Conclusion :} L'égalité de Pythagore n'est pas vérifiée, donc le triangle $XYZ$ \textbf{n'est pas rectangle}.
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 6]
+\begin{itemize}
+    \item \textbf{Calculer l'hypoténuse} : $BC = \sqrt{AB^2 + AC^2}$ (on \textbf{additionne} les carrés).
+    \item \textbf{Calculer un autre côté} : $AB = \sqrt{BC^2 - AC^2}$ (on \textbf{soustrait} les carrés).
+    \item \textbf{Vérifier un angle droit} : Toujours faire les deux calculs \textbf{séparément} avant de conclure.
+    \item \textbf{Racines carrées usuelles} : $\sqrt{25}=5$, $\sqrt{36}=6$, $\sqrt{49}=7$, $\sqrt{64}=8$, $\sqrt{81}=9$, $\sqrt{100}=10$, $\sqrt{121}=11$, $\sqrt{144}=12$, $\sqrt{169}=13$.
+\end{itemize}
+\end{cadreretenu}
+
+% ------------------------------------------------------------------------------
+% 4. QUESTIONS FLASH / AUTOMATISMES
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+    \item Calculer le carré : $8^2 = \pointille[3cm]$ \hfill $11^2 = \pointille[3cm]$
+    \item Calculer la racine carrée : $\sqrt{49} = \pointille[3cm]$ \hfill $\sqrt{100} = \pointille[3cm]$
+    \item Dans un triangle $DEF$ rectangle en $D$, l'hypoténuse est le côté : \pointille[3cm]
+    \item Écrire l'égalité de Pythagore pour un triangle $RST$ rectangle en $S$ : \pointille[4cm]
+    \item Si $AB^2 = 25 + 144 = 169$, alors $AB = \pointille[3cm]$
+    \item Si $AC^2 = 100 - 36 = 64$, alors $AC = \pointille[3cm]$
+    \item Un triangle de côtés $6\text{ cm}$, $8\text{ cm}$ et $10\text{ cm}$ est-il rectangle ? \pointille[3cm]
+    \item Donner l'arrondi au dixième de $\sqrt{50}$ : $\sqrt{50} \approx \pointille[3cm]$
+\end{enumerate}
+\end{automatisme}
+
+% ------------------------------------------------------------------------------
+% 5. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
+% ------------------------------------------------------------------------------
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[2 pts]{\capRealiser}{Calcul direct de l'hypoténuse}
+Dans chaque cas, calculer la longueur exacte de l'hypoténuse du triangle rectangle :
+\begin{enumerate}
+    \item Triangle $ABC$ rectangle en $A$ avec $AB = 12\text{ cm}$ et $AC = 5\text{ cm}$.
+    \item Triangle $DEF$ rectangle en $D$ avec $DE = 15\text{ m}$ et $DF = 20\text{ m}$.
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Calcul d'un côté de l'angle droit}
+Dans chaque cas, calculer la longueur manquante :
+\begin{enumerate}
+    \item Triangle $GHI$ rectangle en $G$ avec $HI = 15\text{ cm}$ (hypoténuse) et $GH = 9\text{ cm}$. Calculer $GI$.
+    \item Triangle $PQR$ rectangle en $P$ avec $QR = 10\text{ m}$ et $PR = 8\text{ m}$. Calculer $PQ$.
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capValider}{Contrôle d'Équerre (Menuiserie \& BTP)}
+Un poseur de cuisine vérifie l'équerrage d'un meuble d'angle.
+Il mesure les dimensions suivantes sur les parois :
+$AB = 60\text{ cm}$, $BC = 80\text{ cm}$ et la diagonale $AC = 100\text{ cm}$.
+L'angle $\widehat{B}$ est-il parfaitement droit ? Rédiger soigneusement la justification.
+\lignesreponse[5]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Échelle de Pompier et Sécurité (Sécurité / BTP)}
+Une échelle de secours de longueur $L = 6{,}5\text{ m}$ est appuyée contre la façade d'un immeuble vertical.
+Pour garantir la stabilité, le pied de l'échelle est placé à $d = 2{,}5\text{ m}$ du bas du mur.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Mur vertical
+    \draw[line width=3pt, slate800] (0,0) -- (0,5);
+    \draw[line width=1pt, slate400] (-1,0) -- (4,0);
+    % Échelle
+    \draw[line width=2pt, colPrimary] (2.5,0) -- (0,4.5);
+    % Cotes
+    \draw[<->, >=stealth, thick] (0,-0.4) -- (2.5,-0.4) node[midway, below] {$d = 2{,}5\text{ m}$};
+    \node[above right, colPrimary, font=\bfseries] at (1.25,2.25) {Échelle $6{,}5\text{ m}$};
+    \draw[<->, >=stealth, thick] (-0.5,0) -- (-0.5,4.5) node[midway, left] {Hauteur $h$};
+    % Angle droit
+    \draw (0,0.3) -- (0.3,0.3) -- (0.3,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item Calculer la hauteur $h$ atteinte par le sommet de l'échelle sur le mur.
+    \item Une fenêtre est située à $5{,}80\text{ m}$ de hauteur. L'échelle permet-elle aux pompiers d'accéder à cette fenêtre ?
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Rampe d'accès PMR (Normes d'Accessibilité)}
+Pour respecter les normes d'accessibilité aux personnes à mobilité réduite (PMR), un lycée fait construire une rampe d'accès inclinée.
+La marche à franchir a une hauteur de $h = 40\text{ cm}$ ($0{,}40\text{ m}$).
+La distance horizontale au sol est de $L = 8\text{ mètres}$.
+
+\begin{enumerate}
+    \item Calculer la longueur réelle de la rampe inclinée au centimètre près.
+    \item La pente d'une rampe est donnée par la formule : $\text{Pente} = \dfrac{\text{Hauteur}}{\text{Longueur au sol}} \times 100$.
+    \begin{enumerate}
+        \item Calculer le pourcentage de la pente de cette rampe.
+        \item La législation impose une pente maximale de $5\,\%$. Cette rampe est-elle conforme aux normes PMR ?
+    \end{enumerate}
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 6. TP TICE / CALCULATRICE NUMWORKS
+% ------------------------------------------------------------------------------
+\section{TP TICE : Racines Carrées \& Calculs de Longueurs sur NumWorks}
+
+\begin{tpinfo}[Calculatrice NumWorks]{Touche Racine Carrée \& Arrondis}
+\begin{enumerate}
+    \item \textbf{Calculs de racines carrées (Application Calculs)} :
+    \begin{itemize}
+        \item Pour calculer $\sqrt{185}$ : appuyer sur la touche \texttt{$\sqrt{\square}$} (touche \texttt{shift} + \texttt{$x^2$}) $\rightarrow$ taper \texttt{185} $\rightarrow$ valider avec \texttt{EXE}.
+        \item Noter la valeur exacte puis la valeur décimale arrondie au centième : $\sqrt{185} \approx \pointille[3cm]$
+    \end{itemize}
+    \item \textbf{Calcul direct de Pythagore en une seule ligne} :
+    \begin{itemize}
+        \item Pour calculer l'hypoténuse $BC = \sqrt{7{,}2^2 + 5{,}4^2}$ :\\
+        Saisir : \texttt{sqrt(7.2\^{}2 + 5.4\^{}2)} puis valider avec \texttt{EXE}.
+        \item Noter le résultat exact obtenu : $BC = \pointille[3cm]\text{ m}$
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+% ------------------------------------------------------------------------------
+% 7. VERS LE BREVET (DNB PRO)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Installation de Panneaux Solaires sur Toiture}
+Un propriétaire souhaite installer des panneaux photovoltaïques sur le pan sud d'une toiture de maison individuelle.
+La coupe transversale de la charpente est représentée ci-dessous :
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Charpente
+    \draw[line width=1.5pt, slate900] (0,0) node[below left] {$A$} -- (8,0) node[below right] {$B$} -- (0,3) node[above left] {$C$} -- cycle;
+    \draw[thick, slate800] (0,0.4) -- (0.4,0.4) -- (0.4,0);
+    
+    % Cotes
+    \draw[<->, >=stealth, thick] (0,-0.5) -- (8,-0.5) node[midway, below] {Largeur au sol : $AB = 8\text{ m}$};
+    \draw[<->, >=stealth, thick] (-0.5,0) -- (-0.5,3) node[midway, left] {Hauteur sous faîtage : $AC = 3\text{ m}$};
+    \node[above right, font=\bfseries\sffamily, colPrimary] at (4,1.6) {Pan de toit $[BC]$};
+    
+    % Panneaux solaires sur le toit
+    \draw[fill=cyan!30, draw=cyan!80!black, thick] (1,2.625) rectangle (7,0.375);
+    \node[font=\footnotesize\sffamily\bfseries, colPrimary] at (4,0.8) {Zone de panneaux solaires};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item \capSApproprier\ Identifier la nature du triangle $ABC$ et nommer son hypoténuse.
+    \item \capRealiser\ Montrer par le calcul que la longueur du pan de toit $BC$ est d'environ $8{,}54\text{ mètres}$.
+    \item \capAnalyser\ La toiture a une largeur de façade de $10\text{ mètres}$.\\
+    Calculer la surface totale du pan de toit rectangulaire en utilisant $BC = 8{,}54\text{ m}$.
+    \item \capRealiser\ Chaque panneau solaire est rectangulaire et mesure $1{,}70\text{ m} \times 1{,}00\text{ m}$.
+    \begin{enumerate}
+        \item Calculer la surface d'un seul panneau solaire.
+        \item L'installateur prévoit de poser $24$ panneaux solaires. La surface du toit est-elle suffisante ?
+    \end{enumerate}
+    \item \capValider\ Chaque mètre carré de panneau produit en moyenne $180\text{ kWh}$ par an.
+    Calculer la production électrique totale annuelle estimée de cette installation.
+\end{enumerate}
+
+\vspace{2mm}
+\noindent\textbf{Rédigez votre démarche ci-dessous :}
+\lignesreponse[8]
+\end{sujetdnb}
