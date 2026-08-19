@@ -1,0 +1,299 @@
+% ==============================================================================
+% CHAPITRE 8 : STATISTIQUES À UNE VARIABLE (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Statistiques à une Variable}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : INDUSTRIE / CONTRÔLE QUALITÉ)
+% ------------------------------------------------------------------------------
+\begin{activite}{Contrôle Qualité sur Pièces Usinées (Industrie \& Mécanique)}
+Un technicien en contrôle qualité mesure au pied à coulisse le diamètre (en $\text{mm}$) d'un échantillon de \textbf{20 pièces} métalliques usinées en série :
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+49{,}8 & 50{,}1 & 49{,}9 & 50{,}0 & 50{,}2 & 49{,}9 & 50{,}0 & 50{,}1 & 49{,}8 & 50{,}0 \\
+\hline
+50{,}3 & 49{,}9 & 50{,}1 & 50{,}0 & 49{,}8 & 50{,}2 & 50{,}0 & 50{,}1 & 49{,}9 & 50{,}0 \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1mm}
+\noindent
+\begin{minipage}[t]{0.53\linewidth}
+\textbf{Tableau des effectifs regroupés :}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{2pt}
+\begin{tabularx}{\linewidth}{|l|*{6}{>{\centering\arraybackslash}X|}}
+\hline
+\rowcolor{slate800} \textcolor{white}{\textbf{Diamètre}} & \textcolor{white}{\scriptsize 49{,}8} & \textcolor{white}{\scriptsize 49{,}9} & \textcolor{white}{\scriptsize 50{,}0} & \textcolor{white}{\scriptsize 50{,}1} & \textcolor{white}{\scriptsize 50{,}2} & \textcolor{white}{\scriptsize 50{,}3} \\
+\hline
+\textbf{Effectif} & 3 & \pointille[0.5cm] & 6 & \pointille[0.5cm] & 2 & 1 \\
+\hline
+\end{tabularx}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}
+\begin{tcolorbox}[colback=slate100, colframe=colPrimary, arc=4pt, boxrule=0.8pt, top=4pt, bottom=4pt, left=6pt, right=6pt]
+\sffamily\footnotesize
+\textbf{Problématique :}
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Quel est le diamètre le plus fréquent ?
+    \item Quelle est la moyenne de cet échantillon ?
+    \item Comment savoir si la production est conforme au cahier des charges ($50{,}00\text{ mm} \pm 0{,}25\text{ mm}$) ?
+\end{enumerate}
+\end{tcolorbox}
+\end{minipage}
+
+\vspace{2mm}
+\noindent\textbf{Espace de recherche :}
+\lignesreponse[3]
+\end{activite}
+
+% ------------------------------------------------------------------------------
+% 2. COURS : VOCABULAIRE, EFFECTIFS & FRÉQUENCES
+% ------------------------------------------------------------------------------
+\section{Vocabulaire, Effectifs \& Fréquences}
+
+\begin{cadredef}[Vocabulaire Statistique]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Population} : L'ensemble des individus étudiés (ex : l'ensemble des pièces produites).
+    \item \textbf{Caractère} : La grandeur mesurée ou observée (ex : le diamètre en mm, la couleur, le salaire).
+    \item \textbf{Effectif total ($N$)} : Le nombre total d'individus dans l'échantillon ($N = \sum n_i$).
+    \item \textbf{Fréquence ($f$)} : La proportion d'un effectif par rapport à l'effectif total :
+    \[ \mathbf{f = \frac{\text{Effectif } n_i}{\text{Effectif total } N}} \qquad \text{et en pourcentage : } \mathbf{f\% = \frac{n_i}{N} \times 100} \]
+\end{itemize}
+\end{cadredef}
+
+\begin{cadreexemple}
+Dans un groupe de $25$ élèves, $10$ sont en 3PM A.
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item Fréquence : $f = \frac{10}{25} = \pointille[1.5cm]$
+    \item Fréquence en pourcentage : $f\% = \frac{10}{25} \times 100 = \pointille[1.5cm] \text{ \%}$
+\end{itemize}
+\end{cadreexemple}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : INDICATEURS DE POSITION (MOYENNE & MÉDIANE)
+% ------------------------------------------------------------------------------
+\section{Indicateurs de Position : Moyenne \& Médiane}
+
+\begin{cadremethode}[Calculer une Moyenne Simple et une Moyenne Pondérée]
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+    \item \textbf{Moyenne simple $\bar{x}$} : On additionne toutes les valeurs et on divise par le nombre total de valeurs :
+    \[ \bar{x} = \frac{x_1 + x_2 + \dots + x_p}{N} \]
+    \item \textbf{Moyenne pondérée $\bar{x}$} : On multiplie chaque valeur par son effectif, on fait la somme, puis on divise par l'effectif total $N$ :
+    \[ \mathbf{\bar{x} = \frac{n_1 \times x_1 + n_2 \times x_2 + \dots + n_p \times x_p}{N}} \]
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadredef}[Médiane d'une Série Statistique]
+La \textbf{médiane} (notée $Me$) d'une série ordonnée de valeurs est le nombre qui partage cette série en \textbf{deux groupes de même effectif} :
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item Au moins $50\text{ \%}$ des valeurs sont inférieures ou égales à la médiane.
+    \item Au moins $50\text{ \%}$ des valeurs sont supérieures ou égales à la médiane.
+\end{itemize}
+\end{cadredef}
+
+\begin{cadremethode}[Méthode pas à pas : Déterminer la Médiane]
+\textbf{Étape 1} : On ordonne impérativement les valeurs dans l'\textbf{ordre croissant}.\\
+\textbf{Étape 2} : On calcule le rang médian selon la parité de l'effectif total $N$ :
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Si $N$ est impair} (ex : $N = 9$) : $\frac{N+1}{2} = \frac{10}{2} = 5 \implies$ La médiane est la \textbf{5\textsuperscript{ème} valeur}.
+    \item \textbf{Si $N$ est pair} (ex : $N = 10$) : $\frac{N}{2} = 5 \implies$ La médiane est la \textbf{moyenne entre la 5\textsuperscript{ème} et la 6\textsuperscript{ème} valeur}.
+\end{itemize}
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 4. COURS : INDICATEUR DE DISPERSION (ÉTENDUE)
+% ------------------------------------------------------------------------------
+\section{Indicateur de Dispersion : L'Étendue}
+
+\begin{cadredef}[Étendue ($e$)]
+L'\textbf{étendue} d'une série statistique est la différence entre la plus grande valeur ($x_{\text{max}}$) et la plus petite valeur ($x_{\text{min}}$) :
+\[ \mathbf{e = x_{\text{max}} - x_{\text{min}}} \]
+\textit{Plus l'étendue est petite, plus la série est homogène et régulière.}
+\end{cadredef}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 8]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Fréquence} : $f = \frac{n_i}{N}$ (la somme des fréquences vaut toujours $1$ ou $100\%$).
+    \item \textbf{Moyenne $\bar{x}$} : somme de (valeur $\times$ effectif) divisée par l'effectif total.
+    \item \textbf{Médiane $Me$} : valeur centrale de la série triée (50\% au-dessus, 50\% en dessous).
+    \item \textbf{Étendue $e$} : $x_{\text{max}} - x_{\text{min}}$ (mesure l'écartement des valeurs).
+\end{itemize}
+\end{cadreretenu}
+
+% ------------------------------------------------------------------------------
+% 5. QUESTIONS FLASH / AUTOMATISMES
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+    \item Calculer la moyenne des notes : $12$ ; $14$ ; $16$ $\implies \bar{x} = \pointille[3cm]$
+    \item Donner l'étendue de la série : $4$ ; $9$ ; $15$ ; $21$ $\implies e = \pointille[3cm]$
+    \item Trouver la médiane de la série ordonnée : $3$ ; $7$ ; \textbf{11} ; $14$ ; $19$ $\implies Me = \pointille[3cm]$
+    \item Trouver la médiane de la série ordonnée : $6$ ; $8$ ; $12$ ; $16$ $\implies Me = \pointille[3cm]$
+    \item Dans un atelier de 20 ouvriers, 5 sont apprentis. Fréquence en $\%$ : \pointille[3cm]
+    \item Si l'effectif total est $N = 50$ et l'effectif d'une modalité est $15$, la fréquence vaut : \pointille[3cm]
+    \item Une série a pour minimum $12$ et pour étendue $18$. Quelle est la valeur maximale ? \pointille[3cm]
+    \item Vrai ou Faux : La médiane est toujours égale à la moyenne. \pointille[3cm]
+\end{enumerate}
+\end{automatisme}
+
+% ------------------------------------------------------------------------------
+% 6. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
+% ------------------------------------------------------------------------------
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[2 pts]{\capRealiser}{Série brute et indicateurs de base}
+Voici les temps d'attente (en minutes) relevés pour 7 clients au service après-vente :
+\[ 8 \quad ; \quad 14 \quad ; \quad 5 \quad ; \quad 12 \quad ; \quad 20 \quad ; \quad 6 \quad ; \quad 12 \]
+\begin{enumerate}[leftmargin=1.5em]
+    \item Rallonger la série dans l'ordre croissant : \pointille[7cm]
+    \item Calculer le temps moyen d'attente $\bar{x}$.
+    \item Déterminer le temps médian d'attente $Me$.
+    \item Calculer l'étendue $e$ de cette série.
+\end{enumerate}
+\lignesreponse[3]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Tableau d'effectifs \& Moyenne pondérée (Restauration)}
+Un restaurant traditionnel note le nombre de couverts servis chaque midi pendant un mois (25 jours d'ouverture) :
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.9\linewidth}{|l|*{5}{>{\centering\arraybackslash}X|}}
+\hline
+\rowcolor{slate800} \textcolor{white}{\textbf{Nombre de couverts ($x_i$)}} & \textcolor{white}{30} & \textcolor{white}{40} & \textcolor{white}{50} & \textcolor{white}{60} & \textcolor{white}{70} \\
+\hline
+\textbf{Nombre de jours ($n_i$)} & 3 & 7 & 9 & 4 & 2 \\
+\hline
+\textbf{Fréquence en \%} & \pointille[1cm] & \pointille[1cm] & \pointille[1cm] & \pointille[1cm] & \pointille[1cm] \\
+\hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}[leftmargin=1.5em]
+    \item Vérifier que l'effectif total est bien $N = 25$.
+    \item Compléter la ligne des fréquences en pourcentage.
+    \item Calculer le nombre moyen de couverts servis par jour : $\bar{x} = \frac{\dots \dots}{25} = \pointille[2cm]$.
+    \item Déterminer le nombre médian de couverts $Me$.
+\end{enumerate}
+\lignesreponse[3]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capSApproprier}{Lecture de Diagramme en Bâtons (Garage Automobile)}
+Un garage automobile a relevé le nombre d'interventions de vidange effectuées par jour sur une période de 20 jours :
+
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+    \draw[step=1cm, slate200, very thin] (0,0) grid (6,7);
+    \draw[thick, ->, >=stealth, slate800] (0,0) -- (6.4,0) node[right, font=\scriptsize] {Nombre de vidanges ($x_i$)};
+    \draw[thick, ->, >=stealth, slate800] (0,0) -- (0,7.3) node[above, font=\scriptsize] {Nombre de jours ($n_i$)};
+    \foreach \x in {1,2,3,4,5}
+        \draw (\x,0.1) -- (\x,-0.1) node[below, font=\scriptsize] {\x};
+    \foreach \y in {1,2,3,4,5,6,7}
+        \draw (0.1,\y) -- (-0.1,\y) node[left, font=\scriptsize] {\y};
+    
+    % Bâtons
+    \draw[line width=8pt, colPrimary] (1,0) -- (1,3);
+    \draw[line width=8pt, colPrimary] (2,0) -- (2,6);
+    \draw[line width=8pt, colPrimary] (3,0) -- (3,7);
+    \draw[line width=8pt, colPrimary] (4,0) -- (4,3);
+    \draw[line width=8pt, colPrimary] (5,0) -- (5,1);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[leftmargin=1.5em]
+    \item Combien de jours le garage a-t-il réalisé exactement 3 vidanges ? \pointille[3cm]
+    \item Calculer le nombre total de vidanges réalisées sur les 20 jours.
+    \item Calculer le nombre moyen de vidanges par jour.
+    \item Quel est le pourcentage de jours où le garage a réalisé au moins 4 vidanges ?
+\end{enumerate}
+\lignesreponse[3]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Comparaison de deux fournisseurs (Logistique \& BTP)}
+Une entreprise de travaux publics teste deux marques de sacs de ciment de $25\text{ kg}$ pour vérifier la régularité du remplissage. Elle pèse un échantillon de 10 sacs pour chaque fournisseur :
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
+    \item \textbf{Fournisseur A (en kg)} : $24{,}8$ ; $25{,}0$ ; $25{,}1$ ; $24{,}9$ ; $25{,}2$ ; $25{,}0$ ; $24{,}9$ ; $25{,}1$ ; $25{,}0$ ; $25{,}0$
+    \item \textbf{Fournisseur B (en kg)} : $24{,}2$ ; $25{,}8$ ; $24{,}5$ ; $25{,}5$ ; $25{,}0$ ; $24{,}4$ ; $25{,}6$ ; $25{,}0$ ; $24{,}3$ ; $25{,}7$
+\end{itemize}
+
+\begin{enumerate}[leftmargin=1.5em]
+    \item Calculer la masse moyenne pour chaque fournisseur : $\bar{x}_A = \pointille[2cm]$ et $\bar{x}_B = \pointille[2cm]$.
+    \item Calculer l'étendue de chaque série : $e_A = \pointille[2cm]$ et $e_B = \pointille[2cm]$.
+    \item Quel fournisseur l'entreprise doit-elle privilégier pour garantir la régularité de ses dosages ? Justifier.
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 7. TP TICE / CALCULATRICE NUMWORKS
+% ------------------------------------------------------------------------------
+\section{TP TICE : Statistiques sur NumWorks}
+
+\begin{tpinfo}[Calculatrice NumWorks]{Application Statistiques}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Saisir la série de données (Application Statistiques)} :
+    \begin{itemize}
+        \item Ouvrir l'application \textbf{Statistiques} (icône diagramme à barres).
+        \item Dans la colonne \textbf{Valeurs V1}, entrer les valeurs : $10$, $12$, $14$, $16$, $18$.
+        \item Dans la colonne \textbf{Effectifs N1}, entrer les effectifs : $3$, $8$, $12$, $5$, $2$.
+    \end{itemize}
+    \item \textbf{Lire les indicateurs statistiques (Onglet Stats)} :
+    \begin{itemize}
+        \item Aller dans l'onglet \textbf{Stats} en haut de l'écran.
+        \item Noter les indicateurs calculés instantanément par la calculatrice :
+        \begin{itemize}
+            \item Effectif total $n = \pointille[2cm]$
+            \item Moyenne $\bar{x} = \pointille[2cm]$
+            \item Médiane $Med = \pointille[2cm]$
+            \item Étendue = $x_{\text{max}} - x_{\text{min}} = \pointille[2cm]$
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Visualiser le graphique (Onglet Graphique)} :
+    \begin{itemize}
+        \item Aller dans l'onglet \textbf{Graphique} $\rightarrow$ choisir \textbf{Histogramme} ou \textbf{Boîte à moustaches}.
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+% ------------------------------------------------------------------------------
+% 8. VERS LE BREVET (DNB PRO)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Enquête sur les Déplacements des Salariés}
+Une grande surface commerciale réalise une enquête auprès de ses \textbf{80 employés} concernant la distance (en kilomètres) séparant leur domicile de leur lieu de travail :
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{|l|*{5}{>{\centering\arraybackslash}X|}}
+\hline
+\rowcolor{slate800} \textcolor{white}{\textbf{Distance en km ($x_i$)}} & \textcolor{white}{5 km} & \textcolor{white}{10 km} & \textcolor{white}{15 km} & \textcolor{white}{20 km} & \textcolor{white}{30 km} \\
+\hline
+\textbf{Effectif ($n_i$)} & 24 & 28 & 16 & 8 & 4 \\
+\hline
+\textbf{Fréquence en \%} & \pointille[1.5cm] & \pointille[1.5cm] & \pointille[1.5cm] & \pointille[1.5cm] & \pointille[1.5cm] \\
+\hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item \capSApproprier\ Vérifier que le nombre total de salariés interrogés est bien égal à $80$.
+    \item \capRealiser\ Compléter le tableau en calculant la fréquence en pourcentage pour chaque distance.
+    \item \capRealiser\ Calculer la distance moyenne parcourue par les employés :
+    \[ \bar{x} = \frac{24 \times 5 + 28 \times 10 + 16 \times 15 + 8 \times 20 + 4 \times 30}{80} = \pointille[3cm] \]
+    \item \capAnalyser\ Déterminer la distance médiane de cette série. Interpréter ce résultat.
+    \item \capValider\ Calculer le pourcentage de salariés qui habitent à \textbf{moins de 15 km} de leur lieu de travail.
+    \item \capCommuniquer\ La direction décide de verser une prime transport aux employés habitant à \textbf{20 km ou plus}. Combien de salariés bénéficieront de cette prime ?
+\end{enumerate}
+
+\vspace{1mm}
+\noindent\textbf{Rédigez votre démarche ci-dessous :}
+\lignesreponse[6]
+\end{sujetdnb}
