@@ -1,0 +1,356 @@
+% ==============================================================================
+% CHAPITRE 4 : ÉQUATIONS DU PREMIER DEGRÉ & PROBLÈMES (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Équations du Premier Degré \& Problèmes}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : ATELIER / PESÉE)
+% ------------------------------------------------------------------------------
+\begin{activite}{L'équilibre d'une balance à deux plateaux (Atelier de pesée)}
+Dans un atelier d'usinage, un technicien contrôle la masse de pièces métalliques identiques notées $x$ à l'aide d'une balance à plateaux en équilibre :
+\begin{itemize}
+    \item Sur le plateau de gauche : \textbf{3 pièces identiques $x$} et une masse marquée de \textbf{5 kg}.
+    \item Sur le plateau de droite : \textbf{1 pièce $x$} et une masse marquée de \textbf{17 kg}.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+    % Socle et fléau
+    \draw[fill=slate700] (-0.3,0) rectangle (0.3,2);
+    \draw[fill=slate800] (-1.5,0) rectangle (1.5,0.3);
+    \draw[line width=2pt, colPrimary] (-4,2) -- (4,2);
+    \draw[fill=colSecondary] (0,2) circle (4pt);
+
+    % Plateaux
+    \draw[thick, slate600] (-4,2) -- (-4,1) -- (-2.5,1) -- (-4,2);
+    \draw[thick, slate600] (4,2) -- (4,1) -- (2.5,1) -- (4,2);
+    \draw[line width=1.5pt, slate800] (-4.5,1) -- (-2.2,1);
+    \draw[line width=1.5pt, slate800] (2.2,1) -- (4.5,1);
+
+    % Masses gauche
+    \draw[fill=colPrimary!20, draw=colPrimary, thick] (-4.2,1) rectangle (-3.6,1.6) node[midway, font=\footnotesize\bfseries] {$x$};
+    \draw[fill=colPrimary!20, draw=colPrimary, thick] (-3.5,1) rectangle (-2.9,1.6) node[midway, font=\footnotesize\bfseries] {$x$};
+    \draw[fill=colPrimary!20, draw=colPrimary, thick] (-3.85,1.6) rectangle (-3.25,2.2) node[midway, font=\footnotesize\bfseries] {$x$};
+    \draw[fill=amber!30, draw=amber!80!black, thick] (-2.8,1) rectangle (-2.3,1.5) node[midway, font=\tiny\bfseries] {$5\text{ kg}$};
+
+    % Masses droite
+    \draw[fill=colPrimary!20, draw=colPrimary, thick] (2.5,1) rectangle (3.1,1.6) node[midway, font=\footnotesize\bfseries] {$x$};
+    \draw[fill=amber!30, draw=amber!80!black, thick] (3.3,1) rectangle (4.2,1.9) node[midway, font=\footnotesize\bfseries] {$17\text{ kg}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colPrimary, fill=slate50, rounded corners=6pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \sffamily
+        \textbf{Problématique :}
+        \begin{enumerate}
+            \item Traduire l'équilibre de cette balance par une égalité mathématique (équation) :
+            \[ \pointille[4cm] = \pointille[4cm] \]
+            \item Si on retire une masse $x$ sur chaque plateau, que devient l'égalité ? \pointille[4cm]
+            \item Si on retire ensuite $5\text{ kg}$ sur chaque plateau, que reste-t-il ? \pointille[4cm]
+            \item En déduire la masse exacte d'une pièce $x$ : $x = \pointille[2cm]\text{ kg}$.
+        \end{enumerate}
+    };
+\end{tikzpicture}
+\end{center}
+
+\vspace{1mm}
+\noindent\textbf{Espace de recherche :}
+\lignesreponse[4]
+\end{activite}
+
+% ------------------------------------------------------------------------------
+% 2. COURS : VOCABULAIRE & TESTER UNE SOLUTION
+% ------------------------------------------------------------------------------
+\section{Vocabulaire \& Tester une Égalité}
+
+\begin{cadredef}[Équation \& Solution]
+\begin{itemize}
+    \item Une \textbf{équation} est une égalité comportant un ou plusieurs nombres inconnus désignés par des lettres (généralement $x$).
+    \item Une équation est composée de deux parties : le \textbf{membre de gauche} et le \textbf{membre de droite}.
+    \[ \underbrace{3x + 5}_{\text{Membre de gauche}} = \underbrace{x + 17}_{\text{Membre de droite}} \]
+    \item \textbf{Résoudre} une équation, c'est trouver toutes les valeurs de l'inconnue qui rendent l'égalité vraie. Ces valeurs sont appelées les \textbf{solutions}.
+\end{itemize}
+\end{cadredef}
+
+\begin{cadremethode}[Méthode pas à pas : Tester si un nombre est solution]
+Pour tester si un nombre est solution d'une équation :
+\begin{enumerate}
+    \item On calcule la valeur du \textbf{membre de gauche} en remplaçant $x$ par le nombre.
+    \item On calcule séparément la valeur du \textbf{membre de droite} avec ce même nombre.
+    \item On compare les deux résultats :
+    \begin{itemize}
+        \item Si les résultats sont \textbf{égaux}, le nombre \textbf{est solution}.
+        \item Si les résultats sont \textbf{différents}, le nombre \textbf{n'est pas solution}.
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Exemple :} Le nombre $6$ est-il solution de l'équation $3x + 5 = x + 17$ ?
+\begin{itemize}
+    \item Membre de gauche pour $x = 6$ : $3 \times 6 + 5 = 18 + 5 = \mathbf{23}$
+    \item Membre de droite pour $x = 6$ : $6 + 17 = \mathbf{23}$
+    \item Conclusion : Les deux membres sont égaux, donc $6$ \textbf{est bien la solution} de l'équation.
+\end{itemize}
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : RÉSOLUTION ALGÉBRIQUE D'UNE ÉQUATION DU 1er DEGRÉ
+% ------------------------------------------------------------------------------
+\section{Résolution Algébrique des Équations du 1\textsuperscript{er} Degré}
+
+\begin{cadreprop}[Règles de transformation d'une équation]
+On ne change pas les solutions d'une équation lorsque :
+\begin{itemize}
+    \item On \textbf{ajoute} ou on \textbf{soustrait} un même nombre aux deux membres.
+    \item On \textbf{multiplie} ou on \textbf{divise} les deux membres par un même nombre \textbf{non nul}.
+\end{itemize}
+\end{cadreprop}
+
+\begin{cadremethode}[Résolution des équations types $ax + b = c$ et $ax + b = cx + d$]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{X|X}
+\rowcolor{colDefBg}
+\centering \textbf{Forme $ax + b = c$} & \centering \textbf{Forme $ax + b = cx + d$} \tabularnewline
+$\begin{aligned}
+2x + 7 &= 19 \\
+2x &= 19 - 7 \\
+2x &= 12 \\
+x &= \frac{12}{2} = \mathbf{6}
+\end{aligned}$
+\newline
+\textbf{La solution est $6$.}
+&
+$\begin{aligned}
+5x - 4 &= 2x + 11 \\
+5x - 2x &= 11 + 4 \\
+3x &= 15 \\
+x &= \frac{15}{3} = \mathbf{5}
+\end{aligned}$
+\newline
+\textbf{La solution est $5$.}
+\tabularnewline
+\end{tabularx}
+\end{center}
+\end{cadremethode}
+
+\begin{cadreexemple}
+Résoudre les équations suivantes pas à pas :
+\begin{itemize}
+    \item $3x - 8 = 13 \iff 3x = 13 + \pointille[1cm] \iff 3x = \pointille[1cm] \iff x = \dfrac{\pointille[1cm]}{3} = \pointille[1.5cm]$
+    \item $4x + 3 = x + 18 \iff 4x - \pointille[1cm] = 18 - \pointille[1cm] \iff \pointille[1.5cm] = \pointille[1.5cm] \iff x = \pointille[1.5cm]$
+\end{itemize}
+\end{cadreexemple}
+
+% ------------------------------------------------------------------------------
+% 4. COURS : ÉQUATIONS PRODUIT NUL
+% ------------------------------------------------------------------------------
+\section{Équations Produit Nul}
+
+\begin{cadreprop}[Règle du Produit Nul]
+Un produit de facteurs est nul \textbf{si et seulement si au moins l'un de ses facteurs est nul}.
+\[ \mathbf{A \times B = 0 \iff A = 0 \quad \text{ou} \quad B = 0} \]
+\end{cadreprop}
+
+\begin{cadremethode}[Résoudre une équation produit nul $(ax+b)(cx+d)=0$]
+Résoudre l'équation : $(2x - 6)(3x + 12) = 0$.
+\begin{align*}
+2x - 6 &= 0 & \text{ou} & & 3x + 12 &= 0 \\
+2x &= 6 & & & 3x &= -12 \\
+x &= \frac{6}{2} = \mathbf{3} & & & x &= \frac{-12}{3} = \mathbf{-4}
+\end{align*}
+\textbf{Conclusion :} L'équation admet \textbf{deux solutions} : $\mathbf{3}$ et $\mathbf{-4}$.
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 5. COURS : MÉTHODE DE MISE EN ÉQUATION D'UN PROBLÈME
+% ------------------------------------------------------------------------------
+\section{Résoudre un Problème par Mise en Équation}
+
+\begin{cadremethode}[Les 4 étapes clés de résolution d'un problème]
+\begin{enumerate}
+    \item \textbf{Choix de l'inconnue} : Définir clairement ce que représente $x$ (ex : « Soit $x$ le prix d'un article »).
+    \item \textbf{Mise en équation} : Traduire le texte du problème par une égalité mathématique avec $x$.
+    \item \textbf{Résolution de l'équation} : Appliquer les règles algébriques pour trouver la valeur de $x$.
+    \item \textbf{Vérification \& Conclusion} : Vérifier la cohérence du résultat et rédiger une phrase de réponse avec les unités.
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 4]
+\begin{itemize}
+    \item Pour résoudre $ax + b = c$ : on isole $ax = c - b$, puis on divise par $a$ : $x = \dfrac{c-b}{a}$.
+    \item Pour résoudre $ax + b = cx + d$ : on regroupe les $x$ à gauche et les nombres à droite : $(a-c)x = d-b$.
+    \item Équation produit nul : $(ax+b)(cx+d) = 0 \iff ax+b=0 \text{ ou } cx+d=0$ (deux solutions).
+    \item Toujours vérifier son résultat en réinjectant la solution trouvée dans l'équation de départ.
+\end{itemize}
+\end{cadreretenu}
+
+% ------------------------------------------------------------------------------
+% 6. QUESTIONS FLASH / AUTOMATISMES
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+    \item Résoudre : $x + 9 = 15 \implies x = \pointille[3cm]$
+    \item Résoudre : $x - 7 = 11 \implies x = \pointille[3cm]$
+    \item Résoudre : $4x = 28 \implies x = \pointille[3cm]$
+    \item Résoudre : $-3x = 18 \implies x = \pointille[3cm]$
+    \item Résoudre : $2x + 5 = 17 \implies x = \pointille[3cm]$
+    \item Résoudre : $5x - 3 = 22 \implies x = \pointille[3cm]$
+    \item Le nombre $4$ est-il solution de $3x - 2 = 10$ ? \pointille[3cm]
+    \item Résoudre : $(x - 5)(x + 2) = 0 \implies x = \pointille[2cm] \text{ ou } x = \pointille[2cm]$
+\end{enumerate}
+\end{automatisme}
+
+% ------------------------------------------------------------------------------
+% 7. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
+% ------------------------------------------------------------------------------
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[2 pts]{\capRealiser}{Équations élémentaires}
+Résoudre les équations suivantes :
+\begin{enumerate}
+    \item $x + 14 = 31 \implies \pointille[6cm]$
+    \item $x - 8 = -15 \implies \pointille[6cm]$
+    \item $7x = 42 \implies \pointille[6cm]$
+    \item $\dfrac{x}{5} = 6 \implies \pointille[6cm]$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Équations de la forme $ax+b=c$ et $ax+b=cx+d$}
+Résoudre les équations suivantes avec toutes les étapes de calcul :
+\begin{enumerate}
+    \item $4x + 11 = 35$
+    \item $6x - 9 = 27$
+    \item $8x + 5 = 3x + 30$
+    \item $2x - 7 = 7x + 13$
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Équations avec développement préalable}
+Développer puis résoudre les équations suivantes :
+\begin{enumerate}
+    \item $3(x + 4) = 21$
+    \item $5(2x - 3) = 4x + 9$
+    \item $2(3x + 1) - 4 = 4(x + 2)$
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Équations produit nul}
+Résoudre les équations produit suivantes :
+\begin{enumerate}
+    \item $(x - 7)(x + 4) = 0$
+    \item $(2x - 8)(3x + 15) = 0$
+    \item $(5x - 2)(4 - x) = 0$
+    \item $x(2x + 9) = 0$
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Comparaison de Devis d'Artisans (BTP / Électricité)}
+Pour la rénovation de son installation électrique, un propriétaire compare deux devis d'électriciens :
+\begin{itemize}
+    \item \textbf{Artisan A} : Forfait déplacement de $60\text{ \euro{}}$ plus $40\text{ \euro{}}$ par heure de travail.
+    \item \textbf{Artisan B} : Forfait déplacement de $110\text{ \euro{}}$ plus $30\text{ \euro{}}$ par heure de travail.
+\end{itemize}
+
+\begin{enumerate}
+    \item Exprimer le montant total du devis de l'Artisan A en fonction du nombre d'heures $x$ : $P_A(x) = \pointille[4cm]$
+    \item Exprimer le montant total du devis de l'Artisan B en fonction du nombre d'heures $x$ : $P_B(x) = \pointille[4cm]$
+    \item Écrire et résoudre l'équation permettant de déterminer pour combien d'heures de travail les deux devis sont strictement égaux.
+    \item Pour un chantier estimé à $8\text{ heures}$, quel artisan est le plus avantageux financièrement ?
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+\begin{exercice}[5 pts]{\capAnalyser}{Problème Géométrique (Menuiserie \& Cadres)}
+Un artisan menuisier fabrique un cadre rectangulaire en bois.
+La longueur du cadre mesure $5\text{ cm}$ de plus que sa largeur $x$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+    \fill[amber!10] (0,0) rectangle (5,3);
+    \draw[amber!80!black, line width=1.5pt] (0,0) rectangle (5,3);
+    \node at (2.5,1.5) {\bfseries\sffamily Cadre en bois};
+    \draw[<->, >=stealth, thick] (0,-0.4) -- (5,-0.4) node[midway, below] {Longueur : $x + 5$};
+    \draw[<->, >=stealth, thick] (-0.4,0) -- (-0.4,3) node[midway, left] {Largeur : $x$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item Exprimer le périmètre $\mathcal{P}$ de ce cadre en fonction de la largeur $x$.
+    \item Le menuisier dispose d'une baguette de bois de $70\text{ cm}$ de longueur pour fabriquer le pourtour complet du cadre.\\
+    Écrire une équation traduisant que le périmètre est égal à $70\text{ cm}$.
+    \item Résoudre cette équation pour déterminer la largeur $x$ et la longueur du cadre.
+    \item Calculer l'aire intérieure du cadre obtenu.
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 8. TP TICE / CALCULATRICE
+% ------------------------------------------------------------------------------
+\section{TP TICE : Résolution d'Équations sur Outils Numériques}
+
+\begin{tpinfo}[Résolution avec GeoGebra \& Calculatrice Casio / TI]{Vérifier une Équation}
+\begin{enumerate}
+    \item \textbf{GeoGebra (Calcul Formel - CAS)} :
+    \begin{itemize}
+        \item Ouvrir la vue \textbf{Calcul Formel}.
+        \item Saisir la commande : \texttt{Résoudre(5x - 4 = 2x + 11)} et appuyer sur \textbf{Entrée}.
+        \item Noter la solution affichée : \pointille[4cm]
+        \item Saisir : \texttt{Résoudre((2x - 6)*(3x + 12) = 0)}. Noter les solutions : \pointille[4cm]
+    \end{itemize}
+    \item \textbf{Calculatrice (Menu Équation / Equation)} :
+    \begin{itemize}
+        \item Sur Casio fx-92+ : Menu \textbf{Équation} $\rightarrow$ \textbf{Système / Linéaire} ou \textbf{SolvN}.
+        \item Résoudre à la machine l'équation $7x - 15 = 3x + 25$ et noter le résultat : $x = \pointille[2cm]$.
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+% ------------------------------------------------------------------------------
+% 9. VERS LE BREVET (DNB PRO)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Abonnement Téléphonique \& Location de Matériel}
+Une société de location de matériel professionnel propose deux formules tarifaires pour la location d'une mini-pelleteuse :
+\begin{itemize}
+    \item \textbf{Formule Liberté (sans abonnement)} : $120\text{ \euro{}}$ par jour de location.
+    \item \textbf{Formule Privilège (avec abonnement)} : Carte annuelle à $300\text{ \euro{}}$, puis $70\text{ \euro{}}$ par jour de location.
+\end{itemize}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{|l|X|X|X|}
+\hline
+\rowcolor{slate800} \textcolor{white}{\textbf{Nombre de jours ($x$)}} & \textcolor{white}{\textbf{2 jours}} & \textcolor{white}{\textbf{5 jours}} & \textcolor{white}{\textbf{10 jours}} \\
+\hline
+\textbf{Prix Formule Liberté ($L(x)$)} & $2 \times 120 = 240\text{ \euro{}}$ & \pointille[2cm] & \pointille[2cm] \\
+\hline
+\textbf{Prix Formule Privilège ($P(x)$)} & $300 + 2 \times 70 = 440\text{ \euro{}}$ & \pointille[2cm] & \pointille[2cm] \\
+\hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}
+    \item \capSApproprier\ Compléter le tableau comparatif ci-dessus.
+    \item \capRealiser\ Exprimer en fonction de $x$ (nombre de jours de location) :
+    \begin{enumerate}
+        \item Le coût total $L(x)$ avec la Formule Liberté : $L(x) = \pointille[3cm]$
+        \item Le coût total $P(x)$ avec la Formule Privilège : $P(x) = \pointille[3cm]$
+    \end{enumerate}
+    \item \capAnalyser\ Résoudre l'équation : $120x = 70x + 300$.
+    \item \capValider\ Interpréter la solution trouvée : que représente cette valeur pour un artisan ?
+    \item \capCommuniquer\ Un artisan prévoit d'utiliser la pelleteuse pendant $8\text{ jours}$ dans l'année. Quelle formule doit-il choisir pour payer le moins cher ? Justifier soigneusement.
+\end{enumerate}
+
+\vspace{2mm}
+\noindent\textbf{Rédigez votre démarche ci-dessous :}
+\lignesreponse[8]
+\end{sujetdnb}
