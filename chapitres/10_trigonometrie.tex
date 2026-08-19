@@ -153,7 +153,7 @@ Moyen Mnémotechnique Officiel : \quad \textcolor{colPrimary}{\Large SOH - CAH -
 % ------------------------------------------------------------------------------
 % 5. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
 % ------------------------------------------------------------------------------
-\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+\section{Travaux Dirigés (TD) : Problèmes d'Entraînement}
 
 \begin{exercice}[2 pts][\capRealiser]{Pente d'une Toiture Industrielle (BTP / Charpente)}
 \noindent
@@ -194,7 +194,7 @@ Le versant mesure $AC = 8{,}50\text{ m}$ et forme avec l'horizontale un angle $\
 \begin{minipage}[c]{0.58\linewidth}
 Une grande échelle de pompier $L = 12\text{ m}$ ($PM$) est posée contre un mur avec un angle de sécurité au sol de \textbf{$70^\circ$}.
 \begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
-    \item Calculer la hauteur $h = MS$ atteinte (au centième).
+    \item Calculer la hauteur $h = MS$ atteinte (au centième de mètre).
     \item Calculer la distance de sécurité $d = PS$ au sol.
 \end{enumerate}
 \end{minipage}\hfill
@@ -283,6 +283,119 @@ Un téléphérique relie la station $A$ ($1\,200\text{ m}$) à la station $B$ ($
     \node[above left=1pt, font=\bfseries\tiny] at (A) {$A$};
     \node[above right=1pt, font=\bfseries\tiny] at (B) {$B$};
     \node[below right=1pt, font=\bfseries\tiny] at (H) {$H$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capRealiser]{Pose de Panneaux Solaires (Bâtiment \& Énergies)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Pour un rendement maximal, un installateur pose un panneau solaire $AB$ de longueur $L = 2{,}20\text{ m}$ sur une toiture-terrasse.
+L'inclinaison recommandée est $\beta = 30^\circ$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Calculer la hauteur $h = BC$ du support arrière (au centième de mètre).
+    \item Calculer l'emprise au sol $d = AC$ occupée (au centième).
+    \item Si le support $BC$ mesure $1{,}20\text{ m}$, calculer l'angle obtenu (au degré).
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.75]
+    \draw[slate600, thick] (-0.3,0) -- (3.8,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.3,-0.2) rectangle (3.8,0);
+    \coordinate (A) at (0.2,0);
+    \coordinate (C) at (3.2,0);
+    \coordinate (B) at (3.2,1.7);
+    \draw[slate800, line width=1.5pt] (C) -- (B) node[midway, right=1pt, font=\bfseries\tiny] {$h$};
+    \draw[colPrimary, line width=2.5pt] (A) -- (B) node[midway, above left=1pt, font=\bfseries\tiny] {$2{,}20\text{ m}$};
+    \draw[draw=slate800, fill=slate200] (3.2,0.2) -- (3.0,0.2) -- (3.0,0) -- cycle;
+    \draw[colSecondary, thick, fill=colSecondary!20] (A) -- ($(A)+(0.7,0)$) arc (0:30:0.7) -- cycle;
+    \node[colSecondary!90!black, font=\bfseries\tiny] at ($(A)+(0.9,0.18)$) {$30^\circ$};
+    \node[below left=1pt, font=\bfseries\scriptsize] at (A) {$A$};
+    \node[above right=1pt, font=\bfseries\scriptsize] at (B) {$B$};
+    \node[below right=1pt, font=\bfseries\scriptsize] at (C) {$C$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\newpage
+
+\begin{exercice}[3 pts][\capAnalyser]{Pente de Descente d'un Avion (Aéronautique / Transport)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un avion de ligne amorce sa descente vers la piste d'atterrissage $P$.
+Il se situe à une altitude $h = 1\,500\text{ m}$ ($AH$) et à une distance horizontale $HP = 28\text{ km}$ ($28\,000\text{ m}$).
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Calculer la tangente de l'angle de descente $\alpha = \widehat{APH}$.
+    \item En déduire la mesure de l'angle $\alpha$ (au dixième de degré).
+    \item La norme OACI préconise une pente d'approche de $3^\circ$. L'approche est-elle conforme ?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.75]
+    \draw[slate600, thick] (-0.3,0) -- (4.0,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.3,-0.2) rectangle (4.0,0);
+    \draw[slate800, line width=2pt] (3.0,0) -- (3.8,0) node[midway, below=2pt, font=\bfseries\tiny] {Piste};
+    \coordinate (A) at (0.2,2.0);
+    \coordinate (H) at (0.2,0);
+    \coordinate (P) at (3.2,0);
+    \draw[dashed, slate600, thick] (A) -- (H) node[midway, left=1pt, font=\bfseries\tiny] {$1\,500\text{ m}$};
+    \draw[colPrimary, line width=1.8pt] (A) -- (P);
+    \draw[draw=slate800, fill=slate200] (0.2,0.2) -- (0.4,0.2) -- (0.4,0) -- cycle;
+    \draw[colSecondary, thick, fill=colSecondary!20] (P) -- ($(P)+(-0.8,0)$) arc (180:{180-atan(2.0/3.0)}:0.8) -- cycle;
+    \node[colSecondary!90!black, font=\bfseries\tiny] at (2.2,0.2) {$\alpha$};
+    \node[below=2pt, font=\bfseries\tiny] at (1.7,-0.05) {$28\,000\text{ m}$};
+    \node[above left=1pt, font=\bfseries\scriptsize] at (A) {$A$};
+    \node[below left=1pt, font=\bfseries\scriptsize] at (H) {$H$};
+    \node[below right=1pt, font=\bfseries\scriptsize] at (P) {$P$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[4 pts][\capRealiser]{Hauteur Inaccessible d'une Éolienne (Génie Électrique)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un technicien de maintenance mesure la hauteur d'une éolienne.
+Placé à une distance $d = 65\text{ m}$ du mât avec un théodolite à hauteur des yeux ($1{,}60\text{ m}$), il mesure un angle de visée vers le sommet de $\widehat{\theta} = 52^\circ$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=2pt]
+    \item Calculer la hauteur $h_1 = ST$ entre le niveau des yeux et le sommet (au mètre près).
+    \item En déduire la hauteur totale $H$ de l'éolienne ($H = h_1 + 1{,}60\text{ m}$).
+    \item Si une pale mesure $45\text{ m}$, quelle est la hauteur du moyeu central ?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.75]
+    \draw[slate600, thick] (-0.3,0) -- (3.8,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-0.3,-0.2) rectangle (3.8,0);
+    \draw[slate800, line width=2pt] (3.2,0) -- (3.2,2.8);
+    \fill[colPrimary] (3.2,2.8) circle (3pt);
+    \draw[colPrimary, line width=1.5pt] (3.2,2.8) -- (3.2,3.5);
+    \draw[colPrimary, line width=1.5pt] (3.2,2.8) -- (2.6,2.4);
+    \draw[colPrimary, line width=1.5pt] (3.2,2.8) -- (3.8,2.4);
+    \draw[slate800, line width=1.2pt] (0.2,0) -- (0.2,0.6) node[midway, left=1pt, font=\bfseries\tiny] {$1{,}60\text{ m}$};
+    \coordinate (O) at (0.2,0.6);
+    \coordinate (T) at (3.2,0.6);
+    \coordinate (S) at (3.2,3.5);
+    \draw[dashed, slate600] (O) -- (T);
+    \draw[colSecondary, line width=1.5pt] (O) -- (S);
+    \draw[colSecondary, thick, fill=colSecondary!20] (O) -- ($(O)+(0.7,0)$) arc (0:{atan(2.9/3.0)}:0.7) -- cycle;
+    \node[colSecondary!90!black, font=\bfseries\tiny] at ($(O)+(0.8,0.3)$) {$52^\circ$};
+    \node[below=2pt, font=\bfseries\tiny] at (1.7,0.6) {$65\text{ m}$};
+    \node[right=1pt, font=\bfseries\tiny] at (3.2,2.0) {$h_1$};
+    \node[above=1pt, font=\bfseries\scriptsize] at (S) {$S$};
+    \node[above left=1pt, font=\bfseries\scriptsize] at (O) {$O$};
+    \node[right=1pt, font=\bfseries\scriptsize] at (T) {$T$};
 \end{tikzpicture}
 \end{minipage}
 
