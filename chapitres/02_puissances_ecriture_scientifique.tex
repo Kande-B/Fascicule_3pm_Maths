@@ -1,0 +1,324 @@
+% ==============================================================================
+% CHAPITRE 2 : PUISSANCES DE 10 & ÉCRITURES SCIENTIFIQUES (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Puissances de 10, Calculs \& Écritures Scientifiques}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE / SCIENCES)
+% ------------------------------------------------------------------------------
+\begin{activite}{De l'infiniment petit à l'infiniment grand (Microélectronique \& Télécoms)}
+Dans le secteur de l'informatique et des télécommunications, les ingénieurs manipulent des grandeurs extrêmes :
+\begin{itemize}
+    \item L'épaisseur d'un transistor dans un microprocesseur moderne est de \textbf{0{,}000 000 003 m} ($3\text{ nanomètres}$).
+    \item La capacité totale des centres de données mondiaux dépasse \textbf{120 000 000 000 000 000 000 octets} ($120\text{ exaoctets}$).
+    \item La vitesse de transmission d'un signal laser dans la fibre optique est d'environ \textbf{300 000 000 m/s}.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colPrimary, fill=slate50, rounded corners=6pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \sffamily
+        \textbf{Problématique :}
+        \begin{enumerate}
+            \item Pourquoi l'écriture décimale avec tous ces zéros est-elle difficile à utiliser lors des calculs ?
+            \item Comment peut-on écrire ces nombres de manière plus compacte et lisible à l'aide des puissances de 10 ?
+        \end{enumerate}
+    };
+\end{tikzpicture}
+\end{center}
+
+\vspace{1mm}
+\noindent\textbf{Espace de recherche :}
+\lignesreponse[4]
+\end{activite}
+
+% ------------------------------------------------------------------------------
+% 2. COURS : PUISSANCES D'UN NOMBRE & PUISSANCES DE 10
+% ------------------------------------------------------------------------------
+\section{Puissances d'un Nombre Relatif \& Puissances de 10}
+
+\begin{cadredef}[Puissance d'un nombre]
+Soit $a$ un nombre relatif et $n$ un nombre entier positif ($n \geq 1$).
+\begin{itemize}
+    \item $a^n = \underbrace{a \times a \times \dots \times a}_{n \text{ facteurs}}$ \quad ($a^n$ se lit « $a$ puissance $n$ » ou « $a$ exposant $n$ »).
+    \item Par convention : pour tout nombre $a \neq 0$, \textbf{$a^0 = 1$} \quad et \quad \textbf{$a^1 = a$}.
+    \item Pour tout nombre $a \neq 0$ : \textbf{$a^{-n} = \dfrac{1}{a^n}$} \quad ($a^{-n}$ est l'\textbf{inverse} de $a^n$).
+\end{itemize}
+\end{cadredef}
+
+\begin{cadreexemple}[Exemples à compléter ensemble en classe]
+\begin{itemize}
+    \item $2^4 = 2 \times 2 \times 2 \times 2 = \pointille[2cm]$ \hfill $(-3)^2 = (-3) \times (-3) = \pointille[2cm]$
+    \item $5^0 = \pointille[1.5cm]$ \hfill $5^{-1} = \dfrac{1}{5} = \pointille[1.5cm]$ \hfill $2^{-3} = \dfrac{1}{2^3} = \dfrac{1}{\pointille[1cm]} = \pointille[1.5cm]$
+\end{itemize}
+\end{cadreexemple}
+
+\begin{cadreprop}[Puissances de 10 positives et négatives]
+Soit $n$ un nombre entier positif :
+\begin{itemize}
+    \item \textbf{Exposant positif} : $10^n = 1\underbrace{00\dots0}_{n\text{ zéros}}$ \quad (le chiffre 1 suivi de $n$ zéros).
+    \item \textbf{Exposant négatif} : $10^{-n} = \dfrac{1}{10^n} = \underbrace{0{,}00\dots0}_{n\text{ zéros}}1$ \quad ($n$ zéros au total, virgule après le 1\textsuperscript{er} zéro).
+\end{itemize}
+\end{cadreprop}
+
+\begin{cadremethode}[Écriture décimale des puissances de 10]
+Compléter le tableau de correspondance ci-dessous :
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{|c|X|c|X|}
+\hline
+\rowcolor{slate800} \textcolor{white}{\textbf{Puissance}} & \textcolor{white}{\textbf{Écriture décimale}} & \textcolor{white}{\textbf{Puissance}} & \textcolor{white}{\textbf{Écriture décimale}} \\
+\hline
+$10^1$ & \textbf{10} & $10^{-1}$ & \textbf{0,1} \\
+\hline
+$10^2$ & & $10^{-2}$ & \\
+\hline
+$10^3$ & \textbf{1\,000} (mille) & $10^{-3}$ & \textbf{0,001} (millième) \\
+\hline
+$10^6$ & & $10^{-6}$ & \\
+\hline
+$10^9$ & \textbf{1\,000\,000\,000} (milliard) & $10^{-9}$ & \\
+\hline
+\end{tabularx}
+\end{center}
+\end{cadremethode}
+
+\begin{cadreprop}[Préfixes du Système International (Unités usuelles)]
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\small
+\begin{tabular}{|c|c|c||c|c|c|}
+\hline
+\rowcolor{slate200} \textbf{Préfixe} & \textbf{Symbole} & \textbf{Puissance} & \textbf{Préfixe} & \textbf{Symbole} & \textbf{Puissance} \\
+\hline
+téra & T & $10^{12}$ & déci & d & $10^{-1}$ \\
+\hline
+giga & G & $10^9$ & centi & c & $10^{-2}$ \\
+\hline
+méga & M & $10^6$ & milli & m & $10^{-3}$ \\
+\hline
+kilo & k & $10^3$ & micro & $\mu$ & $10^{-6}$ \\
+\hline
+hecto & h & $10^2$ & nano & n & $10^{-9}$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{cadreprop}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : RÈGLES DE CALCUL SUR LES PUISSANCES DE 10
+% ------------------------------------------------------------------------------
+\section{Règles de Calcul sur les Puissances de 10}
+
+\begin{cadreprop}[Formules fondamentales sur les puissances de 10]
+Pour tous nombres entiers relatifs $m$ et $n$ :
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabularx}{\linewidth}{X|X|X}
+\rowcolor{colDefBg}
+\centering \textbf{Produit} & \centering \textbf{Quotient} & \centering \textbf{Puissance de puissance} \tabularnewline
+\centering $10^m \times 10^n = \mathbf{10^{m+n}}$ & \centering $\dfrac{10^m}{10^n} = \mathbf{10^{m-n}}$ & \centering $\left(10^m\right)^n = \mathbf{10^{m \times n}}$ \tabularnewline
+\end{tabularx}
+\end{center}
+\end{cadreprop}
+
+\begin{cadremethode}[Application des règles de calcul]
+Compléter les calculs modèles suivants :
+\begin{itemize}
+    \item $A = 10^4 \times 10^3 = 10^{4+3} = \mathbf{10^7}$ \hfill $B = 10^7 \times 10^{-2} = 10^{\pointille[1.5cm]} = \pointille[1.5cm]$
+    \item $C = \dfrac{10^8}{10^5} = 10^{8-5} = \mathbf{10^3}$ \hfill $D = \dfrac{10^3}{10^{-4}} = 10^{3 - (-4)} = 10^{\pointille[1.5cm]} = \pointille[1.5cm]$
+    \item $E = \left(10^3\right)^4 = 10^{3 \times 4} = \mathbf{10^{12}}$ \hfill $F = \left(10^{-2}\right)^5 = 10^{\pointille[2cm]} = \pointille[1.5cm]$
+\end{itemize}
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 4. COURS : ÉCRITURE SCIENTIFIQUE
+% ------------------------------------------------------------------------------
+\section{Notation Scientifique \& Ordres de Grandeur}
+
+\begin{cadredef}[Écriture Scientifique]
+L'\textbf{écriture scientifique} (ou notation scientifique) d'un nombre décimal non nul est son unique écriture de la forme :
+\[ a \times 10^n \]
+où :
+\begin{itemize}
+    \item $a$ est un nombre décimal ayant \textbf{un seul chiffre non nul avant la virgule} ($1 \leq a < 10$ ou $-10 < a \leq -1$).
+    \item $n$ est un \textbf{nombre entier relatif} (positif ou négatif).
+\end{itemize}
+\end{cadredef}
+
+\begin{cadremethode}[Méthode pas à pas : Mettre un nombre en écriture scientifique]
+\begin{enumerate}
+    \item On place la virgule juste après le premier chiffre non nul pour obtenir le nombre $a$.
+    \item On compte le nombre de rangs dont la virgule s'est déplacée pour trouver l'exposant $n$ :
+    \begin{itemize}
+        \item Déplacement vers la \textbf{gauche} $\implies$ exposant \textbf{positif} ($+n$).
+        \item Déplacement vers la \textbf{droite} $\implies$ exposant \textbf{négatif} ($-n$).
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Exemples à compléter :}
+\begin{itemize}
+    \item $45\,000 = 4{,}5 \times 10^4$ \hfill $728\,000\,000 = \pointille[2cm] \times 10^{\pointille[0.8cm]}$
+    \item $0{,}003\,8 = 3{,}8 \times 10^{-3}$ \hfill $0{,}000\,005\,12 = \pointille[2cm] \times 10^{\pointille[0.8cm]}$
+\end{itemize}
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 2]
+\begin{itemize}
+    \item $10^n = 100\dots0$ ($n$ zéros) \quad et \quad $10^{-n} = 0{,}00\dots01$ ($n$ zéros au total).
+    \item $10^0 = 1$ \quad et \quad $10^1 = 10$.
+    \item Règles de calcul : $10^m \times 10^n = 10^{m+n}$ \quad ; \quad $\dfrac{10^m}{10^n} = 10^{m-n}$ \quad ; \quad $(10^m)^n = 10^{m \times n}$.
+    \item Écriture scientifique : $a \times 10^n$ avec $1 \leq a < 10$.
+    \item Savoir convertir les unités avec les préfixes : $\text{kilo } (10^3)$, $\text{méga } (10^6)$, $\text{giga } (10^9)$, $\text{milli } (10^{-3})$, $\text{micro } (10^{-6})$, $\text{nano } (10^{-9})$.
+\end{itemize}
+\end{cadreretenu}
+
+% ------------------------------------------------------------------------------
+% 5. QUESTIONS FLASH / AUTOMATISMES
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Échauffement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+    \item Donner l'écriture décimale de $10^5$ : \pointille[5cm]
+    \item Donner l'écriture décimale de $10^{-3}$ : \pointille[5cm]
+    \item Écrire sous la forme d'une seule puissance de 10 : $10^4 \times 10^5 = \pointille[3cm]$
+    \item Écrire sous la forme d'une seule puissance de 10 : $\dfrac{10^9}{10^2} = \pointille[3cm]$
+    \item Écrire sous la forme d'une seule puissance de 10 : $\left(10^3\right)^2 = \pointille[3cm]$
+    \item Donner l'écriture scientifique de $85\,000$ : \pointille[5cm]
+    \item Donner l'écriture scientifique de $0{,}000\,72$ : \pointille[5cm]
+    \item Convertir $4{,}5\text{ kW}$ en Watts sous forme de puissance de 10 : $4{,}5\text{ kW} = \pointille[3cm]\text{ W}$
+\end{enumerate}
+\end{automatisme}
+
+% ------------------------------------------------------------------------------
+% 6. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT PROGRESSIFS
+% ------------------------------------------------------------------------------
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[2 pts]{\capSApproprier}{Écritures décimales et puissances de 10}
+Écrire chaque nombre sous forme décimale :
+\begin{enumerate}
+    \item $A = 10^6 = \pointille[6cm]$
+    \item $B = 10^{-4} = \pointille[6cm]$
+    \item $C = 3{,}4 \times 10^3 = \pointille[6cm]$
+    \item $D = 8{,}15 \times 10^{-2} = \pointille[6cm]$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Calculs avec les puissances de 10}
+Écrire les expressions suivantes sous la forme $10^p$, où $p$ est un nombre entier relatif :
+\begin{enumerate}
+    \item $E = 10^8 \times 10^4 = \pointille[6cm]$
+    \item $F = 10^5 \times 10^{-7} = \pointille[6cm]$
+    \item $G = \dfrac{10^{11}}{10^4} = \pointille[6cm]$
+    \item $H = \dfrac{10^2}{10^{-5}} = \pointille[6cm]$
+    \item $I = \left(10^4\right)^{-3} = \pointille[6cm]$
+    \item $J = \dfrac{10^5 \times 10^3}{10^2} = \pointille[6cm]$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Passage en écriture scientifique}
+Donner l'écriture scientifique de chacun des nombres suivants :
+\begin{enumerate}
+    \item $K = 540\,000 = \pointille[6cm]$
+    \item $L = 0{,}000\,082 = \pointille[6cm]$
+    \item $M = 37{,}5 \times 10^4 = \pointille[6cm]$
+    \item $N = 0{,}004\,6 \times 10^{-3} = \pointille[6cm]$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Conversions et préfixes (Mécanique \& Électronique)}
+Un technicien en usinage de précision mesure les cotes de différentes pièces mécaniques :
+\begin{itemize}
+    \item Pièce A : épaisseur de $25\text{ mm}$.
+    \item Pièce B : jeu mécanique de $40\text{ }\mu\text{m}$ (micromètres).
+    \item Pièce C : rugosité de surface de $150\text{ nm}$ (nanomètres).
+\end{itemize}
+
+\begin{enumerate}
+    \item Exprimer chacune de ces dimensions en \textbf{mètres} sous forme d'une \textbf{écriture scientifique} :
+    \begin{itemize}
+        \item Épaisseur Pièce A : \pointille[6cm]
+        \item Jeu Pièce B : \pointille[6cm]
+        \item Rugosité Pièce C : \pointille[6cm]
+    \end{itemize}
+    \item Ranger ces trois dimensions par ordre croissant (de la plus petite à la plus grande).
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Stockage Numérique \& Téléchargement (Informatique)}
+Un disque dur externe SSD possède une capacité de stockage de \textbf{2 To} (téraoctets).\\
+On rappelle que : $1\text{ To} = 10^{12}\text{ octets}$ \quad ; \quad $1\text{ Go} = 10^9\text{ octets}$ \quad ; \quad $1\text{ Mo} = 10^6\text{ octets}$.
+
+\begin{enumerate}
+    \item Exprimer la capacité totale du disque dur en octets sous forme d'écriture scientifique : \pointille[4cm]
+    \item Un fichier vidéo pèse $4\text{ Go}$. Combien de fichiers de ce type peut-on stocker sur ce disque dur ?
+    \item Une connexion fibre télécharge à un débit de $100\text{ Mo/s}$ ($10^8\text{ octets/s}$).\\
+    Calculer le temps nécessaire (en secondes) pour télécharger un jeu vidéo de $50\text{ Go}$.
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 7. TP TICE / CALCULATRICE
+% ------------------------------------------------------------------------------
+\section{TP TICE : Maîtriser les Puissances sur Calculatrice}
+
+\begin{tpinfo}[Calculatrice Casio fx-92+ \& TI-Collège Plus]{Puissances et Notation Scientifique}
+\begin{enumerate}
+    \item \textbf{Saisir une puissance} :
+    \begin{itemize}
+        \item Pour calculer $3^5$ : taper \texttt{3} $\rightarrow$ touche puissance ($x^{\blacksquare}$ ou \texttt{\textasciicircum}) $\rightarrow$ \texttt{5} $\rightarrow$ \texttt{EXE}.
+        \item Noter le résultat : $3^5 = \pointille[3cm]$
+    \end{itemize}
+    \item \textbf{Saisir une puissance de 10} :
+    \begin{itemize}
+        \item Utiliser la touche \texttt{$\times 10^x$} (ou \texttt{EE}) en bas du clavier.
+        \item Pour entrer $4{,}2 \times 10^6$ : taper \texttt{4.2} $\rightarrow$ touche \texttt{$\times 10^x$} $\rightarrow$ \texttt{6} $\rightarrow$ \texttt{EXE}.
+    \end{itemize}
+    \item \textbf{Mode Scientifique (SCI)} :
+    \begin{itemize}
+        \item Configurer la calculatrice pour afficher directement en notation scientifique (Menu \texttt{CONFIG} $\rightarrow$ \texttt{Format affichage} $\rightarrow$ \texttt{Sci}).
+        \item Calculer à la machine : $\dfrac{4{,}8 \times 10^7 \times 5 \times 10^{-2}}{2 \times 10^3} = \pointille[4cm]$
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+% ------------------------------------------------------------------------------
+% 8. VERS LE BREVET (DNB PRO)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Vitesse de la Lumière \& Exploration Spatiale}
+Dans le vide, la lumière et les ondes radio se propagent à la vitesse constante de :
+\[ c = 3 \times 10^8\text{ m/s} = 300\,000\text{ km/s} \]
+On rappelle la relation entre la vitesse $v$, la distance $d$ et la durée $t$ :
+\[ v = \frac{d}{t} \iff d = v \times t \iff t = \frac{d}{v} \]
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colDNB, fill=colDNBBg, rounded corners=6pt, line width=1pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \small\sffamily
+        \textbf{Données astronomiques :}
+        \begin{itemize}[itemsep=1pt]
+            \item Distance Terre -- Soleil : $d_1 = 1{,}5 \times 10^8\text{ km} = 1{,}5 \times 10^{11}\text{ m}$.
+            \item Distance Terre -- Mars (au plus près) : $d_2 = 7{,}5 \times 10^7\text{ km} = 7{,}5 \times 10^{10}\text{ m}$.
+        \end{itemize}
+    };
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item \capSApproprier\ Exprimer la vitesse de la lumière $c$ en kilomètres par heure ($\text{km/h}$) sous forme d'écriture scientifique.
+    \item \capRealiser\ Calculer le temps $t_1$ (en secondes) mis par la lumière du Soleil pour parvenir jusqu'à la Terre.
+    \item \capRealiser\ Convertir ce temps $t_1$ en minutes et secondes.
+    \item \capAnalyser\ Un robot explorateur situé sur Mars envoie un message radio vers la Terre.\\
+    Combien de temps (en secondes, puis en minutes) s'écoule-t-il entre l'envoi du signal depuis Mars et sa réception par la station terrestre sur Terre ?
+\end{enumerate}
+
+\vspace{2mm}
+\noindent\textbf{Rédigez votre démarche ci-dessous :}
+\lignesreponse[10]
+\end{sujetdnb}
