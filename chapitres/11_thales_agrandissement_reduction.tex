@@ -87,55 +87,134 @@ Pour garantir la stabilité et respecter les normes de sécurité de l'atelier, 
 % ------------------------------------------------------------------------------
 \section{Théorème de Thalès : Calcul d'une Longueur}
 
-\begin{cadredef}[Conditions d'Application du Théorème de Thalès]
-Soient deux droites sécantes en un point $A$, coupées par deux droites $(MN)$ et $(BC)$.
-\begin{center}
-\textbf{Si les droites $(MN)$ et $(BC)$ sont strictement parallèles, alors :}
-\[ \mathbf{\frac{AM}{AB} = \frac{AN}{AC} = \frac{MN}{BC}} \quad \left(\frac{\text{Petit triangle}}{\text{Grand triangle}}\right) \]
-\end{center}
+\begin{cadredef}[Les 2 Configurations Clés de Thalès]
+\noindent
+\begin{minipage}[c]{0.52\linewidth}
+Soient deux droites sécantes en $A$, coupées par deux droites $(MN)$ et $(BC)$.
+\textbf{Si $(MN) \parallel (BC)$, alors :}
+\[ \mathbf{\frac{AM}{AB} = \frac{AN}{AC} = \frac{MN}{BC}} \]
+\end{minipage}\hfill
+\begin{minipage}[c]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.55]
+    % Config 1 : Imbriqué
+    \coordinate (A) at (1.2,2.0);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (2.4,0);
+    \coordinate (M) at ($(A)!0.55!(B)$);
+    \coordinate (N) at ($(A)!0.55!(C)$);
+    \draw[slate800, line width=1pt] (A) -- (B) -- (C) -- cycle;
+    \draw[colPrimary, line width=1.4pt] (M) -- (N);
+    \node[above, font=\bfseries\tiny] at (A) {$A$};
+    \node[below left, font=\bfseries\tiny] at (B) {$B$};
+    \node[below right, font=\bfseries\tiny] at (C) {$C$};
+    \node[left, font=\bfseries\tiny] at (M) {$M$};
+    \node[right, font=\bfseries\tiny] at (N) {$N$};
+    \node[below=1pt, font=\bfseries\tiny] at (1.2,0) {1. Imbriqué};
+
+    % Config 2 : Sablier
+    \coordinate (A2) at (4.6,1.0);
+    \coordinate (B2) at (3.6,2.0);
+    \coordinate (C2) at (5.6,2.0);
+    \coordinate (M2) at (3.8,0);
+    \coordinate (N2) at (5.4,0);
+    \draw[slate800, line width=1pt] (B2) -- (N2);
+    \draw[slate800, line width=1pt] (C2) -- (M2);
+    \draw[colPrimary, line width=1.4pt] (B2) -- (C2);
+    \draw[colPrimary, line width=1.4pt] (M2) -- (N2);
+    \node[right, font=\bfseries\tiny] at (A2) {$A$};
+    \node[above left, font=\bfseries\tiny] at (B2) {$B$};
+    \node[above right, font=\bfseries\tiny] at (C2) {$C$};
+    \node[below left, font=\bfseries\tiny] at (M2) {$M$};
+    \node[below right, font=\bfseries\tiny] at (N2) {$N$};
+    \node[below=1pt, font=\bfseries\tiny] at (4.6,0) {2. Sablier};
+\end{tikzpicture}
+\end{minipage}
 \end{cadredef}
 
-\begin{cadremethode}[Calculer une Longueur Inconnue par Produit en Croix]
-\textbf{Exemple} : Dans un triangle $ABC$, $(DE) \parallel (BC)$ avec $AB = 10\text{ cm}$, $AD = 4\text{ cm}$ et $BC = 15\text{ cm}$.
-\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+\begin{cadremethode}[Exemple Résolu : Calcul d'une Longueur par Produit en Croix]
+\noindent
+\begin{minipage}[c]{0.62\linewidth}
+\textbf{Énoncé} : Dans le triangle $ABC$, $(DE) \parallel (BC)$ avec $AB = 10\text{ cm}$, $AD = 4\text{ cm}$ et $BC = 15\text{ cm}$. Calculer la longueur $DE$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
     \item Les droites $(DB)$ et $(EC)$ sont sécantes en $A$, et $(DE) \parallel (BC)$.
-    \item D'après le théorème de Thalès : $\frac{AD}{AB} = \frac{AE}{AC} = \frac{DE}{BC} \implies \frac{4}{10} = \frac{DE}{15}$.
+    \item D'après le théorème de Thalès : $\frac{AD}{AB} = \frac{DE}{BC} \implies \frac{4}{10} = \frac{DE}{15}$.
     \item Produit en croix : $DE = \frac{4 \times 15}{10} = \frac{60}{10} = \mathbf{6\text{ cm}}$.
 \end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.36\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.55]
+    \coordinate (A) at (1.5,2.4);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (3.0,0);
+    \coordinate (D) at ($(A)!0.4!(B)$);
+    \coordinate (E) at ($(A)!0.4!(C)$);
+    \draw[slate800, line width=1.2pt] (A) -- (B) -- (C) -- cycle;
+    \draw[colPrimary, line width=1.6pt] (D) -- (E) node[midway, above=1pt, font=\bfseries\tiny] {$DE = ?$};
+    \node[above, font=\bfseries\scriptsize] at (A) {$A$};
+    \node[below left, font=\bfseries\scriptsize] at (B) {$B$};
+    \node[below right, font=\bfseries\scriptsize] at (C) {$C$};
+    \node[left, font=\bfseries\scriptsize] at (D) {$D$};
+    \node[right, font=\bfseries\scriptsize] at (E) {$E$};
+    \node[below=2pt, font=\bfseries\tiny] at (1.5,0) {$15\text{ cm}$};
+    \node[left=2pt, font=\bfseries\tiny] at ($(A)!0.2!(D)$) {$4\text{ cm}$};
+    \node[left=2pt, font=\bfseries\tiny] at ($(A)!0.7!(B)$) {$10\text{ cm}$};
+\end{tikzpicture}
+\end{minipage}
 \end{cadremethode}
 
 % ------------------------------------------------------------------------------
 % 3. COURS : AGRANDISSEMENTS & RÉDUCTIONS (LONGUEURS, AIRES, VOLUMES)
 % ------------------------------------------------------------------------------
-\section{Agrandissements \& Réductions (Effets sur $k$, $k^2$, $k^3$)}
+\section{Agrandissements \& Réductions : Effet sur $k$, $k^2$, $k^3$}
 
-\begin{cadredef}[Rapport d'Agrandissement / Réduction ($k$)]
-Lorsqu'on multiplie toutes les dimensions d'une figure par un nombre strictement positif $k$ :
-\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Si $\mathbf{k > 1}$ : il s'agit d'un \textbf{agrandissement} (ex : échelle $2:1 \implies k = 2$).
-    \item Si $\mathbf{0 < k < 1}$ : il s'agit d'une \textbf{réduction} (ex : maquette à l'échelle $1:50 \implies k = 0{,}02$).
+\begin{cadredef}[Représentation Graphique de l'Effet du Coefficient $k$]
+\noindent
+\begin{minipage}[c]{0.45\linewidth}
+Lorsqu'on multiplie les longueurs par $\mathbf{k}$ ($k > 0$) :
+\begin{itemize}[leftmargin=1.2em, itemsep=1pt]
+    \item \textbf{Longueurs} $\implies \mathbf{\times k}$
+    \item \textbf{Aires} $\implies \mathbf{\times k^2}$
+    \item \textbf{Volumes} $\implies \mathbf{\times k^3}$
 \end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.53\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.52]
+    % Cube 1 (k=1)
+    \draw[slate800, fill=colPrimary!20, thick] (0,0) rectangle (1.2,1.2);
+    \draw[slate800, fill=colPrimary!30, thick] (1.2,0) -- (1.6,0.4) -- (1.6,1.6) -- (1.2,1.2) -- cycle;
+    \draw[slate800, fill=colPrimary!10, thick] (0,1.2) -- (0.4,1.6) -- (1.6,1.6) -- (1.2,1.2) -- cycle;
+    \node[below=2pt, font=\bfseries\tiny] at (0.6,0) {$c = 1$};
+    \node[below=7pt, font=\bfseries\tiny, align=center] at (0.8,-0.05) {$\text{Aire} = 1$\\[-1pt]$\text{Vol} = 1$};
+
+    % Flèche agrandissement k=2
+    \draw[->, colSecondary, line width=1.5pt] (1.9,0.8) -- (2.9,0.8) node[midway, above=1pt, font=\bfseries\tiny] {$\times k = 2$};
+
+    % Cube 2 (k=2) avec 8 cubes visibles
+    \draw[slate800, fill=colSecondary!20, thick] (3.3,0) rectangle (5.7,2.4);
+    \draw[slate800, fill=colSecondary!30, thick] (5.7,0) -- (6.5,0.8) -- (6.5,3.2) -- (5.7,2.4) -- cycle;
+    \draw[slate800, fill=colSecondary!10, thick] (3.3,2.4) -- (4.1,3.2) -- (6.5,3.2) -- (5.7,2.4) -- cycle;
+    \draw[slate600, dashed] (4.5,0) -- (4.5,2.4);
+    \draw[slate600, dashed] (3.3,1.2) -- (5.7,1.2);
+    \draw[slate600, dashed] (5.7,1.2) -- (6.5,2.0);
+    \draw[slate600, dashed] (4.5,2.4) -- (5.3,3.2);
+    \node[below=2pt, font=\bfseries\tiny] at (4.5,0) {$c' = 2\ (\mathbf{\times 2})$};
+    \node[below=7pt, font=\bfseries\tiny, align=center] at (4.9,-0.05) {$\text{Aire}' = 4\ (\mathbf{\times 2^2})$\\[-1pt]$\text{Vol}' = 8\ (\mathbf{\times 2^3})$};
+\end{tikzpicture}
+\end{minipage}
 \end{cadredef}
 
-\begin{center}
-\begin{tcolorbox}[colback=colPrimary!10, colframe=colPrimary, width=0.96\linewidth, arc=4pt, boxrule=1pt, top=4pt, bottom=4pt, left=8pt, right=8pt]
-\sffamily\bfseries\normalsize\centering
-Propriété Fondamentale des Échelles ($k$) :\\[2pt]
-\begin{tabular}{rcccl}
-$\bullet$ Les \textbf{Longueurs} & sont multipliées par & $\mathbf{k}$ & & ($\text{Périmètre}' = k \times \text{Périmètre}$) \\
-$\bullet$ Les \textbf{Aires} & sont multipliées par & $\mathbf{k^2}$ & & ($\text{Aire}' = k^2 \times \text{Aire}$) \\
-$\bullet$ Les \textbf{Volumes} & sont multipliés par & $\mathbf{k^3}$ & & ($\text{Volume}' = k^3 \times \text{Volume}$)
-\end{tabular}
-\end{tcolorbox}
-\end{center}
-
-\begin{cadreretenu}[L'Essentiel du Chapitre 11]
-\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Toujours vérifier l'alignement des points et le parallélisme des droites avant d'écrire les 3 rapports.
-    \item Le coefficient $k = \frac{\text{longueur finale}}{\text{longueur initiale}}$ permet de passer directement d'une figure à l'autre.
-    \item Pour une surface $\implies k^2$ ; pour un volume ou une contenance $\implies k^3$.
+\begin{cadreexemple}[Exemple Chiffré : Agrandissement d'une Boîte Industrielle]
+Un conteneur a une longueur de $L = 5\text{ m}$, une surface de base de $S = 12\text{ m}^2$ et un volume de $V = 30\text{ m}^3$.
+On applique un coefficient d'agrandissement $\mathbf{k = 3}$ :
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
+    \item \textbf{Nouvelle longueur} : $L' = L \times k = 5 \times 3 = \mathbf{15\text{ m}}$ ;
+    \item \textbf{Nouvelle surface} : $S' = S \times k^2 = 12 \times 3^2 = 12 \times 9 = \mathbf{108\text{ m}^2}$ ;
+    \item \textbf{Nouveau volume} : $V' = V \times k^3 = 30 \times 3^3 = 30 \times 27 = \mathbf{810\text{ m}^3}$.
 \end{itemize}
-\end{cadreretenu}
+\end{cadreexemple}
 
 \newpage
 
@@ -152,7 +231,7 @@ $\bullet$ Les \textbf{Volumes} & sont multipliés par & $\mathbf{k^3}$ & & ($\te
     \item Un carré de côté $4\text{ cm}$ est agrandi avec $k = 3$. Nouveau côté : \pointille[2cm]
     \item Si les longueurs sont multipliées par $k = 2$, l'aire est multipliée par : \pointille[2cm]
     \item Volume initial $100\text{ cm}^3$, agrandi avec $k=2$. Nouveau volume : \pointille[2cm]
-    \item Donner sous forme décimale le rapport $k = \frac{3}{12} = \pointille[2cm]$
+    \item Donner sous forme décimale le rapport $k = \frac{3}{12} = \pointille[2cm] $
     \item Droites parallèles si les quotients de Thalès sont \pointille[3cm]
 \end{enumerate}
 \end{automatisme}
