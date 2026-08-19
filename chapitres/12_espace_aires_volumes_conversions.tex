@@ -1,0 +1,438 @@
+% ==============================================================================
+% CHAPITRE 12 : GÉOMÉTRIE DANS L'ESPACE, AIRES, VOLUMES & CONVERSIONS (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Géométrie dans l'Espace, Volumes \& Conversions}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : LOGISTIQUE / BTP)
+% ------------------------------------------------------------------------------
+\begin{activite}{Dimensionnement d'un Récupérateur d'Eau de Chantier (BTP / Environnement)}
+Sur un chantier de construction éco-responsable, un conducteur de travaux installe une citerne de récupération d'eau de pluie pour alimenter le nettoyage des engins et la centrale à béton.
+La citerne a la forme d'un \textbf{cylindre droit} posé horizontalement.
+
+\vspace{1mm}
+\begin{center}
+\begin{tcolorbox}[colback=amber!10, colframe=amber!80!black, arc=4pt, boxrule=0.8pt, left=8pt, right=8pt, top=4pt, bottom=4pt]
+\sffamily\footnotesize
+\textbf{Données techniques du fabricant :}
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
+    \item Diamètre de la base circulaire : $D = 1{,}60\text{ m}$ (soit un rayon $r = 0{,}80\text{ m}$) ;
+    \item Longueur de la citerne : $L = 3{,}50\text{ m}$ ;
+    \item Rappel de conversion fondamentale : $\mathbf{1\text{ m}^3 = 1\,000\text{ litres}}$ (et $\mathbf{1\text{ dm}^3 = 1\text{ litre}}$).
+    \item Le besoin hebdomadaire en eau sur le chantier est estimé à \textbf{$6\,500\text{ litres}$}.
+\end{itemize}
+\end{tcolorbox}
+\end{center}
+
+\vspace{1mm}
+\noindent
+\begin{minipage}[c]{0.48\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.85]
+    % Cylindre horizontal
+    \draw[slate800, fill=colPrimary!15, line width=1.4pt] (0,0) ellipse (0.5 and 1.2);
+    \draw[slate800, line width=1.4pt] (0,1.2) -- (3.2,1.2);
+    \draw[slate800, line width=1.4pt] (0,-1.2) -- (3.2,-1.2);
+    \draw[slate800, fill=colPrimary!25, line width=1.4pt] (3.2,0) ellipse (0.5 and 1.2);
+    
+    % Axe et rayon
+    \draw[dashed, slate600] (0,0) -- (3.2,0);
+    \draw[colSecondary, line width=1.4pt, ->] (3.2,0) -- (3.2,1.2) node[midway, right=1pt, font=\bfseries\scriptsize] {$r = 0{,}80\text{ m}$};
+    
+    % Cotes
+    \draw[<->, slate700, thick] (0,-1.5) -- (3.2,-1.5) node[midway, below=1pt, font=\bfseries\scriptsize] {Longueur $L = 3{,}50\text{ m}$};
+    
+    % Sol
+    \draw[slate400, thick] (-0.8,-1.2) -- (4.0,-1.2);
+    \fill[pattern=north east lines, pattern color=slate200] (-0.8,-1.4) rectangle (4.0,-1.2);
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.48\linewidth}
+\begin{tcolorbox}[colback=slate100, colframe=colPrimary, arc=5pt, boxrule=0.8pt, top=6pt, bottom=6pt, left=8pt, right=8pt]
+\sffamily\small
+\textbf{Problématique :}
+\begin{enumerate}[leftmargin=1.2em, itemsep=4pt]
+    \item Calculer l'aire $\mathcal{B}$ du disque de base en $\text{m}^2$ (arrondir au centième) : $\mathcal{B} = \pi \times r^2$.
+    \item Calculer le volume total $V$ de la citerne en $\text{m}^3$ ($V = \mathcal{B} \times L$).
+    \item Convertir ce volume en \textbf{litres}. La citerne est-elle suffisante pour couvrir le besoin de $6\,500\text{ L}$ ?
+\end{enumerate}
+\end{tcolorbox}
+\end{minipage}
+
+\vspace{3mm}
+\lignesreponse[6]
+\end{activite}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 2. COURS : FORMULES DES VOLUMES USUELS & TABLEAU DE CONVERSION
+% ------------------------------------------------------------------------------
+\section{Formules des Volumes Usuels \& Solides de l'Espace}
+
+\begin{cadredef}[Formulaire Officiel des Solides Usuels]
+\noindent
+\begin{minipage}[c]{0.48\linewidth}
+\textbf{1. Pavé droit \& Cube} :
+\[ \mathbf{V = L \times l \times h} \qquad (V_{\text{cube}} = c^3) \]
+\textbf{2. Prisme Droit \& Cylindre} :
+\[ \mathbf{V = \mathcal{B} \times h} \qquad (V_{\text{cylindre}} = \pi \times r^2 \times h) \]
+\end{minipage}\hfill
+\begin{minipage}[c]{0.48\linewidth}
+\textbf{3. Pyramide \& Cône} :
+\[ \mathbf{V = \frac{1}{3} \times \mathcal{B} \times h} \quad \left(V_{\text{cône}} = \frac{1}{3}\pi r^2 h\right) \]
+\textbf{4. Boule \& Sphère} :
+\[ \mathbf{V = \frac{4}{3} \times \pi \times R^3} \quad (\text{Aire} = 4\pi R^2) \]
+\end{minipage}
+\end{cadredef}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55]
+    % Pavé droit
+    \draw[slate800, fill=colPrimary!15, thick] (0,0) rectangle (2.2,1.4);
+    \draw[slate800, fill=colPrimary!25, thick] (2.2,0) -- (3.0,0.6) -- (3.0,2.0) -- (2.2,1.4) -- cycle;
+    \draw[slate800, fill=colPrimary!10, thick] (0,1.4) -- (0.8,2.0) -- (3.0,2.0) -- (2.2,1.4) -- cycle;
+    \node[below, font=\bfseries\tiny] at (1.5,-0.1) {Pavé droit};
+
+    % Cylindre
+    \draw[slate800, fill=colSecondary!15, thick] (4.5,0) ellipse (0.9 and 0.35);
+    \draw[slate800, thick] (3.6,0) -- (3.6,1.8);
+    \draw[slate800, thick] (5.4,0) -- (5.4,1.8);
+    \draw[slate800, fill=colSecondary!25, thick] (4.5,1.8) ellipse (0.9 and 0.35);
+    \node[below, font=\bfseries\tiny] at (4.5,-0.1) {Cylindre};
+
+    % Cône
+    \draw[slate800, fill=amber!15, thick] (7.5,0) ellipse (0.9 and 0.35);
+    \draw[slate800, thick] (6.6,0) -- (7.5,2.0) -- (8.4,0);
+    \node[below, font=\bfseries\tiny] at (7.5,-0.1) {Cône};
+
+    % Pyramide
+    \draw[slate800, fill=emerald!15, thick] (9.8,0) -- (11.8,0) -- (12.4,0.6) -- (10.4,0.6) -- cycle;
+    \draw[slate800, thick] (9.8,0) -- (11.1,2.0) -- (11.8,0);
+    \draw[slate800, thick] (11.1,2.0) -- (12.4,0.6);
+    \node[below, font=\bfseries\tiny] at (11.1,-0.1) {Pyramide};
+
+    % Sphère
+    \draw[slate800, fill=indigo!15, thick] (14.2,1.0) circle (1.0);
+    \draw[slate600, dashed] (14.2,1.0) ellipse (1.0 and 0.3);
+    \node[below, font=\bfseries\tiny] at (14.2,-0.1) {Sphère};
+\end{tikzpicture}
+\end{center}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : TABLEAU DES CONVERSIONS DE VOLUMES ET CAPACITÉS
+% ------------------------------------------------------------------------------
+\section{Conversions de Volumes ($\text{m}^3$) \& Capacités ($\text{L}$)}
+
+\begin{center}
+\begin{tcolorbox}[colback=white, colframe=colPrimary, width=0.98\linewidth, arc=4pt, boxrule=1pt, top=4pt, bottom=4pt, left=4pt, right=4pt]
+\centering\sffamily\footnotesize
+\textbf{Tableau de Correspondance Officiel :} \\[3pt]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{$\mathbf{m^3}$} & \multicolumn{3}{c|}{$\mathbf{dm^3}$} & \multicolumn{3}{c|}{$\mathbf{cm^3}$} & \multicolumn{3}{c|}{$\mathbf{mm^3}$} \\ \hline
+& & \textbf{kL} & \textbf{hL} & \textbf{daL} & \textbf{L} & \textbf{dL} & \textbf{cL} & \textbf{mL} & & & \\ \hline
+\end{tabular}
+\\[4pt]
+\textbf{Conversions Clés Indispensables :} \quad 
+$\mathbf{1\text{ m}^3 = 1\,000\text{ dm}^3 = 1\,000\text{ L}}$ \qquad 
+$\mathbf{1\text{ dm}^3 = 1\text{ L}}$ \qquad 
+$\mathbf{1\text{ cm}^3 = 1\text{ mL}}$
+\end{tcolorbox}
+\end{center}
+
+\begin{cadremethode}[Exemple Résolu : Calcul de Volume et Conversion]
+Une boîte de conserve a un rayon de base $r = 5\text{ cm}$ et une hauteur $h = 12\text{ cm}$.
+\begin{enumerate}[leftmargin=1.5em, itemsep=1pt]
+    \item \textbf{Volume} : $V = \pi \times r^2 \times h = \pi \times 5^2 \times 12 = 300\pi \approx \mathbf{942{,}5\text{ cm}^3}$.
+    \item \textbf{Contenance} : $942{,}5\text{ cm}^3 = 942{,}5\text{ mL} = \mathbf{0{,}9425\text{ L}} = \mathbf{94{,}25\text{ cL}}$.
+\end{enumerate}
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 12]
+\begin{itemize}[leftmargin=1.5em, itemsep=1pt]
+    \item Toujours vérifier que toutes les dimensions sont dans la \textbf{même unité} avant de calculer.
+    \item Les pointes (cônes, pyramides) ont un facteur $\mathbf{\frac{1}{3}}$ ; les sphères ont un facteur $\mathbf{\frac{4}{3}}$.
+    \item $1\text{ L} = 1\text{ dm}^3$ permet de basculer instantanément entre géométrie et contenance.
+\end{itemize}
+\end{cadreretenu}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 4. QUESTIONS FLASH / AUTOMATISMES & TD 1 & TD 2 (PAGE 3)
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}, itemsep=1pt]
+    \item Formule du volume d'un pavé droit de côtés $L, l, h$ : $V = \pointille[3cm]$
+    \item Compléter l'équivalence : $1\text{ dm}^3 = \pointille[2cm]\text{ litre(s)}$
+    \item Convertir en litres : $2{,}5\text{ m}^3 = \pointille[2.5cm]\text{ L}$
+    \item Quel solide a pour volume $V = \frac{4}{3}\pi R^3$ ? \pointille[3cm]
+    \item Volume d'un cube d'arête $c = 3\text{ cm}$ : $V = \pointille[2cm]\text{ cm}^3$
+    \item Convertir en centilitres : $500\text{ mL} = \pointille[2cm]\text{ cL}$
+    \item Si le diamètre d'un cylindre vaut $10\text{ cm}$, son rayon vaut : $r = \pointille[1.5cm]\text{ cm}$
+    \item Aire de la base carrée d'une pyramide de côté $4\text{ m}$ : $\mathcal{B} = \pointille[2cm]\text{ m}^2$
+\end{enumerate}
+\end{automatisme}
+
+\section{Travaux Dirigés (TD) : Problèmes d'Entraînement}
+
+\begin{exercice}[2 pts][\capRealiser]{Coulage d'une Dalle en Béton pour Terrasse (BTP / Maçonnerie)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un maçon coule une dalle de terrasse rectangulaire de longueur $L = 8\text{ m}$, largeur $l = 4{,}50\text{ m}$ et d'épaisseur $e = 15\text{ cm}$ ($0{,}15\text{ m}$).
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer le volume de béton nécessaire en $\text{m}^3$.
+    \item Une toupie de béton livre $6\text{ m}^3$. Combien de camions-toupies faut-il commander ?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=slate200, thick] (0,0) rectangle (3.2,1.2);
+    \draw[slate800, fill=slate300, thick] (3.2,0) -- (4.0,0.5) -- (4.0,1.7) -- (3.2,1.2) -- cycle;
+    \draw[slate800, fill=slate100, thick] (0,1.2) -- (0.8,1.7) -- (4.0,1.7) -- (3.2,1.2) -- cycle;
+    \node[below, font=\bfseries\tiny] at (1.6,0) {$L = 8\text{ m}$};
+    \node[right, font=\bfseries\tiny] at (3.6,0.2) {$l = 4{,}5\text{ m}$};
+    \node[left, font=\bfseries\tiny] at (0,0.6) {$15\text{ cm}$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capSApproprier]{Contenance d'une Boîte de Conserve Cylindrique}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Une entreprise agroalimentaire fabrique une boîte de conserve cylindrique de rayon $r = 4\text{ cm}$ et de hauteur $h = 11\text{ cm}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer le volume de la boîte en $\text{cm}^3$ (arrondir à l'unité).
+    \item En déduire sa contenance en centilitres ($\text{cL}$).
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=colPrimary!15, thick] (1.5,0) ellipse (1.0 and 0.35);
+    \draw[slate800, thick] (0.5,0) -- (0.5,2.0);
+    \draw[slate800, thick] (2.5,0) -- (2.5,2.0);
+    \draw[slate800, fill=colPrimary!25, thick] (1.5,2.0) ellipse (1.0 and 0.35);
+    \draw[colSecondary, thick, ->] (1.5,2.0) -- (2.5,2.0) node[midway, above=1pt, font=\bfseries\tiny] {$r = 4$};
+    \node[left, font=\bfseries\tiny] at (0.5,1.0) {$h = 11\text{ cm}$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 5. TRAVAUX DIRIGÉS (TD) - EXERCICES 3, 4 & 5 (PAGE 4)
+% ------------------------------------------------------------------------------
+\begin{exercice}[3 pts][\capAnalyser]{Silo à Grains Agricole avec Trémie Conique}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un silo agricole est composé d'une cuve cylindrique de rayon $r = 2\text{ m}$ et hauteur $h_1 = 6\text{ m}$, terminée par une trémie conique de même rayon et de hauteur $h_2 = 1{,}50\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer le volume $V_1$ du cylindre.
+    \item Calculer le volume $V_2$ du cône.
+    \item En déduire le volume total de stockage en $\text{m}^3$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=amber!20, thick] (1.5,2.2) ellipse (1.0 and 0.3);
+    \draw[slate800, thick] (0.5,0.8) -- (0.5,2.2);
+    \draw[slate800, thick] (2.5,0.8) -- (2.5,2.2);
+    \draw[slate600, dashed] (1.5,0.8) ellipse (1.0 and 0.3);
+    \draw[slate800, fill=amber!35, thick] (0.5,0.8) -- (1.5,-0.5) -- (2.5,0.8);
+    \node[left, font=\bfseries\tiny] at (0.5,1.5) {$h_1 = 6\text{ m}$};
+    \node[left, font=\bfseries\tiny] at (0.9,0.1) {$h_2 = 1{,}5\text{ m}$};
+    \draw[colSecondary, thick, ->] (1.5,2.2) -- (2.5,2.2) node[midway, above=1pt, font=\bfseries\tiny] {$r=2$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capValider]{Cuve Sphérique de Stockage de Gaz (Industrie / Énergie)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Une sphère de stockage de gaz a un rayon $R = 3\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer la surface extérieure à peindre ($A = 4\pi R^2$) au $\text{m}^2$ près.
+    \item Calculer le volume de gaz contenu ($V = \frac{4}{3}\pi R^3$) au $\text{m}^3$ près.
+    \item Convertir ce volume en litres.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=indigo!20, line width=1.2pt] (1.5,1.2) circle (1.2);
+    \draw[slate600, dashed] (1.5,1.2) ellipse (1.2 and 0.35);
+    \draw[colSecondary, line width=1.4pt, ->] (1.5,1.2) -- (2.7,1.2) node[midway, above=1pt, font=\bfseries\tiny] {$R = 3\text{ m}$};
+    \fill[colSecondary] (1.5,1.2) circle (2pt);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[3 pts][\capRealiser]{Volume d'Air sous une Toiture Pyramidale (BTP)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un pavillon carré de côté $a = 9\text{ m}$ possède un toit en forme de pyramide régulière de hauteur $h = 3{,}50\text{ m}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer l'aire de la base carrée $\mathcal{B}$.
+    \item Calculer le volume d'air sous comble ($V = \frac{1}{3}\mathcal{B}h$).
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (2.4,0);
+    \coordinate (C) at (3.2,0.6);
+    \coordinate (D) at (0.8,0.6);
+    \coordinate (S) at (1.6,2.3);
+    \draw[slate800, fill=emerald!15, thick] (A) -- (B) -- (C) -- (S) -- cycle;
+    \draw[slate800, thick] (A) -- (S) -- (B);
+    \draw[dashed, slate600] (A) -- (D) -- (C);
+    \draw[dashed, slate600] (D) -- (S);
+    \draw[dashed, colSecondary, thick] (1.6,0.3) -- (S) node[midway, right=1pt, font=\bfseries\tiny] {$h = 3{,}5$};
+    \node[below, font=\bfseries\tiny] at (1.2,0) {$a = 9\text{ m}$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 5. TRAVAUX DIRIGÉS (TD) & TP TICE (PAGE 5)
+% ------------------------------------------------------------------------------
+\begin{exercice}[3 pts][\capAnalyser]{Verre Conique et Remplissage (Hôtellerie-Restauration)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un verre à cocktail conique a un rayon de $r = 4\text{ cm}$ et une hauteur $h = 9\text{ cm}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer la contenance totale du verre en $\text{cm}^3$ puis en $\text{cL}$.
+    \item Si on remplit le verre à mi-hauteur ($k = 0{,}5$), quel est le volume de liquide obtenu ($V' = k^3 \times V$) ?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=sky!20, thick] (1.5,2.2) ellipse (1.0 and 0.3);
+    \draw[slate800, thick] (0.5,2.2) -- (1.5,0.4) -- (2.5,2.2);
+    \draw[slate800, thick] (1.5,0.4) -- (1.5,0);
+    \draw[slate800, thick] (1.0,0) -- (2.0,0);
+    \draw[sky!80!blue, fill=sky!40] (1.0,1.3) -- (1.5,0.4) -- (2.0,1.3) arc (0:360:0.5 and 0.15) -- cycle;
+    \node[right, font=\bfseries\tiny] at (2.0,1.3) {$\frac{h}{2}$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+\begin{exercice}[4 pts][\capRealiser]{Temps de Remplissage d'une Piscine Municipale (Débit \& Volume)}
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+Un bassin rectangulaire mesure $L = 25\text{ m}$, $l = 10\text{ m}$ et a une profondeur constante $p = 2\text{ m}$.
+Une pompe injecte de l'eau avec un débit constant $D = 20\text{ m}^3/\text{h}$.
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt]
+    \item Calculer le volume total du bassin en $\text{m}^3$.
+    \item Calculer le temps nécessaire en heures pour remplir le bassin ($t = \frac{V}{D}$).
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+    \draw[slate800, fill=sky!15, thick] (0,0) rectangle (3.0,1.0);
+    \draw[slate800, fill=sky!25, thick] (3.0,0) -- (3.8,0.5) -- (3.8,1.5) -- (3.0,1.0) -- cycle;
+    \draw[slate800, fill=sky!10, thick] (0,1.0) -- (0.8,1.5) -- (3.8,1.5) -- (3.0,1.0) -- cycle;
+    \node[below, font=\bfseries\tiny] at (1.5,0) {$25\text{ m}$};
+    \node[right, font=\bfseries\tiny] at (3.4,0.2) {$10\text{ m}$};
+    \node[left, font=\bfseries\tiny] at (0,0.5) {$2\text{ m}$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1mm}
+\lignesreponse[2]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 6. TP TICE / CALCULATRICE NUMWORKS
+% ------------------------------------------------------------------------------
+\section{TP TICE : Calculs de Volumes \& Puissances sur NumWorks}
+
+\begin{tpinfo}[Calculatrice NumWorks]{Utilisation de $\pi$, Carrés, Cubes et Fractions}
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Saisie du nombre $\pi$ et des puissances} :
+    \begin{itemize}
+        \item Touche \textbf{$\pi$} : appuyer directement sur la touche dédiée ou via la boîte à outils.
+        \item Pour calculer le volume d'une sphère de rayon $3$ : taper \texttt{(4/3) * $\pi$ * 3\^{}3} puis valider avec \textbf{EXE}.
+    \end{itemize}
+    \item \textbf{Obtenir l'écriture décimale approchée} :
+    \begin{itemize}
+        \item NumWorks affiche souvent la valeur exacte avec $\pi$ (ex : $36\pi$).
+        \item Appuyer sur la flèche pour sélectionner le résultat et afficher l'approximation décimale $\approx 113{,}097$.
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% 7. VERS LE BREVET (DNB PRO) (PAGE 6)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Bassin de Rétention et Réserve Incendie}
+Dans le cadre de l'extension d'une zone commerciale, un bureau d'études dimensionne une cuve de réserve incendie cylindrique semi-enterrée de rayon $R = 2{,}50\text{ m}$ et de hauteur $H = 4\text{ m}$.
+Le plan prévoit également un couvercle de protection conique de même rayon et de hauteur $h = 0{,}90\text{ m}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.82]
+    % Sol
+    \draw[slate600, thick] (-1.0,0) -- (5.0,0);
+    \fill[pattern=north east lines, pattern color=slate300] (-1.0,-0.25) rectangle (5.0,0);
+
+    % Cuve cylindrique
+    \draw[slate800, fill=colPrimary!15, line width=1.8pt] (2.0,0) ellipse (1.6 and 0.4);
+    \draw[slate800, line width=1.8pt] (0.4,0) -- (0.4,3.0);
+    \draw[slate800, line width=1.8pt] (3.6,0) -- (3.6,3.0);
+    \draw[slate600, dashed] (2.0,3.0) ellipse (1.6 and 0.4);
+    
+    % Couvercle conique
+    \draw[slate800, fill=amber!25, line width=1.8pt] (0.4,3.0) -- (2.0,4.0) -- (3.6,3.0);
+    
+    % Cotes
+    \draw[<->, colSecondary, thick] (3.9,0) -- (3.9,3.0) node[midway, right=1pt, font=\bfseries\small] {$H = 4\text{ m}$};
+    \draw[<->, amber!90!black, thick] (3.9,3.0) -- (3.9,4.0) node[midway, right=1pt, font=\bfseries\small] {$h = 0{,}90\text{ m}$};
+    \draw[colSecondary, line width=1.4pt, ->] (2.0,3.0) -- (3.6,3.0) node[midway, above=1pt, font=\bfseries\small] {$R = 2{,}50\text{ m}$};
+    \fill[colSecondary] (2.0,3.0) circle (2pt);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+    \item \capSApproprier\ Calculer l'aire du disque de base de la cuve au centième de $\text{m}^2$ près.
+    \item \capRealiser\ Calculer le volume d'eau utile $V_{\text{cuve}}$ contenu dans la partie cylindrique (en $\text{m}^3$).
+    \item \capRealiser\ La réglementation de sécurité incendie impose une réserve minimale de \textbf{$75\,000\text{ litres}$}. La cuve cylindrique respecte-t-elle cette norme ? Justifier.
+    \item \capValider\ Calculer le volume d'air supplémentaire $V_{\text{dôme}}$ sous le couvercle conique (en $\text{m}^3$).
+\end{enumerate}
+
+\vspace{3mm}
+\lignesreponse[8]
+\end{sujetdnb}
