@@ -1,0 +1,329 @@
+% ==============================================================================
+% CHAPITRE 5 : PROPORTIONNALITÉ, POURCENTAGES & RATIOS (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Proportionnalité, Pourcentages \& Ratios}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE : BTP / CUISINE)
+% ------------------------------------------------------------------------------
+\begin{activite}{Dosage et Mélanges : Le Mortier du Maçon (BTP)}
+Sur un chantier de construction, un maçon prépare du mortier standard pour assembler des parpaings.
+La notice technique indique que les ingrédients doivent être mélangés dans le \textbf{ratio $1 : 3 : 2$} (en volume) :
+\begin{itemize}
+    \item \textbf{1 volume} de ciment ;
+    \item \textbf{3 volumes} de sable sec ;
+    \item \textbf{2 volumes} d'eau et de chaux.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Schéma des volumes
+    \fill[slate700] (0,0) rectangle (1.5,1.5);
+    \draw[slate900, thick] (0,0) rectangle (1.5,1.5) node[midway, white, font=\bfseries\sffamily\footnotesize] {1 Ciment};
+    
+    \fill[amber!50] (1.7,0) rectangle (6.2,1.5);
+    \draw[amber!90!black, thick] (1.7,0) rectangle (6.2,1.5) node[midway, slate900, font=\bfseries\sffamily\footnotesize] {3 Sable};
+    
+    \fill[cyan!30] (6.4,0) rectangle (9.4,1.5);
+    \draw[cyan!80!black, thick] (6.4,0) rectangle (9.4,1.5) node[midway, slate900, font=\bfseries\sffamily\footnotesize] {2 Eau/Chaux};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colPrimary, fill=slate50, rounded corners=6pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \sffamily
+        \textbf{Problématique :}
+        \begin{enumerate}
+            \item En combien de « parts égales » au total le mélange est-il divisé ? \pointille[3cm]
+            \item L'artisan souhaite préparer une gâchée de \textbf{180 litres} de mortier au total.
+            \begin{enumerate}
+                \item Quel est le volume d'une seule part ? \pointille[3cm]
+                \item Calculer le volume nécessaire pour chaque ingrédient (ciment, sable, eau).
+            \end{enumerate}
+        \end{enumerate}
+    };
+\end{tikzpicture}
+\end{center}
+
+\vspace{1mm}
+\noindent\textbf{Espace de recherche :}
+\lignesreponse[4]
+\end{activite}
+
+% ------------------------------------------------------------------------------
+% 2. COURS : TABLEAUX DE PROPORTIONNALITÉ & PRODUIT EN CROIX
+% ------------------------------------------------------------------------------
+\section{Proportionnalité \& Quatrième Proportionnelle}
+
+\begin{cadredef}[Situation de Proportionnalité]
+Deux grandeurs sont \textbf{proportionnelles} si les valeurs de l'une s'obtiennent en \textbf{multipliant} les valeurs de l'autre par un même nombre non nul appelé le \textbf{coefficient de proportionnalité}.
+\end{cadredef}
+
+\begin{cadremethode}[Méthode du Produit en Croix (Quatrième Proportionnelle)]
+Pour calculer une valeur inconnue $x$ dans un tableau de proportionnalité :
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor{slate800} \textcolor{white}{\textbf{Grandeur A}} & \textcolor{white}{\textbf{Grandeur B}} \\
+\hline
+$a$ & $c$ \\
+\hline
+$b$ & $x$ \\
+\hline
+\end{tabular}
+\qquad $\implies$ \qquad $\mathbf{a \times x = b \times c} \iff \mathbf{x = \frac{b \times c}{a}}$
+\end{center}
+
+\textbf{Exemple :} $3\text{ kg}$ de pommes coûtent $4{,}80\text{ \euro{}}$. Combien coûtent $7\text{ kg}$ ?
+\[ x = \frac{7 \times 4{,}80}{3} = \frac{33{,}60}{3} = \mathbf{11{,}20\text{ \euro{}}} \]
+\end{cadremethode}
+
+\begin{cadreexemple}
+Une voiture consomme $6\text{ litres}$ de carburant pour parcourir $100\text{ km}$.\\
+Calculer la consommation $C$ pour un trajet de $350\text{ km}$ :
+\[ C = \frac{\pointille[1.5cm] \times \pointille[1.5cm]}{\pointille[1.5cm]} = \pointille[2.5cm]\text{ litres} \]
+\end{cadreexemple}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : POURCENTAGES (APPLIQUER, CALCULER, ÉVOLUTIONS)
+% ------------------------------------------------------------------------------
+\section{Pourcentages \& Évolutions}
+
+\begin{cadreprop}[Appliquer un Pourcentage]
+Prendre $p\,\%$ d'une quantité, c'est multiplier cette quantité par $\dfrac{p}{100}$ (ou par son écriture décimale).
+\[ \text{Valeur de la part} = \text{Total} \times \frac{p}{100} \]
+\end{cadreprop}
+
+\begin{cadremethode}[Variations en pourcentage : Hausse et Baisse]
+\begin{itemize}
+    \item \textbf{Augmenter de $p\,\%$} revient à multiplier la valeur initiale par le \textbf{coefficient multiplicateur} :
+    \[ \mathbf{CM = 1 + \frac{p}{100}} \]
+    \textit{Exemple :} Une hausse de $20\,\%$ correspond à un coefficient de : $1 + \dfrac{20}{100} = \mathbf{1{,}20}$.
+    \item \textbf{Diminuer de $p\,\%$} (remise, solde) revient à multiplier par le \textbf{coefficient multiplicateur} :
+    \[ \mathbf{CM = 1 - \frac{p}{100}} \]
+    \textit{Exemple :} Une réduction de $30\,\%$ correspond à un coefficient de : $1 - \dfrac{30}{100} = \mathbf{0{,}70}$.
+\end{itemize}
+\end{cadremethode}
+
+\begin{cadreexemple}
+Un pantalon coûte initialement $60\text{ \euro{}}$. Lors des soldes, il bénéficie d'une remise de $25\,\%$.
+\begin{itemize}
+    \item Montant de la réduction : $60 \times \dfrac{25}{100} = \pointille[2cm]\text{ \euro{}}$
+    \item Nouveau prix après remise : $60 \times (1 - 0{,}25) = 60 \times \pointille[1cm] = \pointille[2cm]\text{ \euro{}}$
+\end{itemize}
+\end{cadreexemple}
+
+% ------------------------------------------------------------------------------
+% 4. COURS : LES RATIOS
+% ------------------------------------------------------------------------------
+\section{Partages selon un Ratio}
+
+\begin{cadredef}[Notion de Ratio]
+Dire que deux nombres $A$ et $B$ sont dans le \textbf{ratio $a : b$} (se lit « $a$ pour $b$ ») signifie que :
+\[ \mathbf{\frac{A}{a} = \frac{B}{b}} \]
+Dire que trois nombres $A, B$ et $C$ sont dans le \textbf{ratio $a : b : c$} signifie que :
+\[ \mathbf{\frac{A}{a} = \frac{B}{b} = \frac{C}{c}} \]
+\end{cadredef}
+
+\begin{cadremethode}[Méthode de partage d'une quantité selon un ratio]
+Pour partager une quantité totale selon le ratio $a : b : c$ :
+\begin{enumerate}
+    \item On calcule le **nombre total de parts** : $N = a + b + c$.
+    \item On calcule la **valeur d'une part** : $\text{Valeur d'une part} = \dfrac{\text{Quantité totale}}{N}$.
+    \item On multiplie la valeur d'une part par $a$, par $b$ et par $c$.
+\end{enumerate}
+
+\textbf{Exemple :} On partage $120\text{ \euro{}}$ entre deux personnes selon le ratio $2 : 3$.
+\begin{itemize}
+    \item Nombre total de parts : $2 + 3 = 5\text{ parts}$.
+    \item Valeur d'une part : $\dfrac{120}{5} = \mathbf{24\text{ \euro{}}}$.
+    \item 1\textsuperscript{ère} personne ($2$ parts) : $2 \times 24 = \mathbf{48\text{ \euro{}}}$.
+    \item 2\textsuperscript{ème} personne ($3$ parts) : $3 \times 24 = \mathbf{72\text{ \euro{}}}$.
+\end{itemize}
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 5]
+\begin{itemize}
+    \item \textbf{Produit en croix} : Si $\dfrac{a}{b} = \dfrac{c}{x}$, alors $x = \dfrac{b \times c}{a}$.
+    \item \textbf{Hausse de $p\,\%$} $\implies \times (1 + \frac{p}{100})$ \quad ; \quad \textbf{Baisse de $p\,\%$} $\implies \times (1 - \frac{p}{100})$.
+    \item \textbf{Calculer un pourcentage} : $\dfrac{\text{Part}}{\text{Total}} \times 100$.
+    \item \textbf{Ratio $a:b:c$} : Calculer le total des parts ($a+b+c$), puis la valeur d'une part.
+    \item \textbf{Échelle d'un plan} : $\text{Échelle} = \dfrac{\text{Longueur sur le plan}}{\text{Longueur réelle}}$ (avec les mêmes unités).
+\end{itemize}
+\end{cadreretenu}
+
+% ------------------------------------------------------------------------------
+% 5. QUESTIONS FLASH / AUTOMATISMES
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Entraînement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+    \item Calculer le produit en croix : $\dfrac{4}{5} = \dfrac{12}{x} \implies x = \pointille[3cm]$
+    \item Calculer $10\,\%$ de $250\text{ \euro{}}$ : \pointille[4cm]
+    \item Calculer $25\,\%$ de $80\text{ litres}$ : \pointille[4cm]
+    \item Quel est le coefficient multiplicateur d'une hausse de $15\,\%$ ? \pointille[3cm]
+    \item Quel est le coefficient multiplicateur d'une réduction de $20\,\%$ ? \pointille[3cm]
+    \item Partager $50\text{ \euro{}}$ selon le ratio $2 : 3$ : Part 1 = \pointille[2cm] \quad Part 2 = \pointille[2cm]
+    \item Sur un plan à l'échelle $1/100$, une longueur de $5\text{ cm}$ représente en réalité : \pointille[3cm]
+    \item Convertir $1{,}5\text{ heure}$ en heures et minutes : \pointille[3cm]
+\end{enumerate}
+\end{automatisme}
+
+% ------------------------------------------------------------------------------
+% 6. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT
+% ------------------------------------------------------------------------------
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[2 pts]{\capRealiser}{Tableaux de proportionnalité}
+Compléter les tableaux de proportionnalité suivants à l'aide du produit en croix :
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{slate800} \textcolor{white}{Nombre d'heures} & \textcolor{white}{$3$} & \textcolor{white}{$7$} \\
+\hline
+Salaire brut (\euro{}) & $39{,}00$ & \pointille[1.5cm] \\
+\hline
+\end{tabular}
+\qquad
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{slate800} \textcolor{white}{Masse de peinture (kg)} & \textcolor{white}{$2{,}5$} & \textcolor{white}{$6$} \\
+\hline
+Surface couverte ($\text{m}^2$) & $20$ & \pointille[1.5cm] \\
+\hline
+\end{tabular}
+\end{center}
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Calculs et applications de pourcentages}
+\begin{enumerate}
+    \item Dans une classe de 3\textsuperscript{ème} Prépa-Métiers de $24$ élèves, $75\,\%$ des élèves ont obtenu leur brevet blanc. Combien d'élèves ont réussi ?
+    \item Un artisan achète du matériel pour un montant hors taxes (HT) de $450\text{ \euro{}}$. Le taux de TVA est de $20\,\%$.
+    \begin{enumerate}
+        \item Calculer le montant de la TVA en euros.
+        \item Calculer le prix total toutes taxes comprises (TTC).
+    \end{enumerate}
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capAnalyser}{Soldes et Évolutions de Prix (Commerce)}
+Un magasin d'outillage applique des remises lors d'une opération déstockage :
+\begin{itemize}
+    \item Article 1 : Une perceuse à percussion à $140\text{ \euro{}}$ bénéficie d'une remise de $30\,\%$.
+    \item Article 2 : Une servante d'atelier affichée à $320\text{ \euro{}}$ passe à $272\text{ \euro{}}$.
+\end{itemize}
+
+\begin{enumerate}
+    \item Calculer le prix final de la perceuse après la remise de $30\,\%$.
+    \item Calculer le montant de la réduction en euros sur la servante d'atelier.
+    \item Déterminer le pourcentage de remise accordé sur la servante d'atelier.
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capRealiser}{Partages selon un Ratio (Restauration / Hôtellerie)}
+Un barman prépare un cocktail sans alcool à base de trois jus de fruits : jus d'orange, jus d'ananas et jus de mangue dans le \textbf{ratio $4 : 3 : 1$}.
+
+\begin{enumerate}
+    \item Pour préparer un pichet de $1{,}6\text{ litre}$ ($1\,600\text{ mL}$) de cocktail :
+    \begin{enumerate}
+        \item Déterminer le nombre total de parts.
+        \item Calculer le volume (en mL) de chaque jus de fruit nécessaire.
+    \end{enumerate}
+    \item Si le barman dispose de $900\text{ mL}$ de jus d'ananas, quel volume total de cocktail peut-il préparer en respectant ce ratio ?
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Échelle de plan \& Aménagement de cuisine (Agencement)}
+Un cuisiniste réalise le plan technique d'une cuisine professionnelle à l'\textbf{échelle $1/50$}.
+
+\begin{enumerate}
+    \item Rappeler ce que signifie une échelle de $1/50$.
+    \item Sur le plan, le plan de travail mesure $7\text{ cm}$ de longueur et $1{,}6\text{ cm}$ de profondeur.
+    Calculer les dimensions réelles (longueur et profondeur) du plan de travail en mètres.
+    \item Dans la réalité, un îlot central mesure $2{,}5\text{ m}$ de long. Quelle sera sa longueur sur le plan (en cm) ?
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Vitesse Moyenne \& Logistique (Transport)}
+Un chauffeur-livreur effectue une tournée entre deux dépôts régionaux :
+\begin{itemize}
+    \item Distance parcourue : $d = 210\text{ km}$.
+    \item Durée du trajet : $2\text{ h } 48\text{ min}$.
+\end{itemize}
+
+\begin{enumerate}
+    \item Convertir la durée $2\text{ h } 48\text{ min}$ en heures décimales : $t = \pointille[3cm]\text{ h}$.
+    \item On rappelle la formule de la vitesse moyenne : $v = \dfrac{d}{t}$.\\
+    Calculer la vitesse moyenne du chauffeur en $\text{km/h}$ sur l'ensemble du trajet.
+    \item Sur autoroute, la vitesse maximale autorisée pour son véhicule est de $90\text{ km/h}$. Le chauffeur a-t-il respecté la réglementation en moyenne ?
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 7. TP TICE / CALCULATRICE NUMWORKS
+% ------------------------------------------------------------------------------
+\section{TP TICE : Proportionnalité \& Pourcentages sur NumWorks}
+
+\begin{tpinfo}[Calculatrice NumWorks]{Tableur \& Calculs de Pourcentages}
+\begin{enumerate}
+    \item \textbf{Calculs d'évolutions rapides (Application Calculs)} :
+    \begin{itemize}
+        \item Pour augmenter $85\text{ \euro{}}$ de $12\,\%$ : taper \texttt{85 * 1.12} $\rightarrow$ \texttt{EXE}. Noter le prix : \pointille[3cm]
+        \item Pour diminuer $150\text{ \euro{}}$ de $35\,\%$ : taper \texttt{150 * (1 - 0.35)} $\rightarrow$ \texttt{EXE}. Noter le prix : \pointille[3cm]
+    \end{itemize}
+    \item \textbf{Tableau de proportionnalité avec l'application Éléments / Tableur} :
+    \begin{itemize}
+        \item Ouvrir l'application \textbf{Tableur} (ou \textbf{Calculs}).
+        \item Remplir la colonne A avec les quantités ($1, 2, 5, 10$).
+        \item Dans la cellule \texttt{B1}, saisir la formule \texttt{= A1 * 4.80} pour calculer automatiquement les prix proportionnels.
+    \end{itemize}
+\end{enumerate}
+\end{tpinfo}
+
+% ------------------------------------------------------------------------------
+% 8. VERS LE BREVET (DNB PRO)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Rénovation d'une Façade \& Dosage d'Enduit}
+Une entreprise de ravalement de façade doit rénover les murs extérieurs d'un bâtiment municipal.
+La surface totale de façade à recouvrir est de \textbf{$360\text{ m}^2$}.
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colDNB, fill=colDNBBg, rounded corners=6pt, line width=1pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \small\sffamily
+        \textbf{Données techniques et tarifaires :}
+        \begin{itemize}[itemsep=2pt]
+            \item \textbf{Consommation d'enduit} : $1{,}5\text{ kg}$ de poudre d'enduit par $\text{m}^2$ de façade.
+            \item \textbf{Conditionnement} : Sacs de $25\text{ kg}$ vendus au prix unitaire de $18\text{ \euro{}}$ HT.
+            \item \textbf{Dosage de gâchage} : L'eau et la poudre d'enduit sont mélangées dans le \textbf{ratio $1 : 4$} (en masse).
+            \item \textbf{Remise professionnelle} : Le fournisseur accorde une remise de $15\,\%$ sur le total HT des sacs.
+            \item \textbf{Taux de TVA} : $20\,\%$ applicable après remise.
+        \end{itemize}
+    };
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item \capRealiser\ Calculer la masse totale de poudre d'enduit nécessaire pour recouvrir les $360\text{ m}^2$ de façade.
+    \item \capAnalyser\ Déterminer le nombre de sacs de $25\text{ kg}$ que l'entreprise doit commander.
+    \item \capRealiser\ En utilisant le ratio $1 : 4$, calculer la masse d'eau (en kg) à ajouter pour préparer un sac de $25\text{ kg}$ d'enduit. (Rappel : $1\text{ kg d'eau} = 1\text{ litre}$).
+    \item \capRealiser\ Calculer le montant total brut (hors taxes) de la commande de sacs.
+    \item \capRealiser\ Calculer le montant de la remise de $15\,\%$, puis le prix net HT après remise.
+    \item \capValider\ Calculer le coût total TTC payé par l'entreprise avec la TVA à $20\,\%$.
+\end{enumerate}
+
+\vspace{2mm}
+\noindent\textbf{Rédigez votre démarche ci-dessous :}
+\lignesreponse[8]
+\end{sujetdnb}
