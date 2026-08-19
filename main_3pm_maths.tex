@@ -79,21 +79,21 @@
 \setcounter{page}{1}
 
 % ==============================================================================
-% INCLUSION MODULAIRE DES CHAPITRES
+% INCLUSION MODULAIRE DES CHAPITRES (VERSION ÉLÈVE ACTIVE)
 % ==============================================================================
 \input{chapitres/00_progression_annuelle}
 
-\input{chapitres/01_calcul_litteral}
+\input{chapitres/01_arithmetique_fractions}
 
-\input{chapitres/02_equations}
+\input{chapitres/02_puissances_ecriture_scientifique}
 
-\input{chapitres/03_fonctions_affines}
+\input{chapitres/03_calcul_litteral}
 
-\input{chapitres/04_pythagore_trigonometrie}
+\input{chapitres/04_equations}
 
-\input{chapitres/05_statistiques_probabilites}
+\input{chapitres/05_proportionnalite_pourcentages_ratios}
 
-\input{chapitres/06_aires_volumes_conversions}
+\input{chapitres/06_pythagore}
 
 % ==============================================================================
 % QUATRIÈME DE COUVERTURE (PAGE DE FIN DU LIVRET)
@@ -111,20 +111,21 @@
         \sffamily
         {\bfseries\large\color{colSecondary} \faCheckCircle\ MÉMO DU RÉFÉRENTIEL DNB PRO}\\[3mm]
         \small
-        $\blacktriangleright$ \textbf{Calcul Littéral \& Équations} : Distributivité simple et double, identité $a^2-b^2$, équations $ax+b=cx+d$ et équation produit nul.\\[1.5mm]
-        $\blacktriangleright$ \textbf{Fonctions} : Fonctions linéaires ($f(x)=ax$) et affines ($f(x)=ax+b$), proportionnalité.\\[1.5mm]
-        $\blacktriangleright$ \textbf{Géométrie} : Théorème de Pythagore ($BC^2 = AB^2 + AC^2$), Trigonométrie (\textbf{CAH-SOH-TOA}).\\[1.5mm]
-        $\blacktriangleright$ \textbf{Statistiques \& Probabilités} : Moyenne, médiane, étendue, équiprobabilité ($P(A) = \frac{\text{favorables}}{\text{totales}}$).\\[1.5mm]
-        $\blacktriangleright$ \textbf{Grandeurs \& Mesures} : $1\text{ L} = 1\text{ dm}^3$, $1\text{ m}^3 = 1\,000\text{ L}$, formules de volumes.
+        $\blacktriangleright$ \textbf{Arithmétique \& Puissances} : Nombres premiers, décomposition en facteurs premiers, fractions irréductibles, puissances de 10 et notation scientifique.\\[1.5mm]
+        $\blacktriangleright$ \textbf{Calcul Littéral \& Équations} : Distributivité simple et double, factorisation, équations $ax+b=cx+d$ et équation produit nul.\\[1.5mm]
+        $\blacktriangleright$ \textbf{Proportionnalité \& Ratios} : Produit en croix, pourcentages d'évolution ($1 \pm \frac{p}{100}$), partages selon un ratio $a:b:c$ et échelles de plans.\\[1.5mm]
+        $\blacktriangleright$ \textbf{Géométrie \& Grandeurs} : Théorème de Pythagore ($BC^2 = AB^2 + AC^2$), réciproque et contraposée, calculs de surfaces et volumes.\\[1.5mm]
+        $\blacktriangleright$ \textbf{Outil Numérique} : Prise en main experte de la calculatrice \textbf{NumWorks} et du logiciel GeoGebra.
     };
     
     \node[anchor=south, text=slate300, font=\sffamily\normalsize, align=center] at ([yshift=3.5cm]current page.south) {
         {\bfseries Conforme aux Programmes Officiels de l'Éducation Nationale}\\[1.5mm]
-        {\small Support adapté pour le travail autonome et les séances en classe.}
+        {\small Support élève adapté pour le travail guidé en classe et l'entraînement DNB Pro.}
     };
 
-    \node[anchor=south, text=slate500, font=\sffamily\footnotesize] at ([yshift=1.8cm]current page.south) {
-        \thelycee\ -- \theannee\ $\cdot$ Tous droits réservés.
+    \node[anchor=south, text=slate400, font=\sffamily\footnotesize, align=center] at ([yshift=1.8cm]current page.south) {
+        \textbf{\theprof} $\cdot$ \thefiliere\ -- \theannee\\
+        \href{\thesite}{\color{colSecondary}\nolinkurl{kande.forge.apps.education.fr/mathsciences/}}
     };
 \end{tikzpicture}
 
