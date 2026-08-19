@@ -1,0 +1,334 @@
+% ==============================================================================
+% CHAPITRE 1 : ARITHMÉTIQUE, NOMBRES PREMIERS ET FRACTIONS (VERSION ÉLÈVE)
+% ==============================================================================
+\chapter{Arithmétique, Nombres Premiers \& Fractions}
+
+% ------------------------------------------------------------------------------
+% 1. ACTIVITÉ D'INVESTIGATION (SITUATION PROFESSIONNELLE)
+% ------------------------------------------------------------------------------
+\begin{activite}{Organisation d'un buffet événementiel (Restauration / Traiteur)}
+Un traiteur prépare un buffet pour une entreprise. Il dispose de \textbf{180 mini-quiches} et de \textbf{126 mini-pizzas}.\\
+Il souhaite préparer des plateaux identiques contenant chacun le même nombre de mini-quiches et le même nombre de mini-pizzas, sans qu'il ne reste aucune pièce.
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colPrimary, fill=slate50, rounded corners=6pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \sffamily
+        \textbf{Problématique :}
+        \begin{enumerate}
+            \item Peut-il faire \textbf{9 plateaux} ? Si oui, combien y aura-t-il de pièces de chaque sorte par plateau ?
+            \item Peut-il faire \textbf{12 plateaux} ? Justifier.
+            \item Quel est le \textbf{nombre maximal de plateaux identiques} qu'il peut constituer ?
+        \end{enumerate}
+    };
+\end{tikzpicture}
+\end{center}
+
+\vspace{1mm}
+\noindent\textbf{Espace de recherche :}
+\lignesreponse[5]
+\end{activite}
+
+% ------------------------------------------------------------------------------
+% 2. COURS : MULTIPLES, DIVISEURS ET CRITÈRES DE DIVISIBILITÉ
+% ------------------------------------------------------------------------------
+\section{Multiples, Diviseurs et Critères de Divisibilité}
+
+\begin{cadredef}[Multiples et Diviseurs]
+Soient $a$ et $b$ deux nombres entiers positifs non nuls ($b \neq 0$).\\
+On dit que \textbf{$b$ est un diviseur de $a$} (ou que \textbf{$a$ est un multiple de $b$}) si le reste de la division euclidienne de $a$ par $b$ est égal à \textbf{0}.
+\[ a = b \times k \quad (\text{où } k \text{ est un nombre entier}) \]
+\end{cadredef}
+
+\begin{cadreexemple}[Exemple à compléter ensemble en classe]
+\begin{itemize}
+    \item $72 = 8 \times \pointille[1.5cm]$ donc $8$ est un \pointille[3cm] de $72$ et $72$ est un \pointille[3cm] de $8$.
+    \item Les diviseurs de $18$ sont : \pointille[8cm]
+\end{itemize}
+\end{cadreexemple}
+
+\begin{cadreprop}[Critères de divisibilité usuels]
+Un nombre entier est divisible :
+\begin{itemize}
+    \item par \textbf{2} : si son dernier chiffre est \textbf{pair} (\pointille[4cm]).
+    \item par \textbf{5} : si son dernier chiffre est \pointille[3cm].
+    \item par \textbf{10} : si son dernier chiffre est \pointille[3cm].
+    \item par \textbf{3} : si la somme de ses chiffres est un \pointille[4cm].
+    \item par \textbf{9} : si la somme de ses chiffres est un \pointille[4cm].
+    \item par \textbf{4} : si le nombre formé par ses deux derniers chiffres est divisible par $4$.
+\end{itemize}
+\end{cadreprop}
+
+\begin{cadremethode}[Application des critères de divisibilité]
+Compléter le tableau suivant par \textbf{OUI} ou \textbf{NON} :
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{|c|X|X|X|X|X|}
+\hline
+\rowcolor{slate800} \textcolor{white}{\textbf{Nombre}} & \textcolor{white}{\textbf{Divisible par 2}} & \textcolor{white}{\textbf{Divisible par 3}} & \textcolor{white}{\textbf{Divisible par 5}} & \textcolor{white}{\textbf{Divisible par 9}} & \textcolor{white}{\textbf{Divisible par 10}} \\
+\hline
+\textbf{360} & & & & & \\
+\hline
+\textbf{415} & & & & & \\
+\hline
+\textbf{918} & & & & & \\
+\hline
+\textbf{1\,332} & & & & & \\
+\hline
+\end{tabularx}
+\end{center}
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 3. COURS : NOMBRES PREMIERS ET DÉCOMPOSITION
+% ------------------------------------------------------------------------------
+\section{Nombres Premiers \& Décomposition en Facteurs Premiers}
+
+\begin{cadredef}[Nombre Premier]
+Un nombre entier naturel est dit \textbf{premier} s'il possède \textbf{exactement deux diviseurs distincts} : \textbf{1 et lui-même}.
+\end{cadredef}
+
+\begin{cadrepiege}[Attention aux cas particuliers !]
+\begin{itemize}
+    \item Le nombre \textbf{1 n'est pas un nombre premier} car il n'a qu'un seul diviseur ($1$).
+    \item Le nombre \textbf{2 est le seul nombre premier pair}.
+    \item Le nombre \textbf{0 n'est pas premier}.
+\end{itemize}
+\end{cadrepiege}
+
+\begin{cadreprop}[Liste des premiers nombres premiers inférieurs à 30]
+Les nombres premiers inférieurs à $30$ sont au nombre de $10$ :
+\begin{center}
+\sffamily\bfseries\Large\color{colPrimary}
+2 \quad;\quad 3 \quad;\quad 5 \quad;\quad 7 \quad;\quad 11 \quad;\quad 13 \quad;\quad 17 \quad;\quad 19 \quad;\quad 23 \quad;\quad 29
+\end{center}
+\end{cadreprop}
+
+\begin{cadreprop}[Théorème fondamental de l'arithmétique]
+Tout nombre entier supérieur ou égal à $2$ peut s'écrire de manière \textbf{unique} sous la forme d'un \textbf{produit de facteurs premiers}.
+\end{cadreprop}
+
+\begin{cadremethode}[Méthode pas à pas : Décomposer un nombre entier]
+Pour décomposer un nombre en produit de facteurs premiers, on effectue des divisions successives par les nombres premiers ($2, 3, 5, 7, 11, \dots$) rangés par ordre croissant :
+
+\begin{minipage}{0.48\linewidth}
+\textbf{Exemple 1 : Décomposition de 84}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{r|l}
+84 & 2 \\
+42 & 2 \\
+21 & 3 \\
+7  & 7 \\
+1  & 
+\end{tabular}
+\end{center}
+\[ 84 = 2 \times 2 \times 3 \times 7 = \mathbf{2^2 \times 3 \times 7} \]
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+\textbf{Exemple 2 : Décomposition de 120 (à compléter)}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{r|l}
+120 & \pointille[1cm] \\
+\pointille[1cm] & \pointille[1cm] \\
+\pointille[1cm] & \pointille[1cm] \\
+\pointille[1cm] & \pointille[1cm] \\
+1  & 
+\end{tabular}
+\end{center}
+\[ 120 = \pointille[4.5cm] \]
+\end{minipage}
+\end{cadremethode}
+
+% ------------------------------------------------------------------------------
+% 4. COURS : FRACTIONS IRPRODUCTIBLES ET CALCULS
+% ------------------------------------------------------------------------------
+\section{Simplification de Fractions \& Fractions Irréductibles}
+
+\begin{cadredef}[Fraction Irréductible]
+Une fraction $\dfrac{a}{b}$ est dite \textbf{irréductible} lorsque son numérateur $a$ et son dénominateur $b$ n'ont aucun diviseur commun autre que $1$ (on dit que $a$ et $b$ sont premiers entre eux).
+\end{cadredef}
+
+\begin{cadremethode}[Rendre une fraction irréductible par décomposition]
+Pour simplifier une fraction jusqu'à la rendre irréductible :
+\begin{enumerate}
+    \item On décompose le numérateur et le dénominateur en produit de facteurs premiers.
+    \item On « barre » (simplifie) tous les facteurs communs présents en haut et en bas.
+\end{enumerate}
+
+\textbf{Exemple modèle à compléter :} Simplifier la fraction $\dfrac{84}{126}$.
+\begin{itemize}
+    \item Décomposition de $84 = 2 \times 2 \times 3 \times 7 = 2^2 \times 3 \times 7$
+    \item Décomposition de $126 = 2 \times 3 \times 3 \times 7 = 2 \times 3^2 \times 7$
+\end{itemize}
+\[ \frac{84}{126} = \frac{2 \times 2 \times 3 \times 7}{2 \times 3 \times 3 \times 7} = \frac{\pointille[2cm]}{\pointille[2cm]} = \pointille[1.5cm] \]
+\end{cadremethode}
+
+\begin{cadreretenu}[L'Essentiel du Chapitre 1]
+\begin{itemize}
+    \item Savoir reconnaître un \textbf{multiple} et un \textbf{diviseur}.
+    \item Maîtriser par coeur les \textbf{critères de divisibilité} ($2, 3, 5, 9, 10$).
+    \item Connaître les \textbf{nombres premiers jusqu'à 30} : $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$.
+    \item Savoir poser la \textbf{décomposition en facteurs premiers} d'un entier.
+    \item Savoir rendre une \textbf{fraction irréductible} à l'aide des décompositions ou de la calculatrice.
+\end{itemize}
+\end{cadreretenu}
+
+% ------------------------------------------------------------------------------
+% 5. QUESTIONS FLASH / AUTOMATISMES (CALCUL MENTAL)
+% ------------------------------------------------------------------------------
+\section{Questions Flash / Automatismes}
+
+\begin{automatisme}[8 Questions Flash d'Échauffement]
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+    \item Écrire la liste des diviseurs du nombre $24$ : \pointille[6cm]
+    \item Le nombre $51$ est-il un nombre premier ? Justifier : \pointille[5cm]
+    \item Donner le plus petit nombre premier supérieur à $20$ : \pointille[3cm]
+    \item Le nombre $4\,365$ est-il divisible par $9$ ? Justifier : \pointille[5cm]
+    \item Décomposer mentalement $36$ en facteurs premiers : $36 = \pointille[4cm]$
+    \item Décomposer mentalement $50$ en facteurs premiers : $50 = \pointille[4cm]$
+    \item Simplifier au maximum la fraction $\dfrac{15}{25}$ : $\dfrac{15}{25} = \pointille[2cm]$
+    \item Calculer sous forme simplifiée : $\dfrac{2}{7} + \dfrac{3}{7} = \pointille[3cm]$
+\end{enumerate}
+\end{automatisme}
+
+% ------------------------------------------------------------------------------
+% 6. TRAVAUX DIRIGÉS (TD) - EXERCICES D'ENTRAÎNEMENT PROGRESSIFS
+% ------------------------------------------------------------------------------
+\section{Travaux Dirigés (TD) : Exercices d'Entraînement}
+
+\begin{exercice}[2 pts]{\capSApproprier}{Critères de divisibilité}
+Parmi les nombres suivants : \textbf{120} ; \textbf{255} ; \textbf{342} ; \textbf{418} ; \textbf{900} ; \textbf{1\,111} :
+\begin{enumerate}
+    \item Lesquels sont divisibles par 2 ? \pointille[8cm]
+    \item Lesquels sont divisibles par 5 ? \pointille[8cm]
+    \item Lesquels sont divisibles par 3 ? \pointille[8cm]
+    \item Lesquels sont divisibles par 9 ? \pointille[8cm]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capAnalyser}{Nombres premiers ou composés}
+Pour chacun des nombres suivants, indiquer s'il est premier ou non. Justifier votre réponse :
+\begin{enumerate}
+    \item $a = 29$ : \pointille[9cm]
+    \item $b = 39$ : \pointille[9cm]
+    \item $c = 47$ : \pointille[9cm]
+    \item $d = 91$ : \pointille[9cm]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[3 pts]{\capRealiser}{Décompositions en facteurs premiers}
+Décomposer les nombres suivants en produits de facteurs premiers en détaillant la méthode :
+\begin{enumerate}
+    \item $A = 60$
+    \item $B = 150$
+    \item $C = 196$
+    \item $D = 315$
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capRealiser}{Simplification de fractions}
+En utilisant la décomposition en facteurs premiers, simplifier chaque fraction pour la rendre irréductible :
+\begin{enumerate}
+    \item $F_1 = \dfrac{60}{150} = \pointille[8cm]$
+    \item $F_2 = \dfrac{196}{140} = \pointille[8cm]$
+    \item $F_3 = \dfrac{315}{420} = \pointille[8cm]$
+\end{enumerate}
+\lignesreponse[4]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capAnalyser}{Problème de Carrelage (BTP / Finition)}
+Un artisan carreleur doit recouvrir le sol d'une salle de bains rectangulaire de \textbf{360 cm} de longueur et \textbf{210 cm} de largeur.\\
+Il doit utiliser des carreaux carrés identiques, les plus grands possibles, sans faire aucune découpe.
+
+\begin{enumerate}
+    \item Expliquer pourquoi la longueur du côté d'un carreau doit être un diviseur commun à 360 et 210.
+    \item Décomposer $360$ et $210$ en produit de facteurs premiers.
+    \item En déduire la dimension maximale (en cm) du côté d'un carreau.
+    \item Combien de carreaux seront nécessaires au total pour paver la pièce ?
+\end{enumerate}
+\lignesreponse[6]
+\end{exercice}
+
+\begin{exercice}[4 pts]{\capRealiser}{Engrenages \& Transmission (Mécanique Industrielle)}
+Deux roues dentées forment un engrenage. La première roue $R_1$ possède \textbf{24 dents}, la seconde roue $R_2$ possède \textbf{36 dents}.\\
+Au départ, deux repères marqués sur les roues sont en contact.
+
+\begin{enumerate}
+    \item Décomposer $24$ et $36$ en facteurs premiers.
+    \item Après combien de dents engrenées les deux repères se retrouveront-ils à nouveau en contact pour la première fois ?
+    \item Combien de tours complets chaque roue aura-t-elle alors effectués ?
+\end{enumerate}
+\lignesreponse[5]
+\end{exercice}
+
+% ------------------------------------------------------------------------------
+% 7. TP TICE / CALCULATRICE
+% ------------------------------------------------------------------------------
+\section{TP TICE : Utiliser sa calculatrice pour l'Arithmétique}
+
+\begin{tpinfo}[Calculatrice Casio fx-92+ \& TI-Collège Plus]{Décomposition et Fractions}
+\begin{enumerate}
+    \item \textbf{Décomposition automatique sur calculatrice} :
+    \begin{itemize}
+        \item Sur Casio : taper le nombre (ex: $252$) $\rightarrow$ touche \texttt{EXE} $\rightarrow$ touches \texttt{SECONDE} puis \texttt{FACT}.
+        \item Noter le résultat affiché pour $252$ : $252 = \pointille[4cm]$
+    \end{itemize}
+    \item \textbf{Fraction irréductible} :
+    \begin{itemize}
+        \item Entrer la fraction $\dfrac{252}{378}$ à l'aide de la touche fraction $\dfrac{\square}{\square}$ $\rightarrow$ taper \texttt{EXE}.
+        \item Noter la fraction irréductible donnée par la machine : $\dfrac{252}{378} = \pointille[3cm]$
+    \end{itemize}
+    \item Utiliser la calculatrice pour simplifier instantanément : $\dfrac{1\,260}{2\,100} = \pointille[3cm]$
+\end{enumerate}
+\end{tpinfo}
+
+% ------------------------------------------------------------------------------
+% 8. VERS LE BREVET (DNB PRO)
+% ------------------------------------------------------------------------------
+\section{Vers le Brevet (DNB Pro)}
+
+\begin{sujetdnb}[DNB Pro Métropole][10 pts]{Fabrication et Vente de Bougies Artisanales}
+Un artisan cirier fabrique deux types de bougies parfumées :
+\begin{itemize}
+    \item \textbf{280 bougies} à la Vanille.
+    \item \textbf{168 bougies} à la Lavande.
+\end{itemize}
+Il souhaite constituer des coffrets cadeaux identiques contenant chacun le même nombre de bougies à la vanille et le même nombre de bougies à la lavande, en utilisant \textbf{toutes les bougies}.
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=colDNB, fill=colDNBBg, rounded corners=6pt, line width=1pt, inner sep=8pt, text width=\dimexpr\linewidth-28pt\relax] {
+        \small\sffamily
+        \textbf{Conditions d'emballage :}
+        \begin{itemize}[itemsep=1pt]
+            \item Chaque coffret a exactement la même composition.
+            \item Toutes les bougies produites doivent être distribuées dans les coffrets.
+        \end{itemize}
+    };
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item \capSApproprier\ L'artisan peut-il composer \textbf{14 coffrets} ? Justifier par un calcul.
+    \item \capRealiser\ 
+    \begin{enumerate}
+        \item Donner la décomposition en produit de facteurs premiers de $280$.
+        \item Donner la décomposition en produit de facteurs premiers de $168$.
+    \end{enumerate}
+    \item \capAnalyser\ 
+    \begin{enumerate}
+        \item En déduire le \textbf{nombre maximal de coffrets} que l'artisan peut réaliser.
+        \item Déterminer alors le nombre de bougies à la vanille et de bougies à la lavande dans chaque coffret.
+    \end{enumerate}
+    \item \capValider\ Chaque coffret est vendu au tarif de $35\euro$. Le coût total de fabrication de l'ensemble des bougies s'élève à $950\euro$.\\
+    Calculer le \textbf{bénéfice net} réalisé par l'artisan s'il vend tous les coffrets.
+\end{enumerate}
+
+\vspace{2mm}
+\noindent\textbf{Rédigez votre démarche ci-dessous :}
+\lignesreponse[10]
+\end{sujetdnb}
